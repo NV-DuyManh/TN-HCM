@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <script type="text/javascript">
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "wr16ufyw55");
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pro Quiz - Ultimate Edition</title>
@@ -23,7 +31,7 @@
             --dark: #2c3e50;
             --light: #f4f7f6;
             --gray: #bdc3c7;
-            
+
             --bg-color: #f4f7f6;
             --text-main: #333;
             --card-bg: #fff;
@@ -42,7 +50,7 @@
             --primary-light: #182c40;
             --success-bg: #0f3a20;
             --success-border: #1e8449;
-            --success-text: #82e0aa; 
+            --success-text: #82e0aa;
             --danger-bg: #4a151b;
             --danger-border: #922b21;
             --danger-text: #f5b7b1;
@@ -61,175 +69,709 @@
         }
 
         #score-board {
-            position: sticky; top: 0; background: var(--dark); color: white;
-            padding: 15px 20px; display: flex; justify-content: space-between; align-items: center;
-            z-index: 1000; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-bottom: 4px solid var(--success);
-            flex-wrap: wrap; gap: 10px;
+            position: sticky;
+            top: 0;
+            background: var(--dark);
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-bottom: 4px solid var(--success);
+            flex-wrap: wrap;
+            gap: 10px;
         }
-        .score-info { font-size: 1.3em; font-weight: bold; }
-        .score-info span { color: var(--success); font-size: 1.2em; }
-        .progress-info { font-size: 0.8em; color: var(--gray); font-weight: normal; }
-        
-        .top-btn-group { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end;}
+
+        .score-info {
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+
+        .score-info span {
+            color: var(--success);
+            font-size: 1.2em;
+        }
+
+        .progress-info {
+            font-size: 0.8em;
+            color: var(--gray);
+            font-weight: normal;
+        }
+
+        .top-btn-group {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
         .action-btn {
-            color: white; border: none; padding: 8px 12px; border-radius: 5px; 
-            cursor: pointer; font-weight: bold; transition: 0.3s; display: flex; align-items: center; gap: 5px;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
-        .btn-exam { background-color: var(--warning); color: #fff;}
-        .btn-exam:hover { background-color: #d68910; }
-        .btn-restart { background-color: var(--danger); }
-        .btn-restart:hover { background-color: #c0392b; }
-        .btn-history { background-color: var(--primary); }
-        .btn-history:hover { background-color: #2980b9; }
-        .btn-review-mode { background-color: var(--purple); }
-        .btn-review-mode:hover { background-color: var(--purple-dark); }
-        .btn-tool { background-color: #455a64; font-size: 1.1em; padding: 8px 15px;}
-        .btn-tool:hover { background-color: #546e7a; }
 
-        .search-container { width: 100%; max-width: 1200px; margin: 20px auto 0 auto; padding: 0 20px; box-sizing: border-box;}
+        .btn-exam {
+            background-color: var(--warning);
+            color: #fff;
+        }
+
+        .btn-exam:hover {
+            background-color: #d68910;
+        }
+
+        .btn-restart {
+            background-color: var(--danger);
+        }
+
+        .btn-restart:hover {
+            background-color: #c0392b;
+        }
+
+        .btn-history {
+            background-color: var(--primary);
+        }
+
+        .btn-history:hover {
+            background-color: #2980b9;
+        }
+
+        .btn-review-mode {
+            background-color: var(--purple);
+        }
+
+        .btn-review-mode:hover {
+            background-color: var(--purple-dark);
+        }
+
+        .btn-tool {
+            background-color: #455a64;
+            font-size: 1.1em;
+            padding: 8px 15px;
+        }
+
+        .btn-tool:hover {
+            background-color: #546e7a;
+        }
+
+        .search-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px auto 0 auto;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
         #search-input {
-            width: 100%; padding: 12px 20px; border-radius: 25px; border: 2px solid var(--primary);
-            font-size: 1em; outline: none; background: var(--card-bg); color: var(--text-main);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05); transition: 0.3s; box-sizing: border-box;
+            width: 100%;
+            padding: 12px 20px;
+            border-radius: 25px;
+            border: 2px solid var(--primary);
+            font-size: 1em;
+            outline: none;
+            background: var(--card-bg);
+            color: var(--text-main);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            transition: 0.3s;
+            box-sizing: border-box;
         }
 
-        #layout-container { display: flex; max-width: 1200px; margin: 20px auto; padding: 0 20px; gap: 20px; align-items: flex-start; }
-        #main-content { flex: 1; min-width: 0; }
-        h1 { text-align: center; color: var(--primary); margin-bottom: 10px; margin-top: 0; }
-        .intro-text { text-align: center; color: #7f8c8d; margin-bottom: 30px; }
+        #layout-container {
+            display: flex;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        #main-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary);
+            margin-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .intro-text {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+        }
 
         .question-card {
-            background: var(--card-bg); padding: 20px; margin-bottom: 20px;
-            border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            border-left: 5px solid var(--primary); transition: all 0.3s ease;
-            position: relative; scroll-margin-top: 100px; border-right: 1px solid var(--border-color); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);
+            background: var(--card-bg);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid var(--primary);
+            transition: all 0.3s ease;
+            position: relative;
+            scroll-margin-top: 100px;
+            border-right: 1px solid var(--border-color);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
         }
-        .review-card { border-left-color: var(--purple); }
-        .exam-card { border-left-color: var(--warning); }
 
-        .question-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; }
-        .question-title { font-weight: bold; font-size: 1.1em; width: 75%; }
-        .header-actions { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; width: 25%; }
+        .review-card {
+            border-left-color: var(--purple);
+        }
+
+        .exam-card {
+            border-left-color: var(--warning);
+        }
+
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .question-title {
+            font-weight: bold;
+            font-size: 1.1em;
+            width: 75%;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            width: 25%;
+        }
 
         .unknown-btn {
-            background-color: var(--purple); color: white; border: none;
-            padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 0.85em; transition: 0.3s; font-weight: bold;
+            background-color: var(--purple);
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.85em;
+            transition: 0.3s;
+            font-weight: bold;
         }
-        .unknown-btn:hover { background-color: var(--purple-dark); }
-        .saved-btn { background-color: var(--purple-dark); box-shadow: 0 0 5px rgba(142, 68, 173, 0.5); }
 
-        .options { list-style-type: none; padding: 0; margin: 0; }
+        .unknown-btn:hover {
+            background-color: var(--purple-dark);
+        }
+
+        .saved-btn {
+            background-color: var(--purple-dark);
+            box-shadow: 0 0 5px rgba(142, 68, 173, 0.5);
+        }
+
+        .options {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
         .options li {
-            margin-bottom: 12px; border-radius: 6px; 
-            border: 1px solid var(--border-color); transition: all 0.2s ease; overflow: hidden;
+            margin-bottom: 12px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            transition: all 0.2s ease;
+            overflow: hidden;
             background-color: var(--card-bg);
         }
-        .options li:not(.answered):not(.exam-selected):hover {
-            background-color: var(--primary-light); border-color: var(--primary);
-            transform: translateX(8px); box-shadow: 0 4px 8px rgba(52, 152, 219, 0.15);
-        }
-        label { cursor: pointer; display: flex; align-items: flex-start; width: 100%; margin: 0; padding: 14px 18px; box-sizing: border-box; }
-        input[type="radio"] { margin-right: 15px; transform: translateY(4px); cursor: pointer; flex-shrink: 0; }
-        input[type="radio"]:disabled { cursor: not-allowed; }
 
-        .correct-ans { background-color: var(--success-bg) !important; border-color: var(--success-border) !important; color: var(--success-text) !important; font-weight: bold; transform: none !important; }
-        .wrong-ans { background-color: var(--danger-bg) !important; border-color: var(--danger-border) !important; color: var(--danger-text) !important; text-decoration: line-through; transform: none !important; }
-        .exam-selected { background-color: var(--primary-light) !important; border-color: var(--primary) !important; transform: none !important; }
-        
+        .options li:not(.answered):not(.exam-selected):hover {
+            background-color: var(--primary-light);
+            border-color: var(--primary);
+            transform: translateX(8px);
+            box-shadow: 0 4px 8px rgba(52, 152, 219, 0.15);
+        }
+
+        label {
+            cursor: pointer;
+            display: flex;
+            align-items: flex-start;
+            width: 100%;
+            margin: 0;
+            padding: 14px 18px;
+            box-sizing: border-box;
+        }
+
+        input[type="radio"] {
+            margin-right: 15px;
+            transform: translateY(4px);
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        input[type="radio"]:disabled {
+            cursor: not-allowed;
+        }
+
+        .correct-ans {
+            background-color: var(--success-bg) !important;
+            border-color: var(--success-border) !important;
+            color: var(--success-text) !important;
+            font-weight: bold;
+            transform: none !important;
+        }
+
+        .wrong-ans {
+            background-color: var(--danger-bg) !important;
+            border-color: var(--danger-border) !important;
+            color: var(--danger-text) !important;
+            text-decoration: line-through;
+            transform: none !important;
+        }
+
+        .exam-selected {
+            background-color: var(--primary-light) !important;
+            border-color: var(--primary) !important;
+            transform: none !important;
+        }
+
         .explanation {
-            margin-top: 15px; padding: 12px; background-color: var(--success-bg); color: var(--success-text);
-            border-left: 4px solid var(--success); font-size: 1em; display: none; animation: fadeIn 0.5s;
+            margin-top: 15px;
+            padding: 12px;
+            background-color: var(--success-bg);
+            color: var(--success-text);
+            border-left: 4px solid var(--success);
+            font-size: 1em;
+            display: none;
+            animation: fadeIn 0.5s;
         }
-        
+
         .btn-save-review {
-            background-color: var(--purple); color: white; border: none; padding: 8px 15px; border-radius: 4px; cursor: pointer; font-size: 0.9em; 
-            transition: 0.3s; font-weight: bold; margin-top: 10px; display: inline-block;
+            background-color: var(--purple);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: 0.3s;
+            font-weight: bold;
+            margin-top: 10px;
+            display: inline-block;
         }
-        .btn-save-review:hover:not(:disabled) { background-color: var(--purple-dark); }
-        .btn-save-review:disabled { background-color: var(--success); cursor: default; }
+
+        .btn-save-review:hover:not(:disabled) {
+            background-color: var(--purple-dark);
+        }
+
+        .btn-save-review:disabled {
+            background-color: var(--success);
+            cursor: default;
+        }
 
         #sidebar {
-            width: 320px; background: var(--card-bg); padding: 20px; border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05); position: sticky; top: 90px;
+            width: 320px;
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 90px;
             border: 1px solid var(--border-color);
         }
-        .sidebar-title { text-align: center; font-weight: bold; font-size: 1.1em; margin-bottom: 15px; border-bottom: 2px solid var(--border-color); padding-bottom: 10px; }
-        .nav-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; max-height: 50vh; overflow-y: auto; padding-right: 5px;}
-        .nav-grid::-webkit-scrollbar { width: 5px; }
-        .nav-grid::-webkit-scrollbar-thumb { background: var(--gray); border-radius: 5px; }
+
+        .sidebar-title {
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            max-height: 50vh;
+            overflow-y: auto;
+            padding-right: 5px;
+        }
+
+        .nav-grid::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        .nav-grid::-webkit-scrollbar-thumb {
+            background: var(--gray);
+            border-radius: 5px;
+        }
 
         .nav-btn {
-            background-color: var(--nav-btn-bg); border: 1px solid var(--nav-btn-border); border-radius: 4px;
-            padding: 8px 0; font-weight: bold; color: var(--text-main); cursor: pointer; transition: all 0.2s;
+            background-color: var(--nav-btn-bg);
+            border: 1px solid var(--nav-btn-border);
+            border-radius: 4px;
+            padding: 8px 0;
+            font-weight: bold;
+            color: var(--text-main);
+            cursor: pointer;
+            transition: all 0.2s;
         }
-        .nav-btn:hover { background-color: var(--primary-light); border-color: var(--primary); }
-        
-        .nav-correct { background-color: var(--success) !important; color: white !important; border-color: var(--success) !important; }
-        .nav-wrong { background-color: var(--danger) !important; color: white !important; border-color: var(--danger) !important; }
-        .nav-unknown { background-color: var(--purple) !important; color: white !important; border-color: var(--purple) !important; opacity: 0.9; }
-        .nav-exam-answered { background-color: var(--primary) !important; color: white !important; border-color: var(--primary) !important; }
-        
-        .legend { margin-top: 20px; font-size: 0.85em; display: flex; flex-wrap: wrap; gap: 10px; }
-        .legend-item { display: flex; align-items: center; gap: 5px; }
-        .box { width: 15px; height: 15px; border-radius: 3px; border: 1px solid var(--border-color); }
-        .box.c { background: var(--success); border-color: var(--success); }
-        .box.w { background: var(--danger); border-color: var(--danger); }
-        .box.u { background: var(--purple); border-color: var(--purple); }
-        .box.e { background: var(--primary); border-color: var(--primary); }
-        .box.n { background: var(--nav-btn-bg); }
 
-        #exam-timer-display { font-size: 1.5em; font-weight: bold; color: var(--warning); display: none; background: #fff; padding: 5px 15px; border-radius: 20px; color: #d35400;}
+        .nav-btn:hover {
+            background-color: var(--primary-light);
+            border-color: var(--primary);
+        }
 
-        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.6); backdrop-filter: blur(3px); }
+        .nav-correct {
+            background-color: var(--success) !important;
+            color: white !important;
+            border-color: var(--success) !important;
+        }
+
+        .nav-wrong {
+            background-color: var(--danger) !important;
+            color: white !important;
+            border-color: var(--danger) !important;
+        }
+
+        .nav-unknown {
+            background-color: var(--purple) !important;
+            color: white !important;
+            border-color: var(--purple) !important;
+            opacity: 0.9;
+        }
+
+        .nav-exam-answered {
+            background-color: var(--primary) !important;
+            color: white !important;
+            border-color: var(--primary) !important;
+        }
+
+        .legend {
+            margin-top: 20px;
+            font-size: 0.85em;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .box {
+            width: 15px;
+            height: 15px;
+            border-radius: 3px;
+            border: 1px solid var(--border-color);
+        }
+
+        .box.c {
+            background: var(--success);
+            border-color: var(--success);
+        }
+
+        .box.w {
+            background: var(--danger);
+            border-color: var(--danger);
+        }
+
+        .box.u {
+            background: var(--purple);
+            border-color: var(--purple);
+        }
+
+        .box.e {
+            background: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .box.n {
+            background: var(--nav-btn-bg);
+        }
+
+        #exam-timer-display {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: var(--warning);
+            display: none;
+            background: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            color: #d35400;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(3px);
+        }
+
         .modal-content {
-            background-color: var(--card-bg); margin: 5% auto; padding: 30px; border: 1px solid var(--border-color);
-            width: 90%; max-width: 500px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            position: relative; animation: slideDown 0.3s; color: var(--text-main);
+            background-color: var(--card-bg);
+            margin: 5% auto;
+            padding: 30px;
+            border: 1px solid var(--border-color);
+            width: 90%;
+            max-width: 500px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+            animation: slideDown 0.3s;
+            color: var(--text-main);
         }
-        @keyframes slideDown { from { transform: translateY(-30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-        .close-btn { color: var(--gray); float: right; font-size: 28px; font-weight: bold; cursor: pointer; position: absolute; top: 15px; right: 20px; }
-        .close-btn:hover { color: var(--danger); }
-        .high-score-board { background: linear-gradient(135deg, #f1c40f, #f39c12); color: white; padding: 15px; border-radius: 8px; text-align: center; margin-bottom: 20px; font-size: 1.2em; }
-        .history-list { list-style: none; padding: 0; max-height: 300px; overflow-y: auto; }
-        .history-item { background: var(--bg-color); margin-bottom: 10px; padding: 15px; border-radius: 6px; border-left: 4px solid var(--primary); display: flex; justify-content: space-between; align-items: center; border: 1px solid var(--border-color); border-left-width: 4px; }
-        .history-item.best { border-left-color: #f1c40f; }
-        .h-date { font-size: 0.85em; color: var(--gray); display: flex; align-items: center; gap: 5px;}
-        .h-score { font-weight: bold; font-size: 1.1em; margin-top: 5px;}
-        .history-right { display: flex; align-items: center; gap: 10px; }
-        .h-percent { font-size: 0.9em; background: var(--success); color: white; padding: 4px 8px; border-radius: 10px; font-weight: bold; }
-        
-        .badge { font-size: 0.75em; padding: 2px 6px; border-radius: 4px; font-weight: bold; color: white;}
-        .badge-exam { background: var(--danger); }
-        .badge-practice { background: var(--primary); }
-        .badge-time { background: var(--dark); }
 
-        .btn-del-item { background: none; border: none; color: var(--danger); font-size: 1.2em; cursor: pointer; padding: 0 5px; transition: transform 0.2s; }
-        .btn-del-item:hover { transform: scale(1.2); }
-        .btn-clear-history { background-color: transparent; color: var(--danger); border: 1px solid var(--danger); padding: 10px 15px; border-radius: 5px; cursor: pointer; font-weight: bold; width: 100%; margin-top: 15px; transition: all 0.3s; }
-        .btn-clear-history:hover { background-color: var(--danger-bg); }
-        .backup-actions { display: flex; gap: 10px; margin-top: 10px; }
-        .btn-backup-data, .btn-import-data {
-            flex: 1; border: none; padding: 10px 12px; border-radius: 5px;
-            cursor: pointer; font-weight: bold; color: white; transition: all 0.3s;
+        @keyframes slideDown {
+            from {
+                transform: translateY(-30px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
-        .btn-backup-data { background-color: var(--primary); }
-        .btn-backup-data:hover { background-color: #2980b9; }
-        .btn-import-data { background-color: var(--purple); }
-        .btn-import-data:hover { background-color: var(--purple-dark); }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .close-btn {
+            color: var(--gray);
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            position: absolute;
+            top: 15px;
+            right: 20px;
+        }
+
+        .close-btn:hover {
+            color: var(--danger);
+        }
+
+        .high-score-board {
+            background: linear-gradient(135deg, #f1c40f, #f39c12);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.2em;
+        }
+
+        .history-list {
+            list-style: none;
+            padding: 0;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .history-item {
+            background: var(--bg-color);
+            margin-bottom: 10px;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid var(--primary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid var(--border-color);
+            border-left-width: 4px;
+        }
+
+        .history-item.best {
+            border-left-color: #f1c40f;
+        }
+
+        .h-date {
+            font-size: 0.85em;
+            color: var(--gray);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .h-score {
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-top: 5px;
+        }
+
+        .history-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .h-percent {
+            font-size: 0.9em;
+            background: var(--success);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        .badge {
+            font-size: 0.75em;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .badge-exam {
+            background: var(--danger);
+        }
+
+        .badge-practice {
+            background: var(--primary);
+        }
+
+        .badge-time {
+            background: var(--dark);
+        }
+
+        .btn-del-item {
+            background: none;
+            border: none;
+            color: var(--danger);
+            font-size: 1.2em;
+            cursor: pointer;
+            padding: 0 5px;
+            transition: transform 0.2s;
+        }
+
+        .btn-del-item:hover {
+            transform: scale(1.2);
+        }
+
+        .btn-clear-history {
+            background-color: transparent;
+            color: var(--danger);
+            border: 1px solid var(--danger);
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+            margin-top: 15px;
+            transition: all 0.3s;
+        }
+
+        .btn-clear-history:hover {
+            background-color: var(--danger-bg);
+        }
+
+        .backup-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .btn-backup-data,
+        .btn-import-data {
+            flex: 1;
+            border: none;
+            padding: 10px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .btn-backup-data {
+            background-color: var(--primary);
+        }
+
+        .btn-backup-data:hover {
+            background-color: #2980b9;
+        }
+
+        .btn-import-data {
+            background-color: var(--purple);
+        }
+
+        .btn-import-data:hover {
+            background-color: var(--purple-dark);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
         @media (max-width: 900px) {
-            #layout-container { flex-direction: column; }
-            #sidebar { width: 100%; position: static; box-sizing: border-box; order: -1; margin-bottom: 10px; }
-            .nav-grid { grid-template-columns: repeat(10, 1fr); max-height: 25vh;}
-            .question-title { width: 100%; margin-bottom: 10px; }
-            .header-actions { width: 100%; justify-content: flex-start; }
-            .question-header { flex-direction: column; }
-            .top-btn-group { justify-content: center; width: 100%; margin-top: 10px;}
+            #layout-container {
+                flex-direction: column;
+            }
+
+            #sidebar {
+                width: 100%;
+                position: static;
+                box-sizing: border-box;
+                order: -1;
+                margin-bottom: 10px;
+            }
+
+            .nav-grid {
+                grid-template-columns: repeat(10, 1fr);
+                max-height: 25vh;
+            }
+
+            .question-title {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            .header-actions {
+                width: 100%;
+                justify-content: flex-start;
+            }
+
+            .question-header {
+                flex-direction: column;
+            }
+
+            .top-btn-group {
+                justify-content: center;
+                width: 100%;
+                margin-top: 10px;
+            }
         }
-        @media (max-width: 500px) { .nav-grid { grid-template-columns: repeat(5, 1fr); } }
+
+        @media (max-width: 500px) {
+            .nav-grid {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
     </style>
 </head>
+
 <body>
 
     <div id="score-board">
@@ -237,15 +779,18 @@
             Điểm: <span id="score">0</span> / 50
             <div class="progress-info">Đã trả lời: <span id="progress">0</span> câu</div>
         </div>
-        
+
         <div id="exam-timer-display">⏱️ 60:00</div>
 
         <div class="top-btn-group">
-            <button class="action-btn btn-tool" id="btn-sound" onclick="toggleSound()" title="Bật/Tắt âm thanh">🎵</button>
-            <button class="action-btn btn-tool" id="btn-dark" onclick="toggleDark()" title="Giao diện tối/sáng">🌙</button>
-            
+            <button class="action-btn btn-tool" id="btn-sound" onclick="toggleSound()"
+                title="Bật/Tắt âm thanh">🎵</button>
+            <button class="action-btn btn-tool" id="btn-dark" onclick="toggleDark()"
+                title="Giao diện tối/sáng">🌙</button>
+
             <button class="action-btn btn-exam" id="btn-exam-mode" onclick="startExamMode()">⏱️ Thi Thử</button>
-            <button class="action-btn btn-review-mode" id="btn-toggle-review" onclick="toggleReviewMode()">📚 Ôn tập (<span id="review-count">0</span>)</button>
+            <button class="action-btn btn-review-mode" id="btn-toggle-review" onclick="toggleReviewMode()">📚 Ôn tập
+                (<span id="review-count">0</span>)</button>
             <button class="action-btn btn-history" onclick="openHistoryModal()">📜 Lịch sử</button>
             <button class="action-btn btn-restart" onclick="location.reload()">🔄 Làm lại</button>
         </div>
@@ -264,9 +809,11 @@
 
             <div id="quiz-container"></div>
             <div id="review-container" style="display: none;"></div>
-            
+
             <div id="bottom-actions" style="text-align: center; margin: 40px 0;">
-                <button class="action-btn" style="padding: 15px 30px; font-size: 1.2em; background-color: var(--success); margin: 0 auto;" onclick="saveScore(false, 'Luyện tập')">💾 Nộp Bài & Lưu Điểm</button>
+                <button class="action-btn"
+                    style="padding: 15px 30px; font-size: 1.2em; background-color: var(--success); margin: 0 auto;"
+                    onclick="saveScore(false, 'Luyện tập')">💾 Nộp Bài & Lưu Điểm</button>
             </div>
         </div>
 
@@ -274,11 +821,21 @@
             <div class="sidebar-title">Câu hỏi</div>
             <div class="nav-grid" id="nav-grid"></div>
             <div class="legend" id="sidebar-legend">
-                <div class="legend-item"><div class="box n"></div> Trống</div>
-                <div class="legend-item" id="lg-correct"><div class="box c"></div> Đúng</div>
-                <div class="legend-item" id="lg-wrong"><div class="box w"></div> Sai</div>
-                <div class="legend-item" id="lg-exam" style="display:none;"><div class="box e"></div> Đã chọn</div>
-                <div class="legend-item" id="lg-unknown"><div class="box u"></div> Ôn tập</div>
+                <div class="legend-item">
+                    <div class="box n"></div> Trống
+                </div>
+                <div class="legend-item" id="lg-correct">
+                    <div class="box c"></div> Đúng
+                </div>
+                <div class="legend-item" id="lg-wrong">
+                    <div class="box w"></div> Sai
+                </div>
+                <div class="legend-item" id="lg-exam" style="display:none;">
+                    <div class="box e"></div> Đã chọn
+                </div>
+                <div class="legend-item" id="lg-unknown">
+                    <div class="box u"></div> Ôn tập
+                </div>
             </div>
         </div>
     </div>
@@ -292,8 +849,10 @@
             <button class="btn-clear-history" id="clear-history-btn" onclick="clearAllHistory()">🗑️ Xóa hết</button>
             <div class="backup-actions">
                 <button class="btn-backup-data" onclick="exportQuizData()">📤 Sao lưu</button>
-                <button class="btn-import-data" onclick="document.getElementById('import-data-file').click()">📥 Khôi phục</button>
-                <input type="file" id="import-data-file" accept=".json,application/json" style="display:none" onchange="importQuizData(event)">
+                <button class="btn-import-data" onclick="document.getElementById('import-data-file').click()">📥 Khôi
+                    phục</button>
+                <input type="file" id="import-data-file" accept=".json,application/json" style="display:none"
+                    onchange="importQuizData(event)">
             </div>
         </div>
     </div>
@@ -376,8 +935,8 @@
                 return false;
             }
         }
-        
-        let reviewBank = new Set(readStore(REVIEW_KEY, [])); 
+
+        let reviewBank = new Set(readStore(REVIEW_KEY, []));
         let isReviewMode = false; let isExamMode = false;
         let examAnswers = {}; let examTimer; let timeRemaining = 3600;
         let examOrder = quizData.map((_, i) => i);
@@ -386,20 +945,20 @@
         let audioCtx = null;
         let soundEnabled = localStorage.getItem('cmu462_sound') !== 'false';
         document.getElementById('btn-sound').innerText = soundEnabled ? '🎵' : '🔇';
-        
-        function initAudio() { if(!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)(); }
-        function toggleSound() { 
-            soundEnabled = !soundEnabled; 
-            localStorage.setItem('cmu462_sound', soundEnabled); 
+
+        function initAudio() { if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)(); }
+        function toggleSound() {
+            soundEnabled = !soundEnabled;
+            localStorage.setItem('cmu462_sound', soundEnabled);
             document.getElementById('btn-sound').innerText = soundEnabled ? '🎵' : '🔇';
         }
         function playSound(type) {
-            if(!soundEnabled) return;
-            initAudio(); if(audioCtx.state === 'suspended') audioCtx.resume();
+            if (!soundEnabled) return;
+            initAudio(); if (audioCtx.state === 'suspended') audioCtx.resume();
             const osc = audioCtx.createOscillator(); const gain = audioCtx.createGain();
             osc.connect(gain); gain.connect(audioCtx.destination);
             const now = audioCtx.currentTime;
-            if(type === 'correct') {
+            if (type === 'correct') {
                 osc.type = 'sine'; osc.frequency.setValueAtTime(600, now); osc.frequency.exponentialRampToValueAtTime(1200, now + 0.1);
                 gain.gain.setValueAtTime(0.1, now); gain.gain.exponentialRampToValueAtTime(0.01, now + 0.2);
                 osc.start(now); osc.stop(now + 0.2);
@@ -418,7 +977,7 @@
         let isDarkMode = localStorage.getItem('cmu462_dark') === 'true';
         if (isDarkMode) document.body.classList.add('dark-mode');
         document.getElementById('btn-dark').innerText = isDarkMode ? '☀️' : '🌙';
-        
+
         function toggleDark() {
             isDarkMode = !isDarkMode;
             document.body.classList.toggle('dark-mode', isDarkMode);
@@ -451,7 +1010,7 @@
             quizData.forEach((item, i) => {
                 const text = (item.q + " " + item.o.join(" ")).toLowerCase();
                 const card = document.getElementById(`q-card-${i}`);
-                if(card && !isReviewMode && !isExamMode) card.style.display = text.includes(term) ? 'block' : 'none';
+                if (card && !isReviewMode && !isExamMode) card.style.display = text.includes(term) ? 'block' : 'none';
             });
         }
 
@@ -488,7 +1047,7 @@
                     <div class="question-header">
                         <div class="question-title" id="q-title-${i}">Câu ${i + 1}: ${item.q}</div>
                         <div class="header-actions">
-                            <button class="unknown-btn ${isSaved?'saved-btn':''}" id="ubtn-${i}" onclick="markUnknown(${i})">${isSaved?'⭐ Đã lưu':'❓ Không biết'}</button>
+                            <button class="unknown-btn ${isSaved ? 'saved-btn' : ''}" id="ubtn-${i}" onclick="markUnknown(${i})">${isSaved ? '⭐ Đã lưu' : '❓ Không biết'}</button>
                         </div>
                     </div>
                     <ul class="options">${opts}</ul>
@@ -503,7 +1062,7 @@
         function scrollToQ(i) {
             const id = isReviewMode ? `rq-card-${i}` : `q-card-${i}`;
             const el = document.getElementById(id);
-            if(el && el.style.display !== 'none') {
+            if (el && el.style.display !== 'none') {
                 el.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 el.style.boxShadow = isReviewMode ? '0 0 20px rgba(155, 89, 182, 0.5)' : (isExamMode ? '0 0 20px rgba(243, 156, 18, 0.5)' : '0 0 20px rgba(52, 152, 219, 0.5)');
                 setTimeout(() => el.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)', 1000);
@@ -514,7 +1073,7 @@
             const item = quizData[i]; const btn = document.getElementById(`nav-btn-${i}`);
             const parentLi = document.getElementById(`li-${i}-${oi}`);
             const allLis = document.querySelectorAll(`#q-card-${i} .options li`);
-            
+
             if (isExamMode) {
                 examAnswers[i] = oi;
                 allLis.forEach(li => li.classList.remove('exam-selected'));
@@ -545,7 +1104,7 @@
         }
 
         function markUnknown(i) {
-            if(isExamMode) return;
+            if (isExamMode) return;
             reviewBank.add(i); saveReviewToStore();
             const allLis = document.querySelectorAll(`#q-card-${i} .options li`);
             allLis.forEach(li => li.classList.add('answered'));
@@ -564,16 +1123,16 @@
         }
 
         function formatTime(secs) {
-            const m = Math.floor(secs/60); const s = secs % 60;
-            return `⏱️ ${m < 10 ? '0':''}${m}:${s < 10 ? '0':''}${s}`;
+            const m = Math.floor(secs / 60); const s = secs % 60;
+            return `⏱️ ${m < 10 ? '0' : ''}${m}:${s < 10 ? '0' : ''}${s}`;
         }
         function formatTimeUsed(secs) {
-            const m = Math.floor(secs/60); const s = secs % 60;
-            return `${m}:${s < 10 ? '0':''}${s}`;
+            const m = Math.floor(secs / 60); const s = secs % 60;
+            return `${m}:${s < 10 ? '0' : ''}${s}`;
         }
 
         function startExamMode() {
-            if(!confirm("Bắt đầu thi 60 phút?")) return;
+            if (!confirm("Bắt đầu thi 60 phút?")) return;
             isExamMode = true; isReviewMode = false; currentScore = 0; answeredQuestions = 0; examAnswers = {};
             examOrder = shuffleArray(quizData.map((_, i) => i));
             renderSidebar(examOrder, true);
@@ -596,21 +1155,21 @@
                 const radios = document.getElementsByName(`q${i}`);
                 radios.forEach(r => { r.disabled = false; r.checked = false; });
                 document.getElementById(`exp-${i}`).style.display = 'none';
-                document.getElementById(`ubtn-${i}`).style.display = 'none'; 
+                document.getElementById(`ubtn-${i}`).style.display = 'none';
             });
             timeRemaining = 3600;
             document.getElementById('exam-timer-display').innerText = formatTime(timeRemaining);
             examTimer = setInterval(() => {
                 timeRemaining--;
                 document.getElementById('exam-timer-display').innerText = formatTime(timeRemaining);
-                if(timeRemaining <= 180) document.getElementById('exam-timer-display').style.color = 'var(--danger)'; 
-                if(timeRemaining <= 0) { clearInterval(examTimer); submitExam(); }
+                if (timeRemaining <= 180) document.getElementById('exam-timer-display').style.color = 'var(--danger)';
+                if (timeRemaining <= 0) { clearInterval(examTimer); submitExam(); }
             }, 1000);
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function submitExam() {
-            clearInterval(examTimer); 
+            clearInterval(examTimer);
             let timeUsed = 3600 - timeRemaining;
             let timeStr = formatTimeUsed(timeUsed);
             let score = 0;
@@ -649,9 +1208,9 @@
         }
 
         function toggleReviewMode() {
-            if(isExamMode) return alert("Không thể mở Ôn tập khi đang thi!");
+            if (isExamMode) return alert("Không thể mở Ôn tập khi đang thi!");
             if (!isReviewMode) {
-                if(reviewBank.size === 0) return alert("Chưa có câu nào!");
+                if (reviewBank.size === 0) return alert("Chưa có câu nào!");
                 isReviewMode = true; container.style.display = 'none';
                 document.getElementById('search-bar-wrap').style.display = 'none';
                 document.getElementById('bottom-actions').style.display = 'none';
@@ -681,7 +1240,7 @@
                 });
                 card.innerHTML = `
                     <div class="question-header">
-                        <div class="question-title">Câu ${i+1}: ${item.q}</div>
+                        <div class="question-title">Câu ${i + 1}: ${item.q}</div>
                         <div class="header-actions">
                             <button class="action-btn" id="rret-${i}" style="display:none; background-color: var(--primary); padding: 5px 10px; font-size: 0.8em;" onclick="retryReview(${i})">🔄 Lại</button>
                             <button class="action-btn" style="background-color: var(--success); padding: 5px 10px; font-size: 0.8em;" onclick="doneReview(${i})">✔️ Thuộc</button>
@@ -716,7 +1275,7 @@
             document.getElementById(`rq-card-${i}`).style.display = 'none';
             document.getElementById(`nav-btn-${i}`).className = 'nav-btn';
             updateUI();
-            if(reviewBank.size === 0) toggleReviewMode();
+            if (reviewBank.size === 0) toggleReviewMode();
         }
 
         function saveScore(isAuto = false, mode = 'Luyện tập', timeText = '') {
@@ -724,7 +1283,7 @@
             const percent = Math.round((currentScore / totalQuestions) * 100);
             history.unshift({ id: Date.now(), date: new Date().toLocaleString('vi-VN'), score: currentScore, total: totalQuestions, percent, mode, time: timeText });
             writeStore(SCORE_KEY, history.slice(0, 30));
-            if(!isAuto) { alert("Lưu thành công!"); openHistoryModal(); }
+            if (!isAuto) { alert("Lưu thành công!"); openHistoryModal(); }
         }
 
         function loadHistory() {
@@ -736,9 +1295,9 @@
             let best = history.reduce((prev, curr) => (prev.percent > curr.percent) ? prev : curr);
             hs.innerHTML = `🏆 Cao nhất: ${best.score}/${best.total} (${best.percent}%)`;
             list.innerHTML = history.map(h => `
-                <li class="history-item ${h.id===best.id?'best':''}">
+                <li class="history-item ${h.id === best.id ? 'best' : ''}">
                     <div>
-                        <div class="h-date">${h.date} <span class="badge ${h.mode === 'Thi thử' ? 'badge-exam' : 'badge-practice'}">${h.mode}</span> ${h.time ? '⏱️ '+h.time : ''}</div>
+                        <div class="h-date">${h.date} <span class="badge ${h.mode === 'Thi thử' ? 'badge-exam' : 'badge-practice'}">${h.mode}</span> ${h.time ? '⏱️ ' + h.time : ''}</div>
                         <div class="h-score">${h.score}/${h.total}</div>
                     </div>
                     <div class="history-right"><span>${h.percent}%</span><button class="btn-del-item" onclick="delHistory(${h.id})">❌</button></div>
@@ -746,11 +1305,11 @@
         }
 
         function delHistory(id) {
-            if(!confirm("Xóa?")) return;
+            if (!confirm("Xóa?")) return;
             let history = readStore(SCORE_KEY, []);
             writeStore(SCORE_KEY, history.filter(h => h.id !== id)); loadHistory();
         }
-        function clearAllHistory() { if(confirm("Xóa hết?")) { localStorage.removeItem(SCORE_KEY); loadHistory(); } }
+        function clearAllHistory() { if (confirm("Xóa hết?")) { localStorage.removeItem(SCORE_KEY); loadHistory(); } }
 
         function exportQuizData() {
             const data = {
@@ -780,7 +1339,7 @@
             if (!file) return;
 
             const reader = new FileReader();
-            reader.onload = function(e) {
+            reader.onload = function (e) {
                 try {
                     const data = JSON.parse(e.target.result);
 
@@ -819,4 +1378,5 @@
         renderSidebar(); renderQuestions(); updateUI();
     </script>
 </body>
+
 </html>
