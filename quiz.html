@@ -380,6 +380,7 @@
         let reviewBank = new Set(readStore(REVIEW_KEY, [])); 
         let isReviewMode = false; let isExamMode = false;
         let examAnswers = {}; let examTimer; let timeRemaining = 3600;
+        let examOrder = quizData.map((_, i) => i);
 
         // Âm thanh
         let audioCtx = null;
@@ -425,6 +426,25 @@
             document.getElementById('btn-dark').innerText = isDarkMode ? '☀️' : '🌙';
         }
 
+        function shuffleArray(arr) {
+            const shuffled = [...arr];
+            for (let i = shuffled.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+            }
+            return shuffled;
+        }
+
+        function applyExamQuestionOrder() {
+            examOrder.forEach((questionIndex, displayIndex) => {
+                const card = document.getElementById(`q-card-${questionIndex}`);
+                const title = document.getElementById(`q-title-${questionIndex}`);
+
+                if (card) container.appendChild(card);
+                if (title) title.innerText = `Câu ${displayIndex + 1}: ${quizData[questionIndex].q}`;
+            });
+        }
+
         // Tìm kiếm
         function filterQuestions() {
             const term = document.getElementById('search-input').value.toLowerCase();
@@ -446,11 +466,12 @@
             document.getElementById('review-count').innerText = reviewBank.size;
         }
 
-        function renderSidebar() {
+        function renderSidebar(order = quizData.map((_, i) => i), useDisplayOrder = false) {
             let html = '';
-            quizData.forEach((_, i) => {
-                const cls = reviewBank.has(i) ? 'nav-btn nav-unknown' : 'nav-btn';
-                html += `<button class="${cls}" id="nav-btn-${i}" onclick="scrollToQ(${i})">${i + 1}</button>`;
+            order.forEach((questionIndex, displayIndex) => {
+                const cls = reviewBank.has(questionIndex) ? 'nav-btn nav-unknown' : 'nav-btn';
+                const label = useDisplayOrder ? displayIndex + 1 : questionIndex + 1;
+                html += `<button class="${cls}" id="nav-btn-${questionIndex}" onclick="scrollToQ(${questionIndex})">${label}</button>`;
             });
             navGrid.innerHTML = html;
         }
@@ -465,7 +486,7 @@
                 const isSaved = reviewBank.has(i);
                 card.innerHTML = `
                     <div class="question-header">
-                        <div class="question-title">Câu ${i + 1}: ${item.q}</div>
+                        <div class="question-title" id="q-title-${i}">Câu ${i + 1}: ${item.q}</div>
                         <div class="header-actions">
                             <button class="unknown-btn ${isSaved?'saved-btn':''}" id="ubtn-${i}" onclick="markUnknown(${i})">${isSaved?'⭐ Đã lưu':'❓ Không biết'}</button>
                         </div>
@@ -554,6 +575,9 @@
         function startExamMode() {
             if(!confirm("Bắt đầu thi 60 phút?")) return;
             isExamMode = true; isReviewMode = false; currentScore = 0; answeredQuestions = 0; examAnswers = {};
+            examOrder = shuffleArray(quizData.map((_, i) => i));
+            renderSidebar(examOrder, true);
+            applyExamQuestionOrder();
             document.getElementById('search-bar-wrap').style.display = 'none';
             document.getElementById('score-board-info').style.display = 'none';
             document.getElementById('exam-timer-display').style.display = 'block';
