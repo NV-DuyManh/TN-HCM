@@ -114,10 +114,21 @@
             border-radius: 5px;
             cursor: pointer;
             font-weight: bold;
-            transition: 0.3s;
+            transition: transform 0.22s ease, box-shadow 0.22s ease, background-color 0.3s ease, filter 0.22s ease;
             display: flex;
             align-items: center;
             gap: 5px;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22);
+            filter: brightness(1.05);
+        }
+
+        .action-btn:active {
+            transform: translateY(0) scale(0.97);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
         }
 
         .btn-exam {
@@ -154,13 +165,46 @@
         }
 
         .btn-tool {
-            background-color: #455a64;
             font-size: 1.1em;
-            padding: 8px 15px;
+            padding: 10px 18px;
+            min-width: 68px;
+            justify-content: center;
+            border-radius: 10px;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
+            border: 1px solid rgba(255, 255, 255, 0.18);
         }
 
         .btn-tool:hover {
-            background-color: #546e7a;
+            transform: translateY(-2px);
+            box-shadow: 0 9px 18px rgba(0, 0, 0, 0.25);
+        }
+
+        #btn-sound {
+            background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
+            color: #ffffff;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+        }
+
+        #btn-sound:hover {
+            background: linear-gradient(135deg, #36d1dc 0%, #5b86e5 100%);
+        }
+
+        #btn-dark {
+            background: linear-gradient(135deg, #243b55 0%, #141e30 100%);
+            color: #ffd166;
+        }
+
+        #btn-dark:hover {
+            background: linear-gradient(135deg, #2c5364 0%, #203a43 50%, #0f2027 100%);
+        }
+
+        body.dark-mode #btn-dark {
+            background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+            color: #2c3e50;
+        }
+
+        body.dark-mode #btn-dark:hover {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
         }
 
         .search-container {
@@ -713,6 +757,42 @@
             background-color: var(--purple-dark);
         }
 
+        .unknown-btn,
+        .btn-save-review,
+        .btn-del-item,
+        .btn-clear-history,
+        .btn-backup-data,
+        .btn-import-data,
+        .nav-btn {
+            transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease, background-color 0.3s ease;
+        }
+
+        .unknown-btn:hover,
+        .btn-save-review:hover,
+        .btn-backup-data:hover,
+        .btn-import-data:hover,
+        .nav-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 16px rgba(0, 0, 0, 0.18);
+            filter: brightness(1.05);
+        }
+
+        .btn-clear-history:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 16px rgba(231, 76, 60, 0.18);
+            filter: brightness(1.03);
+        }
+
+        .unknown-btn:active,
+        .btn-save-review:active,
+        .btn-clear-history:active,
+        .btn-backup-data:active,
+        .btn-import-data:active,
+        .nav-btn:active {
+            transform: translateY(0) scale(0.97);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.16);
+        }
+
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -725,7 +805,49 @@
             }
         }
 
+        #mobile-topbar-toggle {
+            display: none;
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 2600;
+            width: 38px;
+            height: 38px;
+            border: none;
+            border-radius: 10px;
+            background: rgba(44, 62, 80, 0.92);
+            color: white;
+            font-size: 1.25em;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 5px 14px rgba(0, 0, 0, 0.22);
+            backdrop-filter: blur(6px);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        }
+
+        #mobile-topbar-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.28);
+            background: rgba(52, 152, 219, 0.96);
+        }
+
+        #mobile-topbar-toggle:active {
+            transform: translateY(0) scale(0.96);
+        }
+
+        body.topbar-hidden #score-board {
+            display: none;
+        }
+
+        body.topbar-hidden #mobile-topbar-toggle {
+            background: rgba(52, 152, 219, 0.96);
+        }
+
         @media (max-width: 900px) {
+            #mobile-topbar-toggle {
+                display: block;
+            }
+
             #layout-container {
                 flex-direction: column;
             }
@@ -796,6 +918,8 @@
         </div>
     </div>
 
+    <button id="mobile-topbar-toggle" onclick="toggleTopBar()" title="Ẩn/hiện thanh công cụ">✕</button>
+
     <div class="search-container" id="search-bar-wrap">
         <input type="text" id="search-input" placeholder="🔍 Tìm câu hỏi..." oninput="filterQuestions()">
     </div>
@@ -803,8 +927,8 @@
     <div id="layout-container">
         <div id="main-content">
             <div id="quiz-header">
-                <h1 id="main-title">Môn: Software Measurements & Analysis</h1>
-                <p class="intro-text" id="main-desc">Actor: Duy Mạnh - MB Bank: 0779534325</p>
+                <h1 id="main-title">Hệ Thống Trắc Nghiệm Pro</h1>
+                <p class="intro-text" id="main-desc">Thấy Hay Xin Donate: Mb Bank - 0779534325 - Duy Mạnh</p>
             </div>
 
             <div id="quiz-container"></div>
@@ -1461,6 +1585,12 @@
                 }
             };
             reader.readAsText(file);
+        }
+
+        function toggleTopBar() {
+            const isHidden = document.body.classList.toggle('topbar-hidden');
+            const btn = document.getElementById('mobile-topbar-toggle');
+            if (btn) btn.innerText = isHidden ? '☰' : '✕';
         }
 
         const modal = document.getElementById("historyModal");
