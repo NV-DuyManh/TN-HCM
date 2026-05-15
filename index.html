@@ -839,12 +839,45 @@
             display: none;
         }
 
+        #mobile-scroll-top {
+            display: none;
+            position: fixed;
+            right: 12px;
+            bottom: 18px;
+            z-index: 2500;
+            width: 44px;
+            height: 44px;
+            border: none;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
+            color: white;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.28);
+            transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
+        }
+
+        #mobile-scroll-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 11px 24px rgba(0, 0, 0, 0.34);
+            filter: brightness(1.07);
+        }
+
+        #mobile-scroll-top:active {
+            transform: translateY(0) scale(0.96);
+        }
+
         body.topbar-hidden #mobile-topbar-toggle {
             background: rgba(52, 152, 219, 0.96);
         }
 
         @media (max-width: 900px) {
             #mobile-topbar-toggle {
+                display: block;
+            }
+
+            #mobile-scroll-top {
                 display: block;
             }
 
@@ -919,6 +952,7 @@
     </div>
 
     <button id="mobile-topbar-toggle" onclick="toggleTopBar()" title="Ẩn/hiện thanh công cụ">✕</button>
+    <button id="mobile-scroll-top" onclick="scrollToQuestionNav()" title="Về danh sách câu hỏi">⬆️</button>
 
     <div class="search-container" id="search-bar-wrap">
         <input type="text" id="search-input" placeholder="🔍 Tìm câu hỏi..." oninput="filterQuestions()">
@@ -1591,6 +1625,11 @@
             const isHidden = document.body.classList.toggle('topbar-hidden');
             const btn = document.getElementById('mobile-topbar-toggle');
             if (btn) btn.innerText = isHidden ? '☰' : '✕';
+        }
+
+        function scrollToQuestionNav() {
+            const target = document.getElementById('sidebar') || document.getElementById('layout-container') || document.body;
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
         const modal = document.getElementById("historyModal");
