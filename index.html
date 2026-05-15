@@ -911,6 +911,97 @@
             { q: "Which type of software testing makes a binary decision (Accept or Reject) on an acquired component based on a target failure intensity?", o: ["A. Integration Test", "B. Feature Test", "C. Boundary Test", "D. Certification Test"], a: 3 }
         ];
 
+
+        const explanationData = [
+            "Metrology là ngành khoa học nghiên cứu về phép đo và cách đo lường.",
+            "Chi phí có mốc 0 thật nên có thể so sánh theo tỉ lệ như gấp đôi.",
+            "Phân loại theo nền tảng chỉ là đặt tên nhóm, không có thứ tự cao thấp.",
+            "Flipped learning yêu cầu tự học trước ở nhà và lên lớp để thảo luận, làm bài.",
+            "Theo quy định lớp, đến trễ quá mức cho phép sẽ bị tính là vắng.",
+            "Customer requirements là thứ hệ thống tạo ra hoặc xử lý như một sản phẩm/by-product.",
+            "Câu hỏi này đánh giá con người, nên thuộc nhóm inputs/resources.",
+            "Các mức Trivial, Simple, Moderate, Complex có thứ tự tăng dần nên là thang đo ordinal.",
+            "Tổng điểm từ nhiều câu khảo sát thường được xem gần đúng như thang đo interval.",
+            "Quy định cho phép nghỉ ở phía sau nhưng không được gây ảnh hưởng như ngáy.",
+            "Quality không đo trực tiếp bằng cách đếm đơn giản, thường phải suy ra qua nhiều chỉ số.",
+            "Đếm toán tử và toán hạng là hướng của Halstead, không phải cách đo LOC.",
+            "FPA gồm EI, EO, EQ, ILF, EIF; không có ILC.",
+            "ILF là Internal Logical File, tức nhóm dữ liệu logic do hệ thống quản lý.",
+            "UFC = 60×4 + 40×5 + 5×10 = 490.",
+            "Nút chỉ đóng hoặc hủy cửa sổ không thực hiện giao dịch nên không tính FP.",
+            "Document name và Dictionary name là dữ liệu đưa từ ngoài vào hệ thống nên là EI.",
+            "Object Points hữu ích ở giai đoạn đầu khi mới có màn hình, báo cáo, thành phần 3GL.",
+            "Object Points đếm screens, reports và 3GL components.",
+            "Unadjusted OP = 4×1 + 1×2 + 2×5 + 1×10 = 26.",
+            "Adjusted OP = 26 × (1 - 10%) = 23.4.",
+            "UAW là Unadjusted Actor Weight trong phương pháp Use Case Point.",
+            "Use case có 4 đến 7 transactions được xếp loại Average.",
+            "Cyclomatic complexity đo số đường đi độc lập trong cấu trúc điều khiển.",
+            "Công thức chuẩn là v(G) = e - n + 2p.",
+            "v(G) = 16 - 13 + 2×1 = 5.",
+            "Hai catch riêng tạo ra hai nhánh xử lý ngoại lệ thay thế.",
+            "COCOMO gốc có ba mức mô hình: Basic, Intermediate và Advanced.",
+            "PERS biểu thị năng lực/khả năng của nhân sự trong COCOMO.",
+            "RELY là độ tin cậy phần mềm yêu cầu, thuộc nhóm Product Factors.",
+            "Application Composition Model của COCOMO II dùng Object Points.",
+            "Dự án quen thuộc, nhóm nhỏ, yêu cầu linh hoạt phù hợp với Organic mode.",
+            "EVA tốt hơn vì chỉ nhìn phần trăm chi phí có thể gây hiểu sai tiến độ và hiệu quả.",
+            "BCWP là chi phí ngân sách của phần công việc đã thực hiện.",
+            "CV = BCWP - ACWP = 1000 - 1350 = -350.",
+            "CPI = BCWP / ACWP = 1000 / 1350 ≈ 0.74, nhỏ hơn 1 là vượt ngân sách.",
+            "SV = BCWP - BCWS = 1000 - 1333 = -333.",
+            "CV dương là dưới ngân sách, SV âm là chậm tiến độ.",
+            "EAC là tổng chi phí ước tính cuối cùng, tính bằng ACWP + ETC.",
+            "CSI kết hợp hiệu quả chi phí và tiến độ nên bằng CPI × SPI.",
+            "Test case mô tả dữ liệu vào, điều kiện chạy và kết quả mong đợi.",
+            "Boundary testing kiểm tra đúng tại các giới hạn của miền giá trị.",
+            "Số test case bị giới hạn bởi thời gian, nên chọn số nhỏ hơn là 1,250.",
+            "10% của 4,000,000 là 400,000; chia 250 được 1,600 test case.",
+            "Test Pass Rate = số test passed / tổng test = 80/100 = 80%.",
+            "Defect Density = số lỗi / KLOC = 30 / 20 = 1.5.",
+            "Reliability nói về khả năng duy trì hoạt động đúng trong thời gian xác định.",
+            "Learnability, Understandability và Operability thuộc Usability.",
+            "Internal quality đo thuộc tính tĩnh của sản phẩm, external quality đo hành vi khi chạy.",
+            "Certification Test đưa ra quyết định chấp nhận hoặc từ chối dựa trên mục tiêu lỗi."
+        ];
+
+        function getExplanation(i) {
+            return explanationData[i] || "Đáp án này phù hợp nhất với khái niệm được hỏi.";
+        }
+
+        function stripOptionPrefix(text) {
+            return text.replace(/^[A-D]\.\s*/, "");
+        }
+
+        function formatOptionText(displayIndex, originalText) {
+            return `${String.fromCharCode(65 + displayIndex)}. ${stripOptionPrefix(originalText)}`;
+        }
+
+        function renderOptionLabel(questionIndex, originalOptionIndex, displayIndex) {
+            return `<label><input type="radio" name="q${questionIndex}" onchange="checkAnswer(${questionIndex}, ${originalOptionIndex})">${formatOptionText(displayIndex, quizData[questionIndex].o[originalOptionIndex])}</label>`;
+        }
+
+        function resetOptionLabelsToOriginal(questionIndex) {
+            quizData[questionIndex].o.forEach((_, optionIndex) => {
+                const li = document.getElementById(`li-${questionIndex}-${optionIndex}`);
+                if (li) li.innerHTML = renderOptionLabel(questionIndex, optionIndex, optionIndex);
+            });
+        }
+
+        function shuffleExamAnswers(questionIndex) {
+            const order = shuffleArray(quizData[questionIndex].o.map((_, optionIndex) => optionIndex));
+            const ul = document.querySelector(`#q-card-${questionIndex} .options`);
+            if (!ul) return;
+            order.forEach((originalOptionIndex, displayIndex) => {
+                const li = document.getElementById(`li-${questionIndex}-${originalOptionIndex}`);
+                if (li) {
+                    li.innerHTML = renderOptionLabel(questionIndex, originalOptionIndex, displayIndex);
+                    ul.appendChild(li);
+                }
+            });
+        }
+
+
         let currentScore = 0; let answeredQuestions = 0;
         const totalQuestions = quizData.length;
         const SCORE_KEY = 'cmu462_history'; const REVIEW_KEY = 'cmu462_review';
@@ -1040,7 +1131,7 @@
                 const card = document.createElement('div'); card.className = 'question-card'; card.id = `q-card-${i}`;
                 let opts = '';
                 item.o.forEach((opt, oi) => {
-                    opts += `<li id="li-${i}-${oi}"><label><input type="radio" name="q${i}" onchange="checkAnswer(${i}, ${oi})">${opt}</label></li>`;
+                    opts += `<li id="li-${i}-${oi}">${renderOptionLabel(i, oi, oi)}</li>`;
                 });
                 const isSaved = reviewBank.has(i);
                 card.innerHTML = `
@@ -1052,7 +1143,7 @@
                     </div>
                     <ul class="options">${opts}</ul>
                     <div class="explanation" id="exp-${i}">
-                        ✅ <strong>Đúng:</strong> ${item.o[item.a]}
+                        💡 <strong>Giải thích:</strong> ${getExplanation(i)}
                         <br><button class="btn-save-review" id="srev-${i}" style="display:none;" onclick="addWrongReview(${i})">➕ Lưu vào Ôn tập</button>
                     </div>`;
                 container.appendChild(card);
@@ -1150,6 +1241,8 @@
             quizData.forEach((_, i) => {
                 document.getElementById(`nav-btn-${i}`).className = 'nav-btn';
                 document.getElementById(`q-card-${i}`).classList.add('exam-card');
+                resetOptionLabelsToOriginal(i);
+                shuffleExamAnswers(i);
                 const lis = document.querySelectorAll(`#q-card-${i} li`);
                 lis.forEach(li => li.className = '');
                 const radios = document.getElementsByName(`q${i}`);
@@ -1236,7 +1329,7 @@
                 const card = document.createElement('div'); card.className = 'question-card review-card'; card.id = `rq-card-${i}`;
                 let opts = '';
                 item.o.forEach((opt, oi) => {
-                    opts += `<li id="rli-${i}-${oi}"><label><input type="radio" name="rq${i}" onchange="checkReview(${i}, ${oi})">${opt}</label></li>`;
+                    opts += `<li id="rli-${i}-${oi}"><label><input type="radio" name="rq${i}" onchange="checkReview(${i}, ${oi})">${formatOptionText(oi, opt)}</label></li>`;
                 });
                 card.innerHTML = `
                     <div class="question-header">
@@ -1247,7 +1340,7 @@
                         </div>
                     </div>
                     <ul class="options">${opts}</ul>
-                    <div class="explanation" id="rexp-${i}">✅ <strong>Đúng:</strong> ${item.o[item.a]}</div>`;
+                    <div class="explanation" id="rexp-${i}">💡 <strong>Giải thích:</strong> ${getExplanation(i)}</div>`;
                 rContainer.appendChild(card);
             });
         }
