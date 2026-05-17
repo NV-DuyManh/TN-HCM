@@ -1599,7 +1599,12 @@
         function startExamMode() {
             if (!confirm("Bắt đầu thi 60 phút?")) return;
             isExamMode = true; isReviewMode = false; currentScore = 0; answeredQuestions = 0; examAnswers = {};
+
+
+            //xáo câu hỏi
             examOrder = shuffleArray(quizData.map((_, i) => i));
+
+
             renderSidebar(examOrder, true);
             applyExamQuestionOrder();
             document.getElementById('search-bar-wrap').style.display = 'none';
@@ -1616,7 +1621,11 @@
                 document.getElementById(`nav-btn-${i}`).className = 'nav-btn';
                 document.getElementById(`q-card-${i}`).classList.add('exam-card');
                 resetOptionLabelsToOriginal(i);
-                shuffleExamAnswers(i);
+
+                //xáo đáp án
+                // shuffleExamAnswers(i);
+
+
                 const lis = document.querySelectorAll(`#q-card-${i} li`);
                 lis.forEach(li => li.className = '');
                 const radios = document.getElementsByName(`q${i}`);
