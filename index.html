@@ -1,199 +1,2656 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Software Architecture Quiz - Duy Mạnh</title>
-<style>
-:root{
---primary:#3498db;--success:#2ecc71;--danger:#e74c3c;--warning:#f39c12;--purple:#9b59b6;--dark:#2c3e50;--gray:#95a5a6;
---bg:#f4f7f6;--card:#fff;--text:#263238;--border:#e6e9ef;--soft:#ebf5fb;--success-bg:#d4edda;--danger-bg:#f8d7da;--purple-bg:#f5eef8
-}
-body.dark{--bg:#121212;--card:#1f1f1f;--text:#e7e7e7;--border:#353535;--soft:#16283a;--success-bg:#143820;--danger-bg:#42181a;--purple-bg:#2a1b38}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font-family:Segoe UI,Tahoma,Verdana,sans-serif;line-height:1.55;padding-bottom:45px}
-#topbar{position:sticky;top:0;z-index:1000;background:var(--dark);color:white;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;border-bottom:4px solid var(--success);box-shadow:0 4px 14px rgba(0,0,0,.18)}
-.score{font-size:1.25rem;font-weight:800}
-.score span{color:var(--success)}
-.progress{font-size:.85rem;color:#cfd8dc;font-weight:400}
-.tools{display:flex;gap:8px;flex-wrap:wrap}
-button{font-family:inherit}
-.btn{border:0;color:white;padding:9px 13px;border-radius:8px;font-weight:700;cursor:pointer;transition:.22s;box-shadow:0 5px 12px rgba(0,0,0,.14)}
-.btn:hover{transform:translateY(-2px);filter:brightness(1.05);box-shadow:0 8px 18px rgba(0,0,0,.22)}
-.btn:active{transform:scale(.97)}
-.btn-blue{background:var(--primary)}.btn-green{background:var(--success)}.btn-red{background:var(--danger)}.btn-orange{background:var(--warning)}.btn-purple{background:var(--purple)}.btn-dark{background:#111}
-#timer{display:none;background:white;color:#d35400;border-radius:20px;padding:6px 14px;font-weight:900;font-size:1.25rem}
-.search{max-width:1220px;margin:18px auto 0;padding:0 18px}
-#search{width:100%;border:2px solid var(--primary);border-radius:999px;background:var(--card);color:var(--text);padding:13px 18px;outline:none;font-size:1rem}
-.layout{max-width:1220px;margin:18px auto;display:flex;gap:20px;padding:0 18px;align-items:flex-start}
-main{flex:1;min-width:0}
-header{text-align:center;margin:6px 0 24px}
-h1{margin:0;color:var(--primary);font-size:2rem}
-.desc{color:var(--gray);margin-top:8px}
-.card{background:var(--card);border:1px solid var(--border);border-left:6px solid var(--primary);border-radius:12px;padding:18px;margin-bottom:18px;box-shadow:0 3px 12px rgba(0,0,0,.06);scroll-margin-top:105px}
-.card.review{border-left-color:var(--purple)}
-.card.exam{border-left-color:var(--warning)}
-.qhead{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:12px}
-.qtitle{font-weight:800;font-size:1.05rem}
-.small-actions{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}
-.mark{background:var(--purple);color:white;border:0;border-radius:6px;padding:6px 10px;font-weight:700;cursor:pointer}
-.mark.saved{background:#6c3483}
-.options{list-style:none;padding:0;margin:0}
-.options li{border:1px solid var(--border);border-radius:9px;margin-bottom:10px;overflow:hidden;background:var(--card);transition:.18s}
-.options li:hover:not(.locked){background:var(--soft);border-color:var(--primary);transform:translateX(6px)}
-label{display:flex;gap:12px;padding:13px 15px;cursor:pointer}
-input[type=radio]{margin-top:5px;flex-shrink:0}
-.correct{background:var(--success-bg)!important;border-color:var(--success)!important;color:#155724;font-weight:800}
-body.dark .correct{color:#9df0b3}
-.wrong{background:var(--danger-bg)!important;border-color:var(--danger)!important;color:#721c24;text-decoration:line-through;font-weight:700}
-body.dark .wrong{color:#ffc1c1}
-.selected{background:var(--soft)!important;border-color:var(--primary)!important}
-.explain{display:none;margin-top:12px;border-left:4px solid var(--success);background:var(--success-bg);padding:11px 13px;border-radius:6px;color:#155724}
-body.dark .explain{color:#9df0b3}
-aside{width:320px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;position:sticky;top:92px;box-shadow:0 3px 12px rgba(0,0,0,.06)}
-.side-title{text-align:center;font-weight:900;margin-bottom:12px;padding-bottom:10px;border-bottom:2px solid var(--border)}
-.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;max-height:52vh;overflow:auto;padding-right:4px}
-.nav{border:1px solid var(--border);background:var(--card);color:var(--text);border-radius:7px;padding:8px 0;font-weight:800;cursor:pointer}
-.nav:hover{background:var(--soft);border-color:var(--primary)}
-.nav.ok{background:var(--success)!important;color:white}.nav.bad{background:var(--danger)!important;color:white}.nav.rev{background:var(--purple)!important;color:white}.nav.ans{background:var(--primary)!important;color:white}
-.legend{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;font-size:.85rem}
-.dot{width:14px;height:14px;border-radius:3px;border:1px solid var(--border);display:inline-block;vertical-align:middle;margin-right:4px}.d-ok{background:var(--success)}.d-bad{background:var(--danger)}.d-rev{background:var(--purple)}.d-ans{background:var(--primary)}
-.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.62);z-index:2000;backdrop-filter:blur(3px);padding:30px 15px;overflow:auto}
-.box-modal{background:var(--card);color:var(--text);max-width:560px;margin:0 auto;border-radius:14px;padding:24px;border:1px solid var(--border);box-shadow:0 8px 28px rgba(0,0,0,.28);position:relative}
-.close{position:absolute;right:18px;top:12px;font-size:28px;font-weight:900;cursor:pointer;color:var(--gray)}
-.history-item{border:1px solid var(--border);border-left:5px solid var(--primary);border-radius:8px;padding:12px;margin:10px 0;display:flex;justify-content:space-between;gap:10px;align-items:center;background:var(--bg)}
-.badge{padding:3px 8px;border-radius:999px;background:var(--success);color:white;font-weight:800}
-.bottom{text-align:center;margin:34px 0}
-#mobile-toggle,#to-top{display:none}
-.hidden{display:none!important}
-@media(max-width:900px){
-#mobile-toggle{display:block;position:fixed;top:10px;right:10px;z-index:2600;background:#34495e;color:white;border:0;border-radius:10px;width:40px;height:40px;font-weight:900;box-shadow:0 5px 14px rgba(0,0,0,.25)}
-#to-top{display:block;position:fixed;right:14px;bottom:18px;z-index:2500;background:linear-gradient(135deg,#00c6ff,#0072ff);color:white;border:0;border-radius:50%;width:45px;height:45px;font-weight:900;box-shadow:0 7px 18px rgba(0,0,0,.25)}
-body.hidebar #topbar{display:none}
-.layout{flex-direction:column}
-aside{width:100%;position:static;order:-1}.grid{grid-template-columns:repeat(10,1fr);max-height:26vh}
-.qhead{flex-direction:column}.small-actions{justify-content:flex-start}
-}
-@media(max-width:520px){.grid{grid-template-columns:repeat(5,1fr)}h1{font-size:1.45rem}.btn{padding:8px 10px}.tools{justify-content:center;width:100%}}
-</style>
+    <script type="text/javascript">
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "wr16ufyw55");
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Architecture Quiz - Ultimate Edition</title>
+    <style>
+        :root {
+            --primary: #3498db;
+            --primary-light: #ebf5fb;
+            --success: #2ecc71;
+            --success-bg: #d4edda;
+            --success-text: #155724;
+            --success-border: #c3e6cb;
+            --danger: #e74c3c;
+            --danger-bg: #f8d7da;
+            --danger-text: #721c24;
+            --danger-border: #f5c6cb;
+            --warning: #f39c12;
+            --purple: #9b59b6;
+            --purple-dark: #8e44ad;
+            --purple-bg: #f5eef8;
+            --dark: #2c3e50;
+            --light: #f4f7f6;
+            --gray: #bdc3c7;
+
+            --bg-color: #f4f7f6;
+            --text-main: #333;
+            --card-bg: #fff;
+            --border-color: #eee;
+            --nav-btn-bg: #fff;
+            --nav-btn-border: #ccc;
+        }
+
+        body.dark-mode {
+            --bg-color: #121212;
+            --text-main: #e0e0e0;
+            --card-bg: #1e1e1e;
+            --border-color: #333;
+            --nav-btn-bg: #2c2c2c;
+            --nav-btn-border: #444;
+            --primary-light: #182c40;
+            --success-bg: #0f3a20;
+            --success-border: #1e8449;
+            --success-text: #82e0aa;
+            --danger-bg: #4a151b;
+            --danger-border: #922b21;
+            --danger-text: #f5b7b1;
+            --purple-bg: #2a1b38;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            padding-bottom: 50px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        #score-board {
+            position: sticky;
+            top: 0;
+            background: var(--dark);
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-bottom: 4px solid var(--success);
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .score-info {
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+
+        .score-info span {
+            color: var(--success);
+            font-size: 1.2em;
+        }
+
+        .progress-info {
+            font-size: 0.8em;
+            color: var(--gray);
+            font-weight: normal;
+        }
+
+        .top-btn-group {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .action-btn {
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.22s ease, box-shadow 0.22s ease, background-color 0.3s ease, filter 0.22s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22);
+            filter: brightness(1.05);
+        }
+
+        .action-btn:active {
+            transform: translateY(0) scale(0.97);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
+        }
+
+        .btn-exam {
+            background-color: var(--warning);
+            color: #fff;
+        }
+
+        .btn-exam:hover {
+            background-color: #d68910;
+        }
+
+        .btn-restart {
+            background-color: var(--danger);
+        }
+
+        .btn-restart:hover {
+            background-color: #c0392b;
+        }
+
+        .btn-history {
+            background-color: var(--primary);
+        }
+
+        .btn-history:hover {
+            background-color: #2980b9;
+        }
+
+        .btn-review-mode {
+            background-color: var(--purple);
+        }
+
+        .btn-review-mode:hover {
+            background-color: var(--purple-dark);
+        }
+
+        .btn-tool {
+            font-size: 1.1em;
+            padding: 10px 18px;
+            min-width: 68px;
+            justify-content: center;
+            border-radius: 10px;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        .btn-tool:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 9px 18px rgba(0, 0, 0, 0.25);
+        }
+
+        #btn-sound {
+            background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
+            color: #ffffff;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+        }
+
+        #btn-sound:hover {
+            background: linear-gradient(135deg, #36d1dc 0%, #5b86e5 100%);
+        }
+
+        #btn-dark {
+            background: linear-gradient(135deg, #243b55 0%, #141e30 100%);
+            color: #ffd166;
+        }
+
+        #btn-dark:hover {
+            background: linear-gradient(135deg, #2c5364 0%, #203a43 50%, #0f2027 100%);
+        }
+
+        body.dark-mode #btn-dark {
+            background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+            color: #2c3e50;
+        }
+
+        body.dark-mode #btn-dark:hover {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        }
+
+        .search-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px auto 0 auto;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        #search-input {
+            width: 100%;
+            padding: 12px 20px;
+            border-radius: 25px;
+            border: 2px solid var(--primary);
+            font-size: 1em;
+            outline: none;
+            background: var(--card-bg);
+            color: var(--text-main);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            transition: 0.3s;
+            box-sizing: border-box;
+        }
+
+        #layout-container {
+            display: flex;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        #main-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary);
+            margin-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .intro-text {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+        }
+
+        .question-card {
+            background: var(--card-bg);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid var(--primary);
+            transition: all 0.3s ease;
+            position: relative;
+            scroll-margin-top: 100px;
+            border-right: 1px solid var(--border-color);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .review-card {
+            border-left-color: var(--purple);
+        }
+
+        .exam-card {
+            border-left-color: var(--warning);
+        }
+
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .question-title {
+            font-weight: bold;
+            font-size: 1.1em;
+            width: 75%;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            width: 25%;
+        }
+
+        .unknown-btn {
+            background-color: var(--purple);
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.85em;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+
+        .unknown-btn:hover {
+            background-color: var(--purple-dark);
+        }
+
+        .saved-btn {
+            background-color: var(--purple-dark);
+            box-shadow: 0 0 5px rgba(142, 68, 173, 0.5);
+        }
+
+        .options {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .options li {
+            margin-bottom: 12px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            transition: all 0.2s ease;
+            overflow: hidden;
+            background-color: var(--card-bg);
+        }
+
+        .options li:not(.answered):not(.exam-selected):hover {
+            background-color: var(--primary-light);
+            border-color: var(--primary);
+            transform: translateX(8px);
+            box-shadow: 0 4px 8px rgba(52, 152, 219, 0.15);
+        }
+
+        label {
+            cursor: pointer;
+            display: flex;
+            align-items: flex-start;
+            width: 100%;
+            margin: 0;
+            padding: 14px 18px;
+            box-sizing: border-box;
+        }
+
+        input[type="radio"] {
+            margin-right: 15px;
+            transform: translateY(4px);
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        input[type="radio"]:disabled {
+            cursor: not-allowed;
+        }
+
+        .correct-ans {
+            background-color: var(--success-bg) !important;
+            border-color: var(--success-border) !important;
+            color: var(--success-text) !important;
+            font-weight: bold;
+            transform: none !important;
+        }
+
+        .wrong-ans {
+            background-color: var(--danger-bg) !important;
+            border-color: var(--danger-border) !important;
+            color: var(--danger-text) !important;
+            text-decoration: line-through;
+            transform: none !important;
+        }
+
+        .exam-selected {
+            background-color: var(--primary-light) !important;
+            border-color: var(--primary) !important;
+            transform: none !important;
+        }
+
+        .explanation {
+            margin-top: 15px;
+            padding: 12px;
+            background-color: var(--success-bg);
+            color: var(--success-text);
+            border-left: 4px solid var(--success);
+            font-size: 1em;
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+
+        .btn-save-review {
+            background-color: var(--purple);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: 0.3s;
+            font-weight: bold;
+            margin-top: 10px;
+            display: inline-block;
+        }
+
+        .btn-save-review:hover:not(:disabled) {
+            background-color: var(--purple-dark);
+        }
+
+        .btn-save-review:disabled {
+            background-color: var(--success);
+            cursor: default;
+        }
+
+        #sidebar {
+            width: 320px;
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 90px;
+            border: 1px solid var(--border-color);
+        }
+
+        .sidebar-title {
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            max-height: 50vh;
+            overflow-y: auto;
+            padding-right: 5px;
+        }
+
+        .nav-grid::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        .nav-grid::-webkit-scrollbar-thumb {
+            background: var(--gray);
+            border-radius: 5px;
+        }
+
+        .nav-btn {
+            background-color: var(--nav-btn-bg);
+            border: 1px solid var(--nav-btn-border);
+            border-radius: 4px;
+            padding: 8px 0;
+            font-weight: bold;
+            color: var(--text-main);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .nav-btn:hover {
+            background-color: var(--primary-light);
+            border-color: var(--primary);
+        }
+
+        .nav-correct {
+            background-color: var(--success) !important;
+            color: white !important;
+            border-color: var(--success) !important;
+        }
+
+        .nav-wrong {
+            background-color: var(--danger) !important;
+            color: white !important;
+            border-color: var(--danger) !important;
+        }
+
+        .nav-unknown {
+            background-color: var(--purple) !important;
+            color: white !important;
+            border-color: var(--purple) !important;
+            opacity: 0.9;
+        }
+
+        .nav-exam-answered {
+            background-color: var(--primary) !important;
+            color: white !important;
+            border-color: var(--primary) !important;
+        }
+
+        .legend {
+            margin-top: 20px;
+            font-size: 0.85em;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .box {
+            width: 15px;
+            height: 15px;
+            border-radius: 3px;
+            border: 1px solid var(--border-color);
+        }
+
+        .box.c {
+            background: var(--success);
+            border-color: var(--success);
+        }
+
+        .box.w {
+            background: var(--danger);
+            border-color: var(--danger);
+        }
+
+        .box.u {
+            background: var(--purple);
+            border-color: var(--purple);
+        }
+
+        .box.e {
+            background: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .box.n {
+            background: var(--nav-btn-bg);
+        }
+
+        #exam-timer-display {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: var(--warning);
+            display: none;
+            background: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            color: #d35400;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(3px);
+        }
+
+        .modal-content {
+            background-color: var(--card-bg);
+            margin: 5% auto;
+            padding: 30px;
+            border: 1px solid var(--border-color);
+            width: 90%;
+            max-width: 500px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+            animation: slideDown 0.3s;
+            color: var(--text-main);
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-30px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .close-btn {
+            color: var(--gray);
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            position: absolute;
+            top: 15px;
+            right: 20px;
+        }
+
+        .close-btn:hover {
+            color: var(--danger);
+        }
+
+        .high-score-board {
+            background: linear-gradient(135deg, #f1c40f, #f39c12);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.2em;
+        }
+
+        .history-list {
+            list-style: none;
+            padding: 0;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .history-item {
+            background: var(--bg-color);
+            margin-bottom: 10px;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid var(--primary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid var(--border-color);
+            border-left-width: 4px;
+        }
+
+        .history-item.best {
+            border-left-color: #f1c40f;
+        }
+
+        .h-date {
+            font-size: 0.85em;
+            color: var(--gray);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .h-score {
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-top: 5px;
+        }
+
+        .history-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .h-percent {
+            font-size: 0.9em;
+            background: var(--success);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        .badge {
+            font-size: 0.75em;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .badge-exam {
+            background: var(--danger);
+        }
+
+        .badge-practice {
+            background: var(--primary);
+        }
+
+        .badge-time {
+            background: var(--dark);
+        }
+
+        .btn-del-item {
+            background: none;
+            border: none;
+            color: var(--danger);
+            font-size: 1.2em;
+            cursor: pointer;
+            padding: 0 5px;
+            transition: transform 0.2s;
+        }
+
+        .btn-del-item:hover {
+            transform: scale(1.2);
+        }
+
+        .btn-clear-history {
+            background-color: transparent;
+            color: var(--danger);
+            border: 1px solid var(--danger);
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+            margin-top: 15px;
+            transition: all 0.3s;
+        }
+
+        .btn-clear-history:hover {
+            background-color: var(--danger-bg);
+        }
+
+        .backup-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .btn-backup-data,
+        .btn-import-data {
+            flex: 1;
+            border: none;
+            padding: 10px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .btn-backup-data {
+            background-color: var(--primary);
+        }
+
+        .btn-backup-data:hover {
+            background-color: #2980b9;
+        }
+
+        .btn-import-data {
+            background-color: var(--purple);
+        }
+
+        .btn-import-data:hover {
+            background-color: var(--purple-dark);
+        }
+
+        .unknown-btn,
+        .btn-save-review,
+        .btn-del-item,
+        .btn-clear-history,
+        .btn-backup-data,
+        .btn-import-data,
+        .nav-btn {
+            transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease, background-color 0.3s ease;
+        }
+
+        .unknown-btn:hover,
+        .btn-save-review:hover,
+        .btn-backup-data:hover,
+        .btn-import-data:hover,
+        .nav-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 16px rgba(0, 0, 0, 0.18);
+            filter: brightness(1.05);
+        }
+
+        .btn-clear-history:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 16px rgba(231, 76, 60, 0.18);
+            filter: brightness(1.03);
+        }
+
+        .unknown-btn:active,
+        .btn-save-review:active,
+        .btn-clear-history:active,
+        .btn-backup-data:active,
+        .btn-import-data:active,
+        .nav-btn:active {
+            transform: translateY(0) scale(0.97);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.16);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        #mobile-topbar-toggle {
+            display: none;
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 2600;
+            width: 38px;
+            height: 38px;
+            border: none;
+            border-radius: 10px;
+            background: rgba(44, 62, 80, 0.92);
+            color: white;
+            font-size: 1.25em;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 5px 14px rgba(0, 0, 0, 0.22);
+            backdrop-filter: blur(6px);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        }
+
+        #mobile-topbar-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.28);
+            background: rgba(52, 152, 219, 0.96);
+        }
+
+        #mobile-topbar-toggle:active {
+            transform: translateY(0) scale(0.96);
+        }
+
+        body.topbar-hidden #score-board {
+            display: none;
+        }
+
+        #mobile-scroll-top {
+            display: none;
+            position: fixed;
+            right: 12px;
+            bottom: 18px;
+            z-index: 2500;
+            width: 44px;
+            height: 44px;
+            border: none;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
+            color: white;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.28);
+            transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
+        }
+
+        #mobile-scroll-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 11px 24px rgba(0, 0, 0, 0.34);
+            filter: brightness(1.07);
+        }
+
+        #mobile-scroll-top:active {
+            transform: translateY(0) scale(0.96);
+        }
+
+        body.topbar-hidden #mobile-topbar-toggle {
+            background: rgba(52, 152, 219, 0.96);
+        }
+
+        @media (max-width: 900px) {
+            #mobile-topbar-toggle {
+                display: block;
+            }
+
+            #mobile-scroll-top {
+                display: block;
+            }
+
+            #layout-container {
+                flex-direction: column;
+            }
+
+            #sidebar {
+                width: 100%;
+                position: static;
+                box-sizing: border-box;
+                order: -1;
+                margin-bottom: 10px;
+            }
+
+            .nav-grid {
+                grid-template-columns: repeat(10, 1fr);
+                max-height: 25vh;
+            }
+
+            .question-title {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            .header-actions {
+                width: 100%;
+                justify-content: flex-start;
+            }
+
+            .question-header {
+                flex-direction: column;
+            }
+
+            .top-btn-group {
+                justify-content: center;
+                width: 100%;
+                margin-top: 10px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .nav-grid {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+    </style>
 </head>
+
 <body>
-<div id="topbar">
-<div class="score">Điểm: <span id="score">0</span> / <span id="total">100</span><div class="progress">Đã trả lời: <span id="progress">0</span> câu</div></div>
-<div id="timer">⏱️ 60:00</div>
-<div class="tools">
-<button class="btn btn-dark" onclick="toggleDark()">🌙</button>
-<button class="btn btn-orange" onclick="startExam()">⏱️ Thi thử</button>
-<button class="btn btn-purple" onclick="toggleReview()">📚 Ôn tập (<span id="reviewCount">0</span>)</button>
-<button class="btn btn-blue" onclick="openHistory()">📜 Lịch sử</button>
-<button class="btn btn-red" onclick="resetAll()">🔄 Làm lại</button>
-</div>
-</div>
-<button id="mobile-toggle" onclick="document.body.classList.toggle('hidebar')">✕</button>
-<button id="to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">⬆️</button>
-<div class="search"><input id="search" placeholder="🔍 Tìm câu hỏi..." oninput="render()"></div>
-<div class="layout">
-<main>
-<header><h1>Software Architecture Quiz</h1><div class="desc">100 câu ôn tập Architecture and Design - Duy Mạnh</div></header>
-<div id="container"></div>
-<div class="bottom"><button class="btn btn-green" style="font-size:1.1rem;padding:14px 28px" onclick="submitPractice()">💾 Nộp bài & lưu điểm</button></div>
-</main>
-<aside>
-<div class="side-title">Câu hỏi</div>
-<div class="grid" id="nav"></div>
-<div class="legend">
-<div><span class="dot"></span>Trống</div><div><span class="dot d-ok"></span>Đúng</div><div><span class="dot d-bad"></span>Sai</div><div><span class="dot d-rev"></span>Ôn</div><div><span class="dot d-ans"></span>Đã chọn</div>
-</div>
-</aside>
-</div>
-<div class="modal" id="historyModal"><div class="box-modal"><span class="close" onclick="closeHistory()">&times;</span><h2 style="text-align:center;margin-top:0">📊 Lịch sử làm bài</h2><div id="best" style="text-align:center;font-weight:900;margin:10px 0 15px"></div><div id="history"></div><button class="btn btn-red" style="width:100%;margin-top:12px" onclick="clearHistory()">🗑️ Xóa lịch sử</button></div></div>
-<script>
-const quizData = [{"q": "Which of the following is NOT typically considered part of the business context?", "o": ["Organizational structure and culture", "Market forces and competition", "Business strategy and regulations", "Source code implementation details"], "a": 3, "e": "Business context nói về tổ chức, thị trường, chiến lược, quy định; chi tiết source code là phần kỹ thuật."}, {"q": "Business constraints in the business context may include...", "o": ["Regulatory compliance, budget limits, and deadlines", "Choice of variable names in source code", "Preferred programming style of developers", "The syntax of SQL queries"], "a": 0, "e": "Business constraints thường là luật/quy định, ngân sách, deadline, lịch rollout, nguồn lực."}, {"q": "Which type of organization is usually large, complex, and integrates multiple products and services across different markets?", "o": ["Enterprises", "Product-oriented companies", "Startups", "Service-based companies"], "a": 0, "e": "Enterprises thường lớn, phức tạp, nhiều hệ thống/sản phẩm/dịch vụ và nhiều thị trường."}, {"q": "Which of the following best describes a System Context Diagram (SCD)?", "o": ["A diagram that shows the internal modules and components of the system.", "A diagram that focuses on external actors and their interactions with the system.", "A diagram that shows how database tables are linked together.", "A diagram used to model detailed business processes inside the system."], "a": 1, "e": "SCD xem hệ thống như hộp đen, tập trung vào actor/hệ thống bên ngoài và luồng tương tác."}, {"q": "Which of the following is NOT usually included in a System Context Diagram?", "o": ["External systems interacting with the system.", "Human users who exchange information with the system.", "The detailed logic of internal system processes.", "Information flows between the system and its environment."], "a": 2, "e": "SCD không mô tả logic xử lý chi tiết bên trong hệ thống."}, {"q": "In a System Context Diagram, the system is usually represented as:", "o": ["A central box / black box with no internal details.", "A detailed flowchart showing step-by-step processes.", "A layered structure with modules and sub-modules.", "A network diagram with servers and routers."], "a": 0, "e": "System nằm ở giữa như black box, không bung chi tiết nội bộ."}, {"q": "Which of the following is a common mistake when designing a System Context Diagram?", "o": ["Keeping the system as a black box.", "Including too many unnecessary internal details.", "Showing external actors around the system.", "Using arrows to represent information flow."], "a": 1, "e": "Lỗi phổ biến là nhét quá nhiều xử lý/module nội bộ vào context diagram."}, {"q": "In the matching question about SCD concepts, which description matches Information Flow?", "o": ["Arrows or lines showing data/control exchanged between system and environment.", "Users, external systems, or organizations interacting with the system.", "Treating the system as a central unit without internal processes.", "Adding unnecessary details of the internal system."], "a": 0, "e": "Information Flow là mũi tên/đường thể hiện dữ liệu hoặc control trao đổi với môi trường."}, {"q": "A startup wants to keep decision-making fast and flexible. Which organizational category aligns with this business context?", "o": ["Functional organization", "Product-based organization", "Matrix organization", "Flat organization"], "a": 3, "e": "Startup cần ít tầng quản lý, quyết định nhanh, nên hợp flat organization."}, {"q": "Match the organizational category with the correct real-world example: Product-oriented companies, Enterprises, Service-based companies.", "o": ["Apple, IBM, AWS", "AWS, Apple, IBM", "IBM, AWS, Apple", "Apple, AWS, IBM"], "a": 0, "e": "Product-oriented = Apple, Enterprise = IBM, Service-based = AWS."}, {"q": "What are the main sources of architectural drivers in a business context?", "o": ["Business goals, stakeholders, quality attributes, constraints, functional requirements", "Coding style, indentation, comments, file names", "Database tables, primary keys, foreign keys only", "User interface colors and font size only"], "a": 0, "e": "Architectural drivers đến từ goals, stakeholders, quality attributes, constraints, functional requirements."}, {"q": "Does the TOGAF framework focus specifically on software architecture?", "o": ["Yes, it focuses only on software architecture", "No, it focuses more on Enterprise Architecture", "Yes, it focuses only on source code structure", "No, it focuses only on database design"], "a": 1, "e": "TOGAF chủ yếu là Enterprise Architecture, không chỉ riêng software architecture."}, {"q": "What are the three main categories of companies discussed in the lecture?", "o": ["Product-oriented companies, enterprises, service-based companies", "Small, medium, and large companies only", "Frontend, backend, and database companies", "Local, national, and international companies only"], "a": 0, "e": "Ba nhóm chính: product-oriented, enterprises, service-based companies."}, {"q": "In enterprise organizations, what is the primary purpose of the goal 'reducing complexity'?", "o": ["To make the user interface more colorful", "To simplify management and integration of large systems and business processes", "To remove all software from the organization", "To avoid using architecture completely"], "a": 1, "e": "Reducing complexity giúp doanh nghiệp dễ quản lý, tích hợp và vận hành hệ thống lớn."}, {"q": "What are the three categories of requirements that serve as architectural drivers?", "o": ["Functional requirements, quality attribute requirements, and constraints", "User interface design, database design, and testing", "Hardware, software, and network components", "Coding standards, comments, and documentation"], "a": 0, "e": "Nhớ FQC: Functional, Quality Attribute, Constraints."}, {"q": "Does the structure of software impact the functionality that can be implemented?", "o": ["Yes, software structure completely determines all functionality", "No, functionality can be achieved by many structures, but structure strongly affects quality attributes", "Yes, structure only affects the user interface", "No, structure has no impact on software at all"], "a": 1, "e": "Một chức năng có thể làm bằng nhiều kiến trúc, nhưng cấu trúc ảnh hưởng mạnh đến quality attributes."}, {"q": "In terms of quality attributes, what does 'Performance' primarily measure?", "o": ["The visual appearance of the system", "Response time, throughput, and resource usage", "The number of developers working on the system", "The amount of documentation written for the system"], "a": 1, "e": "Performance liên quan response time, latency, throughput, resource usage."}, {"q": "Technical constraints are often described as being what to the design space?", "o": ["Decorative elements", "Load-bearing walls", "Optional suggestions", "Temporary features"], "a": 1, "e": "Technical constraints giống tường chịu lực vì giới hạn không gian thiết kế."}, {"q": "Software architecture is mainly concerned with:", "o": ["Only the colors and layout of the user interface", "Structures of the system, software elements, visible properties, and relationships", "Only programming syntax", "Only test cases"], "a": 1, "e": "Định nghĩa architecture gồm structures, elements, externally visible properties và relationships."}, {"q": "According to the lecture, why do managers need to understand software architecture?", "o": ["Because management activities and technical activities are interdependent", "Because managers must write all source code", "Because architecture removes the need for planning", "Because software architecture is only about documentation"], "a": 0, "e": "Quyết định quản lý và kỹ thuật ảnh hưởng lẫn nhau, nhất là tradeoff."}, {"q": "Architectural alignment means:", "o": ["The source code is written in one programming language", "The system structure supports the properties needed by the business context", "The UI buttons are aligned on the screen", "The database tables have the same number of columns"], "a": 1, "e": "Alignment là kiến trúc hỗ trợ đúng properties mà business cần."}, {"q": "Which factor was important in the cell phone industry example?", "o": ["Ability to create product variants quickly", "Ability to remove all features", "Ability to avoid market competition", "Ability to ignore software quality"], "a": 0, "e": "Ví dụ cell phone nhấn mạnh khả năng ra biến thể sản phẩm nhanh để theo kịp thị trường."}, {"q": "In the Amazon example, decreasing latency can impact:", "o": ["Sales", "Source code comments", "Developer salaries only", "Database table names"], "a": 0, "e": "Latency/response time ảnh hưởng trực tiếp đến doanh thu/sales."}, {"q": "In the Google example, loading time affects:", "o": ["Ad revenue", "Keyboard shortcuts", "Code indentation", "File naming conventions"], "a": 0, "e": "Loading time tốt hơn có thể tăng ad revenue."}, {"q": "Which quality attribute is most related to 'response time'?", "o": ["Performance", "Modifiability", "Portability", "Usability only"], "a": 0, "e": "Response time là dấu hiệu cực mạnh của performance."}, {"q": "Which quality attribute is most related to 'ability to change the system easily'?", "o": ["Availability", "Modifiability", "Security", "Throughput"], "a": 1, "e": "Change/easy to modify = modifiability."}, {"q": "Which quality attribute is most related to 'the system keeps working when failures happen'?", "o": ["Availability", "Color consistency", "Naming convention", "Product price"], "a": 0, "e": "Availability quan tâm failure và hậu quả của failure."}, {"q": "Which quality attribute is most related to resisting unauthorized access?", "o": ["Performance", "Security", "Reusability", "Portability"], "a": 1, "e": "Unauthorized access là security."}, {"q": "Which of the following is an architecturally significant requirement?", "o": ["The system must support 10,000 users with average response time under 2 seconds", "The button should be blue", "The variable should be named x", "The comment should be written in English"], "a": 0, "e": "Yêu cầu có tải, response time, con số đo được sẽ ảnh hưởng kiến trúc."}, {"q": "A vague quality attribute requirement is:", "o": ["The system shall be modifiable", "The system shall process each payment within 2 seconds under peak load", "The system shall recover within 30 seconds after server crash", "The system shall support 500 concurrent users"], "a": 0, "e": "Chỉ nói 'modifiable' quá mơ hồ, không biết thay đổi gì và đo thế nào."}, {"q": "Why is 'The system shall be modifiable' considered weak?", "o": ["It does not specify what changes, how fast, or under what conditions", "It is too detailed", "It is a functional use case", "It describes database normalization"], "a": 0, "e": "Quality attribute tốt cần có ngữ cảnh và thước đo."}, {"q": "Quality Attribute Scenarios are used to:", "o": ["Better characterize and quantify quality attributes", "Replace all functional requirements", "Draw only database diagrams", "Write source code automatically"], "a": 0, "e": "QAS giúp biến quality attribute mơ hồ thành scenario đo được."}, {"q": "How many parts does a Quality Attribute Scenario have in the lecture?", "o": ["3", "4", "5", "6"], "a": 3, "e": "Có 6 phần: stimulus, source, environment, artifact, response, response measure."}, {"q": "Which is NOT one of the six parts of a Quality Attribute Scenario?", "o": ["Stimulus", "Source of stimulus", "Response measure", "Programming language syntax"], "a": 3, "e": "Programming language syntax không thuộc 6 phần của QAS."}, {"q": "In a Quality Attribute Scenario, 'stimulus' means:", "o": ["A condition/event that affects the system", "The final source code", "The database schema", "The project logo"], "a": 0, "e": "Stimulus là sự kiện/điều kiện tác động lên hệ thống."}, {"q": "In a Quality Attribute Scenario, 'response measure' means:", "o": ["The metric used to evaluate the system’s response", "The name of the developer", "The UI color palette", "The number of database tables"], "a": 0, "e": "Response measure là chỉ số đo phản hồi, ví dụ within 0.5 seconds."}, {"q": "A smoke detector sends an alarm under peak load; the system raises an alarm within 0.5 seconds. The response measure is:", "o": ["Smoke detector", "Peak load", "Within 0.5 seconds", "Building management system"], "a": 2, "e": "Response measure chính là mốc đo kết quả: within 0.5 seconds."}, {"q": "In the same scenario, 'under peak load' is the:", "o": ["Environment", "Source", "Artifact", "Response measure"], "a": 0, "e": "Peak load mô tả điều kiện xảy ra stimulus, nên là environment."}, {"q": "In the same scenario, the external smoke detector is the:", "o": ["Source of stimulus", "Response measure", "Architecture pattern", "Constraint"], "a": 0, "e": "Smoke detector tạo ra stimulus nên là source."}, {"q": "Functional requirements describe:", "o": ["What the system must do", "Only how fast the system is", "Only which server is used", "Only how code is formatted"], "a": 0, "e": "Functional requirement mô tả hệ thống phải làm gì."}, {"q": "At architectural design time, functional requirements should mainly be:", "o": ["High-level functionality", "Every line of code", "Every CSS class", "Every variable name"], "a": 0, "e": "Ở mức architecture, quan tâm high-level function, không đi vào code chi tiết."}, {"q": "Functional requirements can be captured using:", "o": ["Use cases, feature descriptions, operational descriptions, formal specifications", "Only color palettes", "Only keyboard shortcuts", "Only comments in code"], "a": 0, "e": "Các cách phổ biến: use case, feature description, operational description, formal specification."}, {"q": "Which information should be captured for functional requirements?", "o": ["Preconditions, happy path, alternative flows, error conditions, postconditions", "Only the logo", "Only programming language", "Only developer names"], "a": 0, "e": "Use case tốt nên có precondition, happy path, alternative/error flows, postcondition."}, {"q": "Business constraints usually include:", "o": ["Market, cost, schedule, workforce, product line, rollout plan", "Variable names only", "HTML tags only", "Mouse type used by developers"], "a": 0, "e": "Business constraints đến từ thị trường, chi phí, lịch, nguồn lực, rollout, product line."}, {"q": "Technical constraints include:", "o": ["Legacy systems, mandated technologies, protocols, standards", "Office decoration", "Slide background color only", "Developer lunch schedule"], "a": 0, "e": "Technical constraints gồm legacy, công nghệ bắt buộc, protocol, standard."}, {"q": "Why must constraints be documented?", "o": ["They shape architecture and must be followed", "They are optional decorations", "They are never important", "They replace all requirements"], "a": 0, "e": "Constraints phải được ghi lại vì định hướng và giới hạn kiến trúc."}, {"q": "According to the lecture, constraints do not need to be prioritized because:", "o": ["By definition, they must be adhered to", "They are always ignored", "They are the same as suggestions", "They only affect UI color"], "a": 0, "e": "Constraint là thứ bắt buộc tuân thủ, không phải wish list."}, {"q": "It can be helpful to assign what to constraints?", "o": ["Difficulty rankings", "Random colors", "Variable names", "User avatars"], "a": 0, "e": "Không ưu tiên constraint, nhưng có thể đánh độ khó để xử lý."}, {"q": "Why is 'non-functional requirement' considered a problematic term?", "o": ["It creates a false partition and quality attributes still involve functionality", "It means the system has no functions", "It only refers to hardware", "It only refers to documentation"], "a": 0, "e": "Quality attributes vẫn liên quan function; quan trọng là có architecturally significant không."}, {"q": "Quality attributes and constraints drive architecture more than:", "o": ["Functionality alone", "Font size", "Button color", "File extension"], "a": 0, "e": "Functionality quan trọng, nhưng quality attributes/constraints thường định hình cấu trúc mạnh hơn."}, {"q": "Availability is concerned with:", "o": ["System failure and its consequences", "UI theme only", "Marketing slogan", "Database table names"], "a": 0, "e": "Availability tập trung vào failure, detection, recovery, degraded mode."}, {"q": "Which is an availability concern?", "o": ["Detecting and recovering from system failures", "Choosing a font", "Naming a variable", "Writing a comment"], "a": 0, "e": "Detect/recover failure là trọng tâm của availability."}, {"q": "Which of the following is an availability tactic for fault detection?", "o": ["Heartbeat", "Polymorphism", "Authentication", "FIFO scheduling"], "a": 0, "e": "Heartbeat là tactic phát hiện lỗi."}, {"q": "Ping/Echo is mainly used for:", "o": ["Fault detection", "UI design", "Database normalization", "Code formatting"], "a": 0, "e": "Ping/Echo kiểm tra component còn phản hồi không."}, {"q": "Heartbeat means:", "o": ["One component sends periodic messages while another listens", "One class changes color", "One database table is deleted", "One user changes password"], "a": 0, "e": "Heartbeat là gửi tín hiệu định kỳ để phát hiện lỗi."}, {"q": "Voting is a tactic mainly related to:", "o": ["Fault recovery", "User interface style", "Database indexing only", "Source code comments"], "a": 0, "e": "Voting dùng nhiều process tính output rồi voter quyết định."}, {"q": "Active redundancy means:", "o": ["Redundant components respond to events in parallel", "Only one primary component works and standby waits", "No backup exists", "All components are removed"], "a": 0, "e": "Active redundancy: các bản dự phòng chạy song song."}, {"q": "Passive redundancy means:", "o": ["A primary component responds and informs standby components of state updates", "All components work in parallel", "The system has no backup", "The system ignores failures"], "a": 0, "e": "Passive redundancy: primary xử lý, standby nhận update state."}, {"q": "Checkpoint/Rollback is used to:", "o": ["Record a consistent state and return to it after failure", "Change UI color", "Increase font size", "Rename files"], "a": 0, "e": "Checkpoint/rollback giúp phục hồi về trạng thái nhất quán."}, {"q": "Removal from service is a tactic for:", "o": ["Fault prevention", "User authentication", "Market analysis", "Source code indentation"], "a": 0, "e": "Removal from service đưa component ra khỏi hoạt động để ngăn lỗi dự đoán."}, {"q": "Transactions help availability because they:", "o": ["Allow a bundle of steps to be undone if one step fails", "Make buttons larger", "Remove all error handling", "Make code comments shorter"], "a": 0, "e": "Transaction giúp rollback nếu một bước thất bại."}, {"q": "A process monitor is used to:", "o": ["Monitor critical components and restart/re-instantiate them if needed", "Design the company logo", "Write business strategy", "Choose variable names"], "a": 0, "e": "Process monitor theo dõi và khởi tạo lại process/component khi cần."}, {"q": "Modifiability tactics include:", "o": ["Localization of modifications, prevention of ripple effects, deferral of binding time", "Authentication, authorization, encryption only", "Scheduling and FIFO only", "Ping and heartbeat only"], "a": 0, "e": "Ba nhóm lớn: localize modifications, prevent ripple effects, defer binding time."}, {"q": "Maintain semantic coherence means:", "o": ["Responsibilities in a module should work together coherently", "Every module should do everything", "UI should use many colors", "Every function should access every database table"], "a": 0, "e": "Các responsibility trong module nên liên quan chặt chẽ, ít phụ thuộc dư thừa."}, {"q": "Anticipate expected changes means:", "o": ["Design with envisioned future changes in mind", "Never allow any change", "Change code randomly", "Avoid requirements"], "a": 0, "e": "Dự đoán thay đổi giúp chuẩn bị cấu trúc dễ sửa sau này."}, {"q": "Hide information is mainly used to:", "o": ["Prevent accidental ripple effects", "Increase latency", "Remove all interfaces", "Avoid testing"], "a": 0, "e": "Information hiding giảm ảnh hưởng lan truyền khi module thay đổi."}, {"q": "Using adapters and stubs is related to which modifiability tactic?", "o": ["Maintain existing interfaces", "Active redundancy", "Authentication", "Scheduling"], "a": 0, "e": "Adapter/stub giúp giữ interface cũ khi thay đổi bên trong."}, {"q": "Restrict communication paths helps modifiability by:", "o": ["Limiting which modules share data or communicate", "Allowing every module to depend on every other module", "Removing all modules", "Increasing UI animation"], "a": 0, "e": "Giới hạn đường giao tiếp giảm coupling và ripple effect."}, {"q": "Use intermediaries may include:", "o": ["Repositories, bridges, proxies, name servers, resource brokers", "Only fonts and icons", "Only test cases", "Only keyboard shortcuts"], "a": 0, "e": "Intermediary làm lớp trung gian để giảm phụ thuộc trực tiếp."}, {"q": "Runtime registration supports:", "o": ["Plug-and-play operation", "No runtime flexibility", "Database deletion", "Static-only compilation"], "a": 0, "e": "Runtime registration cho phép thêm/bỏ thành phần linh hoạt lúc chạy."}, {"q": "Configuration files are a tactic for:", "o": ["Deferral of binding time", "Fault detection only", "Authentication only", "UI color only"], "a": 0, "e": "Config file hoãn quyết định đến deploy/run time."}, {"q": "Polymorphism supports modifiability because it allows:", "o": ["Late binding of method calls", "Permanent hard-coding of all behavior", "Removal of all interfaces", "No substitution"], "a": 0, "e": "Polymorphism giúp thay implementation mà giữ interface."}, {"q": "Performance tactics are commonly grouped into:", "o": ["Resource demand, resource management, resource arbitration", "Login, register, logout", "Design, code, comment", "UI, UX, color"], "a": 0, "e": "Performance tactics: kiểm soát nhu cầu tài nguyên, quản lý tài nguyên, phân xử tài nguyên."}, {"q": "Increasing computational efficiency is used to:", "o": ["Decrease latency", "Increase unnecessary overhead", "Remove all algorithms", "Make UI brighter"], "a": 0, "e": "Tính toán hiệu quả hơn thường giảm latency/response time."}, {"q": "Reducing computational overhead means:", "o": ["Reducing unnecessary resource usage and processing", "Adding extra processing everywhere", "Increasing database duplication randomly", "Removing all performance goals"], "a": 0, "e": "Giảm overhead là giảm xử lý/tài nguyên không cần thiết."}, {"q": "Introducing concurrency helps performance by:", "o": ["Processing requests in parallel", "Blocking all requests", "Removing all threads", "Preventing any parallelism"], "a": 0, "e": "Concurrency giúp xử lý song song nếu thiết kế phù hợp."}, {"q": "Maintaining multiple copies of data can improve performance by:", "o": ["Reducing contention at a single location", "Making synchronization easier in all cases", "Removing the need for storage", "Eliminating all data"], "a": 0, "e": "Copy data có thể giảm tranh chấp, nhưng đồng bộ sẽ khó hơn."}, {"q": "Increasing available resources means:", "o": ["Using more/faster processors, memory, networks, etc.", "Removing servers", "Reducing all hardware", "Avoiding deployment"], "a": 0, "e": "Tăng tài nguyên có thể cải thiện performance nhưng tốn chi phí."}, {"q": "FIFO scheduling means:", "o": ["First in, first out", "Fast input, fast output", "File input, file output", "First interface, first object"], "a": 0, "e": "FIFO = First In First Out."}, {"q": "Security is the ability of the system to:", "o": ["Resist unauthorized access while allowing legitimate users", "Make the interface beautiful", "Reduce all functionality", "Avoid documentation"], "a": 0, "e": "Security chống truy cập trái phép nhưng vẫn cho user hợp lệ dùng."}, {"q": "Authentication is used to:", "o": ["Ensure user identity", "Increase response time only", "Remove passwords", "Ignore attackers"], "a": 0, "e": "Authentication = xác thực danh tính."}, {"q": "Authorization is used to:", "o": ["Control access to data/services for authenticated users", "Verify system latency", "Restart failed components", "Increase CPU speed"], "a": 0, "e": "Authorization = phân quyền sau khi xác thực."}, {"q": "Maintaining data confidentiality usually involves:", "o": ["Encryption", "Deleting all logs", "Disabling login", "Removing firewalls"], "a": 0, "e": "Confidentiality thường dùng encryption."}, {"q": "Maintaining integrity may involve:", "o": ["Checksums or hash results", "Changing button colors", "Removing validation", "Ignoring data corruption"], "a": 0, "e": "Integrity đảm bảo dữ liệu không bị sửa sai, có thể dùng checksum/hash."}, {"q": "Limit access is commonly implemented using:", "o": ["Firewalls and DMZs", "Fonts and icons", "Comments and indentation", "Product slogans"], "a": 0, "e": "Firewall/DMZ giới hạn vùng truy cập."}, {"q": "Intrusion detection is used to:", "o": ["Detect attacks by observing unusual behavior or traffic", "Create UI wireframes", "Improve font readability", "Replace all testing"], "a": 0, "e": "Intrusion detection phát hiện dấu hiệu tấn công bất thường."}, {"q": "An audit trail helps security by:", "o": ["Recording actions to help identify attackers or reconstruct events", "Removing all records", "Hiding all user activity from administrators", "Making the system slower intentionally"], "a": 0, "e": "Audit trail lưu dấu vết để điều tra/truy vết."}, {"q": "The classic quality attributes discussed as examples include:", "o": ["Availability, modifiability, performance, security", "Color, font, icon, animation", "HTML, CSS, JavaScript, SQL", "Planning, coding, testing, deploying"], "a": 0, "e": "Bốn ví dụ chính trong phần tactics: availability, modifiability, performance, security."}, {"q": "Static structures are elements that exist:", "o": ["Prior to compilation and execution", "Only during runtime", "Only in deployment servers", "Only in user manuals"], "a": 0, "e": "Static structure là code/module/layer tồn tại trước compile/run."}, {"q": "Examples of static elements include:", "o": ["Modules, subsystems, layers", "Threads, processes, runtime messages only", "Users, customers, managers only", "Servers, routers, switches only"], "a": 0, "e": "Static elements thường là modules, subsystems, layers."}, {"q": "Dynamic structures are elements that exist:", "o": ["During execution/runtime", "Only before coding", "Only in business strategy", "Only in requirement documents"], "a": 0, "e": "Dynamic structures tồn tại lúc chạy."}, {"q": "Examples of dynamic elements include:", "o": ["Threads, processes, shared data, components", "Only packages and files", "Only stakeholders", "Only product roadmap items"], "a": 0, "e": "Dynamic elements: threads, processes, shared data, runtime components."}, {"q": "Dynamic views are useful for analyzing:", "o": ["Performance, fault tolerance, security", "Font size only", "Marketing slogans only", "Developer birthdays only"], "a": 0, "e": "Runtime view giúp phân tích performance, fault tolerance, security."}, {"q": "Allocation structures show:", "o": ["Mapping of software elements to the environment", "Only class inheritance", "Only UI layout", "Only function names"], "a": 0, "e": "Allocation = software được gán vào hardware/team/file structure."}, {"q": "Deployment allocation maps:", "o": ["Processes to processors", "Colors to buttons", "Comments to files", "Users to passwords only"], "a": 0, "e": "Deployment allocation ánh xạ process/software lên processor/node."}, {"q": "Work breakdown allocation maps:", "o": ["Code modules to people or teams", "Buttons to colors", "Tables to rows only", "Screens to pixels"], "a": 0, "e": "Work assignment mapping cho biết team/person nào làm module nào."}, {"q": "Implementation allocation maps:", "o": ["Code modules to file structure", "Runtime threads to CPU only", "Stakeholders to business goals only", "Users to UI colors"], "a": 0, "e": "Implementation allocation ánh xạ module vào file/folder/source tree."}, {"q": "Architectural patterns are useful because they:", "o": ["Provide proven problem-solution structures and known tradeoffs", "Replace all design decisions", "Guarantee perfect performance", "Are the same as source code comments"], "a": 0, "e": "Pattern là kinh nghiệm thiết kế đã được tổng quát hóa, có tradeoff đã biết."}, {"q": "The layered pattern usually promotes:", "o": ["Modifiability, portability, and reusability", "Only maximum performance", "No structure", "Random dependencies"], "a": 0, "e": "Layers giúp tách mức trừu tượng nên tốt cho modify/port/reuse."}, {"q": "The layered pattern may inhibit:", "o": ["Performance and implementation size", "All modifiability", "All portability", "All reusability"], "a": 0, "e": "Layers có thể tăng overhead call qua nhiều lớp và làm code lớn hơn."}];
-let state = JSON.parse(localStorage.getItem("saQuizState") || "{}");
-let answers = state.answers || {};
-let locked = state.locked || {};
-let review = state.review || {};
-let examMode = false;
-let timer = null;
-let seconds = 3600;
-function saveState(){localStorage.setItem("saQuizState", JSON.stringify({answers,locked,review}))}
-function shuffle(arr){return arr.map(v=>[Math.random(),v]).sort((a,b)=>a[0]-b[0]).map(v=>v[1])}
-function render(){
-const container=document.getElementById("container");
-const nav=document.getElementById("nav");
-const kw=document.getElementById("search").value.trim().toLowerCase();
-container.innerHTML="";
-nav.innerHTML="";
-let score=0, progress=0;
-quizData.forEach((q,i)=>{
- if(answers[i]!==undefined){progress++; if(answers[i]===q.a)score++}
- const btn=document.createElement("button");
- btn.className="nav";
- if(review[i]) btn.classList.add("rev");
- if(examMode && answers[i]!==undefined) btn.classList.add("ans");
- if(!examMode && locked[i] && answers[i]===q.a) btn.classList.add("ok");
- if(!examMode && locked[i] && answers[i]!==q.a) btn.classList.add("bad");
- btn.textContent=i+1;
- btn.onclick=()=>document.getElementById("q"+i)?.scrollIntoView({behavior:"smooth",block:"start"});
- nav.appendChild(btn);
- if(kw && !(q.q+" "+q.o.join(" ")).toLowerCase().includes(kw)) return;
- const card=document.createElement("section");
- card.className="card"+(review[i]?" review":"")+(examMode?" exam":"");
- card.id="q"+i;
- let opts=q.o.map((op,idx)=>({op,idx}));
- card.innerHTML = `
- <div class="qhead">
-  <div class="qtitle">Câu ${i+1}. ${escapeHtml(q.q)}</div>
-  <div class="small-actions"><button class="mark ${review[i]?'saved':''}" onclick="markReview(${i})">${review[i]?'Đã lưu':'Ôn lại'}</button></div>
- </div>
- <ul class="options">${opts.map(x=>{
-   let cls="";
-   if(examMode && answers[i]===x.idx) cls="selected";
-   if(!examMode && locked[i]){
-     if(x.idx===q.a) cls="correct locked";
-     else if(answers[i]===x.idx) cls="wrong locked";
-     else cls="locked";
-   }
-   return `<li class="${cls}"><label><input type="radio" name="q${i}" ${answers[i]===x.idx?'checked':''} ${(!examMode&&locked[i])?'disabled':''} onchange="choose(${i},${x.idx})"><span>${escapeHtml(x.op)}</span></label></li>`
- }).join("")}</ul>
- <div class="explain" style="${(!examMode&&locked[i])?'display:block':''}"><b>Giải thích:</b> ${escapeHtml(q.e||"")}</div>`;
- container.appendChild(card);
-});
-document.getElementById("score").textContent=score;
-document.getElementById("progress").textContent=progress;
-document.getElementById("reviewCount").textContent=Object.keys(review).filter(k=>review[k]).length;
-saveState();
-}
-function escapeHtml(s){return String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[m]))}
-function choose(i,a){answers[i]=a;if(!examMode) locked[i]=true;render()}
-function markReview(i){review[i]=!review[i];render()}
-function toggleDark(){document.body.classList.toggle("dark");localStorage.setItem("saDark",document.body.classList.contains("dark")?"1":"0")}
-if(localStorage.getItem("saDark")==="1")document.body.classList.add("dark");
-function toggleReview(){const keys=Object.keys(review).filter(k=>review[k]); if(!keys.length){alert("Bạn chưa lưu câu nào để ôn tập.");return} document.getElementById("search").value=""; document.querySelectorAll(".card").forEach(c=>c.remove()); const container=document.getElementById("container"); container.innerHTML=""; keys.forEach(k=>{document.getElementById("search").value="";}); alert("Các câu màu tím trong thanh câu hỏi là câu đã lưu ôn tập. Bấm số câu để nhảy nhanh nhé.");}
-function startExam(){
-if(!confirm("Bắt đầu thi thử 60 phút? Đáp án chỉ hiện sau khi nộp bài."))return;
-examMode=true;answers={};locked={};seconds=3600;document.getElementById("timer").style.display="block";clearInterval(timer);timer=setInterval(tick,1000);render();window.scrollTo({top:0,behavior:"smooth"});
-}
-function tick(){seconds--;let m=String(Math.floor(seconds/60)).padStart(2,"0"),s=String(seconds%60).padStart(2,"0");document.getElementById("timer").textContent=`⏱️ ${m}:${s}`;if(seconds<=0){submitExam()}}
-function submitExam(){clearInterval(timer);examMode=false;Object.keys(answers).forEach(k=>locked[k]=true);document.getElementById("timer").style.display="none";saveScore("Thi thử");render();alert("Đã nộp bài thi thử!")}
-function submitPractice(){saveScore("Luyện tập");alert("Đã lưu điểm luyện tập.")}
-function saveScore(type){
-let correct=0, answered=0;quizData.forEach((q,i)=>{if(answers[i]!==undefined){answered++;if(answers[i]===q.a)correct++}});
-let history=JSON.parse(localStorage.getItem("saHistory")||"[]");
-history.unshift({date:new Date().toLocaleString("vi-VN"),type,correct,total:quizData.length,answered,percent:Math.round(correct/quizData.length*100)});
-localStorage.setItem("saHistory",JSON.stringify(history.slice(0,50)));
-}
-function openHistory(){renderHistory();document.getElementById("historyModal").style.display="block"}
-function closeHistory(){document.getElementById("historyModal").style.display="none"}
-function renderHistory(){
-let history=JSON.parse(localStorage.getItem("saHistory")||"[]");
-let best=history.reduce((m,h)=>Math.max(m,h.percent),0);
-document.getElementById("best").innerHTML=history.length?`🏆 Điểm cao nhất: ${best}%`:"Chưa có lịch sử";
-document.getElementById("history").innerHTML=history.length?history.map(h=>`<div class="history-item"><div><b>${h.type}</b><br><small>${h.date}</small><br><small>Đã trả lời: ${h.answered}/${h.total}</small></div><span class="badge">${h.correct}/${h.total} - ${h.percent}%</span></div>`).join(""):"<p style='text-align:center;color:var(--gray)'>Chưa có dữ liệu.</p>";
-}
-function clearHistory(){if(confirm("Xóa toàn bộ lịch sử?")){localStorage.removeItem("saHistory");renderHistory()}}
-function resetAll(){if(confirm("Làm lại toàn bộ?")){answers={};locked={};review={};examMode=false;clearInterval(timer);document.getElementById("timer").style.display="none";saveState();render()}}
-render();
-</script>
+
+    <div id="score-board">
+        <div id="score-board-info" class="score-info">
+            Điểm: <span id="score">0</span> / <span id="total-score">100</span>
+            <div class="progress-info">Đã trả lời: <span id="progress">0</span> câu</div>
+        </div>
+
+        <div id="exam-timer-display">⏱️ 60:00</div>
+
+        <div class="top-btn-group">
+            <button class="action-btn btn-tool" id="btn-sound" onclick="toggleSound()"
+                title="Bật/Tắt âm thanh">🎵</button>
+            <button class="action-btn btn-tool" id="btn-dark" onclick="toggleDark()"
+                title="Giao diện tối/sáng">🌙</button>
+
+            <button class="action-btn btn-exam" id="btn-exam-mode" onclick="startExamMode()">⏱️ Thi Thử</button>
+            <button class="action-btn btn-review-mode" id="btn-toggle-review" onclick="toggleReviewMode()">📚 Ôn tập
+                (<span id="review-count">0</span>)</button>
+            <button class="action-btn btn-history" onclick="openHistoryModal()">📜 Lịch sử</button>
+            <button class="action-btn btn-restart" onclick="location.reload()">🔄 Làm lại</button>
+        </div>
+    </div>
+
+    <button id="mobile-topbar-toggle" onclick="toggleTopBar()" title="Ẩn/hiện thanh công cụ">✕</button>
+    <button id="mobile-scroll-top" onclick="scrollToQuestionNav()" title="Về danh sách câu hỏi">⬆️</button>
+
+    <div class="search-container" id="search-bar-wrap">
+        <input type="text" id="search-input" placeholder="🔍 Tìm câu hỏi..." oninput="filterQuestions()">
+    </div>
+
+    <div id="layout-container">
+        <div id="main-content">
+            <div id="quiz-header">
+                <h1 id="main-title">Môn Học: Software Architecture</h1>
+                <p class="intro-text" id="main-desc">Actor: Duy Mạnh</p>
+            </div>
+
+            <div id="quiz-container"></div>
+            <div id="review-container" style="display: none;"></div>
+
+            <div id="bottom-actions" style="text-align: center; margin: 40px 0;">
+                <button class="action-btn"
+                    style="padding: 15px 30px; font-size: 1.2em; background-color: var(--success); margin: 0 auto;"
+                    onclick="saveScore(false, 'Luyện tập')">💾 Nộp Bài & Lưu Điểm</button>
+            </div>
+        </div>
+
+        <div id="sidebar">
+            <div class="sidebar-title">Câu hỏi</div>
+            <div class="nav-grid" id="nav-grid"></div>
+            <div class="legend" id="sidebar-legend">
+                <div class="legend-item">
+                    <div class="box n"></div> Trống
+                </div>
+                <div class="legend-item" id="lg-correct">
+                    <div class="box c"></div> Đúng
+                </div>
+                <div class="legend-item" id="lg-wrong">
+                    <div class="box w"></div> Sai
+                </div>
+                <div class="legend-item" id="lg-exam" style="display:none;">
+                    <div class="box e"></div> Đã chọn
+                </div>
+                <div class="legend-item" id="lg-unknown">
+                    <div class="box u"></div> Ôn tập
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="historyModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeHistoryModal()">&times;</span>
+            <h2 style="text-align: center; margin-top: 0;">📊 Lịch sử</h2>
+            <div class="high-score-board" id="high-score-display"></div>
+            <ul class="history-list" id="history-list"></ul>
+            <button class="btn-clear-history" id="clear-history-btn" onclick="clearAllHistory()">🗑️ Xóa hết</button>
+            <div class="backup-actions">
+                <button class="btn-backup-data" onclick="exportQuizData()">📤 Sao lưu</button>
+                <button class="btn-import-data" onclick="document.getElementById('import-data-file').click()">📥 Khôi
+                    phục</button>
+                <input type="file" id="import-data-file" accept=".json,application/json" style="display:none"
+                    onchange="importQuizData(event)">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const quizData = [
+            {
+                        "q": "Which of the following is NOT typically considered part of the business context?",
+                        "o": [
+                                    "Organizational structure and culture",
+                                    "Market forces and competition",
+                                    "Business strategy and regulations",
+                                    "Source code implementation details"
+                        ],
+                        "a": 3
+            },
+            {
+                        "q": "Business constraints in the business context may include...",
+                        "o": [
+                                    "Regulatory compliance, budget limits, and deadlines",
+                                    "Choice of variable names in source code",
+                                    "Preferred programming style of developers",
+                                    "The syntax of SQL queries"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Which type of organization is usually large, complex, and integrates multiple products and services across different markets?",
+                        "o": [
+                                    "Enterprises",
+                                    "Product-oriented companies",
+                                    "Startups",
+                                    "Service-based companies"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Which of the following best describes a System Context Diagram (SCD)?",
+                        "o": [
+                                    "A diagram that shows the internal modules and components of the system.",
+                                    "A diagram that focuses on external actors and their interactions with the system.",
+                                    "A diagram that shows how database tables are linked together.",
+                                    "A diagram used to model detailed business processes inside the system."
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "Which of the following is NOT usually included in a System Context Diagram?",
+                        "o": [
+                                    "External systems interacting with the system.",
+                                    "Human users who exchange information with the system.",
+                                    "The detailed logic of internal system processes.",
+                                    "Information flows between the system and its environment."
+                        ],
+                        "a": 2
+            },
+            {
+                        "q": "In a System Context Diagram, the system is usually represented as:",
+                        "o": [
+                                    "A central box / black box with no internal details.",
+                                    "A detailed flowchart showing step-by-step processes.",
+                                    "A layered structure with modules and sub-modules.",
+                                    "A network diagram with servers and routers."
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Which of the following is a common mistake when designing a System Context Diagram?",
+                        "o": [
+                                    "Keeping the system as a black box.",
+                                    "Including too many unnecessary internal details.",
+                                    "Showing external actors around the system.",
+                                    "Using arrows to represent information flow."
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "In the matching question about SCD concepts, which description matches Information Flow?",
+                        "o": [
+                                    "Arrows or lines showing data/control exchanged between system and environment.",
+                                    "Users, external systems, or organizations interacting with the system.",
+                                    "Treating the system as a central unit without internal processes.",
+                                    "Adding unnecessary details of the internal system."
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "A startup wants to keep decision-making fast and flexible. Which organizational category aligns with this business context?",
+                        "o": [
+                                    "Functional organization",
+                                    "Product-based organization",
+                                    "Matrix organization",
+                                    "Flat organization"
+                        ],
+                        "a": 3
+            },
+            {
+                        "q": "Match the organizational category with the correct real-world example: Product-oriented companies, Enterprises, Service-based companies.",
+                        "o": [
+                                    "Apple, IBM, AWS",
+                                    "AWS, Apple, IBM",
+                                    "IBM, AWS, Apple",
+                                    "Apple, AWS, IBM"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "What are the main sources of architectural drivers in a business context?",
+                        "o": [
+                                    "Business goals, stakeholders, quality attributes, constraints, functional requirements",
+                                    "Coding style, indentation, comments, file names",
+                                    "Database tables, primary keys, foreign keys only",
+                                    "User interface colors and font size only"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Does the TOGAF framework focus specifically on software architecture?",
+                        "o": [
+                                    "Yes, it focuses only on software architecture",
+                                    "No, it focuses more on Enterprise Architecture",
+                                    "Yes, it focuses only on source code structure",
+                                    "No, it focuses only on database design"
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "What are the three main categories of companies discussed in the lecture?",
+                        "o": [
+                                    "Product-oriented companies, enterprises, service-based companies",
+                                    "Small, medium, and large companies only",
+                                    "Frontend, backend, and database companies",
+                                    "Local, national, and international companies only"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "In enterprise organizations, what is the primary purpose of the goal 'reducing complexity'?",
+                        "o": [
+                                    "To make the user interface more colorful",
+                                    "To simplify management and integration of large systems and business processes",
+                                    "To remove all software from the organization",
+                                    "To avoid using architecture completely"
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "What are the three categories of requirements that serve as architectural drivers?",
+                        "o": [
+                                    "Functional requirements, quality attribute requirements, and constraints",
+                                    "User interface design, database design, and testing",
+                                    "Hardware, software, and network components",
+                                    "Coding standards, comments, and documentation"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Does the structure of software impact the functionality that can be implemented?",
+                        "o": [
+                                    "Yes, software structure completely determines all functionality",
+                                    "No, functionality can be achieved by many structures, but structure strongly affects quality attributes",
+                                    "Yes, structure only affects the user interface",
+                                    "No, structure has no impact on software at all"
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "In terms of quality attributes, what does 'Performance' primarily measure?",
+                        "o": [
+                                    "The visual appearance of the system",
+                                    "Response time, throughput, and resource usage",
+                                    "The number of developers working on the system",
+                                    "The amount of documentation written for the system"
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "Technical constraints are often described as being what to the design space?",
+                        "o": [
+                                    "Decorative elements",
+                                    "Load-bearing walls",
+                                    "Optional suggestions",
+                                    "Temporary features"
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "Software architecture is mainly concerned with:",
+                        "o": [
+                                    "Only the colors and layout of the user interface",
+                                    "Structures of the system, software elements, visible properties, and relationships",
+                                    "Only programming syntax",
+                                    "Only test cases"
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "According to the lecture, why do managers need to understand software architecture?",
+                        "o": [
+                                    "Because management activities and technical activities are interdependent",
+                                    "Because managers must write all source code",
+                                    "Because architecture removes the need for planning",
+                                    "Because software architecture is only about documentation"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Architectural alignment means:",
+                        "o": [
+                                    "The source code is written in one programming language",
+                                    "The system structure supports the properties needed by the business context",
+                                    "The UI buttons are aligned on the screen",
+                                    "The database tables have the same number of columns"
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "Which factor was important in the cell phone industry example?",
+                        "o": [
+                                    "Ability to create product variants quickly",
+                                    "Ability to remove all features",
+                                    "Ability to avoid market competition",
+                                    "Ability to ignore software quality"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "In the Amazon example, decreasing latency can impact:",
+                        "o": [
+                                    "Sales",
+                                    "Source code comments",
+                                    "Developer salaries only",
+                                    "Database table names"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "In the Google example, loading time affects:",
+                        "o": [
+                                    "Ad revenue",
+                                    "Keyboard shortcuts",
+                                    "Code indentation",
+                                    "File naming conventions"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Which quality attribute is most related to 'response time'?",
+                        "o": [
+                                    "Performance",
+                                    "Modifiability",
+                                    "Portability",
+                                    "Usability only"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Which quality attribute is most related to 'ability to change the system easily'?",
+                        "o": [
+                                    "Availability",
+                                    "Modifiability",
+                                    "Security",
+                                    "Throughput"
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "Which quality attribute is most related to 'the system keeps working when failures happen'?",
+                        "o": [
+                                    "Availability",
+                                    "Color consistency",
+                                    "Naming convention",
+                                    "Product price"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Which quality attribute is most related to resisting unauthorized access?",
+                        "o": [
+                                    "Performance",
+                                    "Security",
+                                    "Reusability",
+                                    "Portability"
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "Which of the following is an architecturally significant requirement?",
+                        "o": [
+                                    "The system must support 10,000 users with average response time under 2 seconds",
+                                    "The button should be blue",
+                                    "The variable should be named x",
+                                    "The comment should be written in English"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "A vague quality attribute requirement is:",
+                        "o": [
+                                    "The system shall be modifiable",
+                                    "The system shall process each payment within 2 seconds under peak load",
+                                    "The system shall recover within 30 seconds after server crash",
+                                    "The system shall support 500 concurrent users"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Why is 'The system shall be modifiable' considered weak?",
+                        "o": [
+                                    "It does not specify what changes, how fast, or under what conditions",
+                                    "It is too detailed",
+                                    "It is a functional use case",
+                                    "It describes database normalization"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Quality Attribute Scenarios are used to:",
+                        "o": [
+                                    "Better characterize and quantify quality attributes",
+                                    "Replace all functional requirements",
+                                    "Draw only database diagrams",
+                                    "Write source code automatically"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "How many parts does a Quality Attribute Scenario have in the lecture?",
+                        "o": [
+                                    "3",
+                                    "4",
+                                    "5",
+                                    "6"
+                        ],
+                        "a": 3
+            },
+            {
+                        "q": "Which is NOT one of the six parts of a Quality Attribute Scenario?",
+                        "o": [
+                                    "Stimulus",
+                                    "Source of stimulus",
+                                    "Response measure",
+                                    "Programming language syntax"
+                        ],
+                        "a": 3
+            },
+            {
+                        "q": "In a Quality Attribute Scenario, 'stimulus' means:",
+                        "o": [
+                                    "A condition/event that affects the system",
+                                    "The final source code",
+                                    "The database schema",
+                                    "The project logo"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "In a Quality Attribute Scenario, 'response measure' means:",
+                        "o": [
+                                    "The metric used to evaluate the system’s response",
+                                    "The name of the developer",
+                                    "The UI color palette",
+                                    "The number of database tables"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "A smoke detector sends an alarm under peak load; the system raises an alarm within 0.5 seconds. The response measure is:",
+                        "o": [
+                                    "Smoke detector",
+                                    "Peak load",
+                                    "Within 0.5 seconds",
+                                    "Building management system"
+                        ],
+                        "a": 2
+            },
+            {
+                        "q": "In the same scenario, 'under peak load' is the:",
+                        "o": [
+                                    "Environment",
+                                    "Source",
+                                    "Artifact",
+                                    "Response measure"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "In the same scenario, the external smoke detector is the:",
+                        "o": [
+                                    "Source of stimulus",
+                                    "Response measure",
+                                    "Architecture pattern",
+                                    "Constraint"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Functional requirements describe:",
+                        "o": [
+                                    "What the system must do",
+                                    "Only how fast the system is",
+                                    "Only which server is used",
+                                    "Only how code is formatted"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "At architectural design time, functional requirements should mainly be:",
+                        "o": [
+                                    "High-level functionality",
+                                    "Every line of code",
+                                    "Every CSS class",
+                                    "Every variable name"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Functional requirements can be captured using:",
+                        "o": [
+                                    "Use cases, feature descriptions, operational descriptions, formal specifications",
+                                    "Only color palettes",
+                                    "Only keyboard shortcuts",
+                                    "Only comments in code"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Which information should be captured for functional requirements?",
+                        "o": [
+                                    "Preconditions, happy path, alternative flows, error conditions, postconditions",
+                                    "Only the logo",
+                                    "Only programming language",
+                                    "Only developer names"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Business constraints usually include:",
+                        "o": [
+                                    "Market, cost, schedule, workforce, product line, rollout plan",
+                                    "Variable names only",
+                                    "HTML tags only",
+                                    "Mouse type used by developers"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Technical constraints include:",
+                        "o": [
+                                    "Legacy systems, mandated technologies, protocols, standards",
+                                    "Office decoration",
+                                    "Slide background color only",
+                                    "Developer lunch schedule"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Why must constraints be documented?",
+                        "o": [
+                                    "They shape architecture and must be followed",
+                                    "They are optional decorations",
+                                    "They are never important",
+                                    "They replace all requirements"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "According to the lecture, constraints do not need to be prioritized because:",
+                        "o": [
+                                    "By definition, they must be adhered to",
+                                    "They are always ignored",
+                                    "They are the same as suggestions",
+                                    "They only affect UI color"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "It can be helpful to assign what to constraints?",
+                        "o": [
+                                    "Difficulty rankings",
+                                    "Random colors",
+                                    "Variable names",
+                                    "User avatars"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Why is 'non-functional requirement' considered a problematic term?",
+                        "o": [
+                                    "It creates a false partition and quality attributes still involve functionality",
+                                    "It means the system has no functions",
+                                    "It only refers to hardware",
+                                    "It only refers to documentation"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Quality attributes and constraints drive architecture more than:",
+                        "o": [
+                                    "Functionality alone",
+                                    "Font size",
+                                    "Button color",
+                                    "File extension"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Availability is concerned with:",
+                        "o": [
+                                    "System failure and its consequences",
+                                    "UI theme only",
+                                    "Marketing slogan",
+                                    "Database table names"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Which is an availability concern?",
+                        "o": [
+                                    "Detecting and recovering from system failures",
+                                    "Choosing a font",
+                                    "Naming a variable",
+                                    "Writing a comment"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Which of the following is an availability tactic for fault detection?",
+                        "o": [
+                                    "Heartbeat",
+                                    "Polymorphism",
+                                    "Authentication",
+                                    "FIFO scheduling"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Ping/Echo is mainly used for:",
+                        "o": [
+                                    "Fault detection",
+                                    "UI design",
+                                    "Database normalization",
+                                    "Code formatting"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Heartbeat means:",
+                        "o": [
+                                    "One component sends periodic messages while another listens",
+                                    "One class changes color",
+                                    "One database table is deleted",
+                                    "One user changes password"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Voting is a tactic mainly related to:",
+                        "o": [
+                                    "Fault recovery",
+                                    "User interface style",
+                                    "Database indexing only",
+                                    "Source code comments"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Active redundancy means:",
+                        "o": [
+                                    "Redundant components respond to events in parallel",
+                                    "Only one primary component works and standby waits",
+                                    "No backup exists",
+                                    "All components are removed"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Passive redundancy means:",
+                        "o": [
+                                    "A primary component responds and informs standby components of state updates",
+                                    "All components work in parallel",
+                                    "The system has no backup",
+                                    "The system ignores failures"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Checkpoint/Rollback is used to:",
+                        "o": [
+                                    "Record a consistent state and return to it after failure",
+                                    "Change UI color",
+                                    "Increase font size",
+                                    "Rename files"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Removal from service is a tactic for:",
+                        "o": [
+                                    "Fault prevention",
+                                    "User authentication",
+                                    "Market analysis",
+                                    "Source code indentation"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Transactions help availability because they:",
+                        "o": [
+                                    "Allow a bundle of steps to be undone if one step fails",
+                                    "Make buttons larger",
+                                    "Remove all error handling",
+                                    "Make code comments shorter"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "A process monitor is used to:",
+                        "o": [
+                                    "Monitor critical components and restart/re-instantiate them if needed",
+                                    "Design the company logo",
+                                    "Write business strategy",
+                                    "Choose variable names"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Modifiability tactics include:",
+                        "o": [
+                                    "Localization of modifications, prevention of ripple effects, deferral of binding time",
+                                    "Authentication, authorization, encryption only",
+                                    "Scheduling and FIFO only",
+                                    "Ping and heartbeat only"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Maintain semantic coherence means:",
+                        "o": [
+                                    "Responsibilities in a module should work together coherently",
+                                    "Every module should do everything",
+                                    "UI should use many colors",
+                                    "Every function should access every database table"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Anticipate expected changes means:",
+                        "o": [
+                                    "Design with envisioned future changes in mind",
+                                    "Never allow any change",
+                                    "Change code randomly",
+                                    "Avoid requirements"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Hide information is mainly used to:",
+                        "o": [
+                                    "Prevent accidental ripple effects",
+                                    "Increase latency",
+                                    "Remove all interfaces",
+                                    "Avoid testing"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Using adapters and stubs is related to which modifiability tactic?",
+                        "o": [
+                                    "Maintain existing interfaces",
+                                    "Active redundancy",
+                                    "Authentication",
+                                    "Scheduling"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Restrict communication paths helps modifiability by:",
+                        "o": [
+                                    "Limiting which modules share data or communicate",
+                                    "Allowing every module to depend on every other module",
+                                    "Removing all modules",
+                                    "Increasing UI animation"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Use intermediaries may include:",
+                        "o": [
+                                    "Repositories, bridges, proxies, name servers, resource brokers",
+                                    "Only fonts and icons",
+                                    "Only test cases",
+                                    "Only keyboard shortcuts"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Runtime registration supports:",
+                        "o": [
+                                    "Plug-and-play operation",
+                                    "No runtime flexibility",
+                                    "Database deletion",
+                                    "Static-only compilation"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Configuration files are a tactic for:",
+                        "o": [
+                                    "Deferral of binding time",
+                                    "Fault detection only",
+                                    "Authentication only",
+                                    "UI color only"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Polymorphism supports modifiability because it allows:",
+                        "o": [
+                                    "Late binding of method calls",
+                                    "Permanent hard-coding of all behavior",
+                                    "Removal of all interfaces",
+                                    "No substitution"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Performance tactics are commonly grouped into:",
+                        "o": [
+                                    "Resource demand, resource management, resource arbitration",
+                                    "Login, register, logout",
+                                    "Design, code, comment",
+                                    "UI, UX, color"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Increasing computational efficiency is used to:",
+                        "o": [
+                                    "Decrease latency",
+                                    "Increase unnecessary overhead",
+                                    "Remove all algorithms",
+                                    "Make UI brighter"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Reducing computational overhead means:",
+                        "o": [
+                                    "Reducing unnecessary resource usage and processing",
+                                    "Adding extra processing everywhere",
+                                    "Increasing database duplication randomly",
+                                    "Removing all performance goals"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Introducing concurrency helps performance by:",
+                        "o": [
+                                    "Processing requests in parallel",
+                                    "Blocking all requests",
+                                    "Removing all threads",
+                                    "Preventing any parallelism"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Maintaining multiple copies of data can improve performance by:",
+                        "o": [
+                                    "Reducing contention at a single location",
+                                    "Making synchronization easier in all cases",
+                                    "Removing the need for storage",
+                                    "Eliminating all data"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Increasing available resources means:",
+                        "o": [
+                                    "Using more/faster processors, memory, networks, etc.",
+                                    "Removing servers",
+                                    "Reducing all hardware",
+                                    "Avoiding deployment"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "FIFO scheduling means:",
+                        "o": [
+                                    "First in, first out",
+                                    "Fast input, fast output",
+                                    "File input, file output",
+                                    "First interface, first object"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Security is the ability of the system to:",
+                        "o": [
+                                    "Resist unauthorized access while allowing legitimate users",
+                                    "Make the interface beautiful",
+                                    "Reduce all functionality",
+                                    "Avoid documentation"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Authentication is used to:",
+                        "o": [
+                                    "Ensure user identity",
+                                    "Increase response time only",
+                                    "Remove passwords",
+                                    "Ignore attackers"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Authorization is used to:",
+                        "o": [
+                                    "Control access to data/services for authenticated users",
+                                    "Verify system latency",
+                                    "Restart failed components",
+                                    "Increase CPU speed"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Maintaining data confidentiality usually involves:",
+                        "o": [
+                                    "Encryption",
+                                    "Deleting all logs",
+                                    "Disabling login",
+                                    "Removing firewalls"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Maintaining integrity may involve:",
+                        "o": [
+                                    "Checksums or hash results",
+                                    "Changing button colors",
+                                    "Removing validation",
+                                    "Ignoring data corruption"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Limit access is commonly implemented using:",
+                        "o": [
+                                    "Firewalls and DMZs",
+                                    "Fonts and icons",
+                                    "Comments and indentation",
+                                    "Product slogans"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Intrusion detection is used to:",
+                        "o": [
+                                    "Detect attacks by observing unusual behavior or traffic",
+                                    "Create UI wireframes",
+                                    "Improve font readability",
+                                    "Replace all testing"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "An audit trail helps security by:",
+                        "o": [
+                                    "Recording actions to help identify attackers or reconstruct events",
+                                    "Removing all records",
+                                    "Hiding all user activity from administrators",
+                                    "Making the system slower intentionally"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "The classic quality attributes discussed as examples include:",
+                        "o": [
+                                    "Availability, modifiability, performance, security",
+                                    "Color, font, icon, animation",
+                                    "HTML, CSS, JavaScript, SQL",
+                                    "Planning, coding, testing, deploying"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Static structures are elements that exist:",
+                        "o": [
+                                    "Prior to compilation and execution",
+                                    "Only during runtime",
+                                    "Only in deployment servers",
+                                    "Only in user manuals"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Examples of static elements include:",
+                        "o": [
+                                    "Modules, subsystems, layers",
+                                    "Threads, processes, runtime messages only",
+                                    "Users, customers, managers only",
+                                    "Servers, routers, switches only"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Dynamic structures are elements that exist:",
+                        "o": [
+                                    "During execution/runtime",
+                                    "Only before coding",
+                                    "Only in business strategy",
+                                    "Only in requirement documents"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Examples of dynamic elements include:",
+                        "o": [
+                                    "Threads, processes, shared data, components",
+                                    "Only packages and files",
+                                    "Only stakeholders",
+                                    "Only product roadmap items"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Dynamic views are useful for analyzing:",
+                        "o": [
+                                    "Performance, fault tolerance, security",
+                                    "Font size only",
+                                    "Marketing slogans only",
+                                    "Developer birthdays only"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Allocation structures show:",
+                        "o": [
+                                    "Mapping of software elements to the environment",
+                                    "Only class inheritance",
+                                    "Only UI layout",
+                                    "Only function names"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Deployment allocation maps:",
+                        "o": [
+                                    "Processes to processors",
+                                    "Colors to buttons",
+                                    "Comments to files",
+                                    "Users to passwords only"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Work breakdown allocation maps:",
+                        "o": [
+                                    "Code modules to people or teams",
+                                    "Buttons to colors",
+                                    "Tables to rows only",
+                                    "Screens to pixels"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Implementation allocation maps:",
+                        "o": [
+                                    "Code modules to file structure",
+                                    "Runtime threads to CPU only",
+                                    "Stakeholders to business goals only",
+                                    "Users to UI colors"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Architectural patterns are useful because they:",
+                        "o": [
+                                    "Provide proven problem-solution structures and known tradeoffs",
+                                    "Replace all design decisions",
+                                    "Guarantee perfect performance",
+                                    "Are the same as source code comments"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "The layered pattern usually promotes:",
+                        "o": [
+                                    "Modifiability, portability, and reusability",
+                                    "Only maximum performance",
+                                    "No structure",
+                                    "Random dependencies"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "The layered pattern may inhibit:",
+                        "o": [
+                                    "Performance and implementation size",
+                                    "All modifiability",
+                                    "All portability",
+                                    "All reusability"
+                        ],
+                        "a": 0
+            }
+];
+
+
+        const explanationData = [
+            "Business context nói về tổ chức, thị trường, chiến lược, quy định; chi tiết source code là phần kỹ thuật.",
+            "Business constraints thường là luật/quy định, ngân sách, deadline, lịch rollout, nguồn lực.",
+            "Enterprises thường lớn, phức tạp, nhiều hệ thống/sản phẩm/dịch vụ và nhiều thị trường.",
+            "SCD xem hệ thống như hộp đen, tập trung vào actor/hệ thống bên ngoài và luồng tương tác.",
+            "SCD không mô tả logic xử lý chi tiết bên trong hệ thống.",
+            "System nằm ở giữa như black box, không bung chi tiết nội bộ.",
+            "Lỗi phổ biến là nhét quá nhiều xử lý/module nội bộ vào context diagram.",
+            "Information Flow là mũi tên/đường thể hiện dữ liệu hoặc control trao đổi với môi trường.",
+            "Startup cần ít tầng quản lý, quyết định nhanh, nên hợp flat organization.",
+            "Product-oriented = Apple, Enterprise = IBM, Service-based = AWS.",
+            "Architectural drivers đến từ goals, stakeholders, quality attributes, constraints, functional requirements.",
+            "TOGAF chủ yếu là Enterprise Architecture, không chỉ riêng software architecture.",
+            "Ba nhóm chính: product-oriented, enterprises, service-based companies.",
+            "Reducing complexity giúp doanh nghiệp dễ quản lý, tích hợp và vận hành hệ thống lớn.",
+            "Nhớ FQC: Functional, Quality Attribute, Constraints.",
+            "Một chức năng có thể làm bằng nhiều kiến trúc, nhưng cấu trúc ảnh hưởng mạnh đến quality attributes.",
+            "Performance liên quan response time, latency, throughput, resource usage.",
+            "Technical constraints giống tường chịu lực vì giới hạn không gian thiết kế.",
+            "Định nghĩa architecture gồm structures, elements, externally visible properties và relationships.",
+            "Quyết định quản lý và kỹ thuật ảnh hưởng lẫn nhau, nhất là tradeoff.",
+            "Alignment là kiến trúc hỗ trợ đúng properties mà business cần.",
+            "Ví dụ cell phone nhấn mạnh khả năng ra biến thể sản phẩm nhanh để theo kịp thị trường.",
+            "Latency/response time ảnh hưởng trực tiếp đến doanh thu/sales.",
+            "Loading time tốt hơn có thể tăng ad revenue.",
+            "Response time là dấu hiệu cực mạnh của performance.",
+            "Change/easy to modify = modifiability.",
+            "Availability quan tâm failure và hậu quả của failure.",
+            "Unauthorized access là security.",
+            "Yêu cầu có tải, response time, con số đo được sẽ ảnh hưởng kiến trúc.",
+            "Chỉ nói 'modifiable' quá mơ hồ, không biết thay đổi gì và đo thế nào.",
+            "Quality attribute tốt cần có ngữ cảnh và thước đo.",
+            "QAS giúp biến quality attribute mơ hồ thành scenario đo được.",
+            "Có 6 phần: stimulus, source, environment, artifact, response, response measure.",
+            "Programming language syntax không thuộc 6 phần của QAS.",
+            "Stimulus là sự kiện/điều kiện tác động lên hệ thống.",
+            "Response measure là chỉ số đo phản hồi, ví dụ within 0.5 seconds.",
+            "Response measure chính là mốc đo kết quả: within 0.5 seconds.",
+            "Peak load mô tả điều kiện xảy ra stimulus, nên là environment.",
+            "Smoke detector tạo ra stimulus nên là source.",
+            "Functional requirement mô tả hệ thống phải làm gì.",
+            "Ở mức architecture, quan tâm high-level function, không đi vào code chi tiết.",
+            "Các cách phổ biến: use case, feature description, operational description, formal specification.",
+            "Use case tốt nên có precondition, happy path, alternative/error flows, postcondition.",
+            "Business constraints đến từ thị trường, chi phí, lịch, nguồn lực, rollout, product line.",
+            "Technical constraints gồm legacy, công nghệ bắt buộc, protocol, standard.",
+            "Constraints phải được ghi lại vì định hướng và giới hạn kiến trúc.",
+            "Constraint là thứ bắt buộc tuân thủ, không phải wish list.",
+            "Không ưu tiên constraint, nhưng có thể đánh độ khó để xử lý.",
+            "Quality attributes vẫn liên quan function; quan trọng là có architecturally significant không.",
+            "Functionality quan trọng, nhưng quality attributes/constraints thường định hình cấu trúc mạnh hơn.",
+            "Availability tập trung vào failure, detection, recovery, degraded mode.",
+            "Detect/recover failure là trọng tâm của availability.",
+            "Heartbeat là tactic phát hiện lỗi.",
+            "Ping/Echo kiểm tra component còn phản hồi không.",
+            "Heartbeat là gửi tín hiệu định kỳ để phát hiện lỗi.",
+            "Voting dùng nhiều process tính output rồi voter quyết định.",
+            "Active redundancy: các bản dự phòng chạy song song.",
+            "Passive redundancy: primary xử lý, standby nhận update state.",
+            "Checkpoint/rollback giúp phục hồi về trạng thái nhất quán.",
+            "Removal from service đưa component ra khỏi hoạt động để ngăn lỗi dự đoán.",
+            "Transaction giúp rollback nếu một bước thất bại.",
+            "Process monitor theo dõi và khởi tạo lại process/component khi cần.",
+            "Ba nhóm lớn: localize modifications, prevent ripple effects, defer binding time.",
+            "Các responsibility trong module nên liên quan chặt chẽ, ít phụ thuộc dư thừa.",
+            "Dự đoán thay đổi giúp chuẩn bị cấu trúc dễ sửa sau này.",
+            "Information hiding giảm ảnh hưởng lan truyền khi module thay đổi.",
+            "Adapter/stub giúp giữ interface cũ khi thay đổi bên trong.",
+            "Giới hạn đường giao tiếp giảm coupling và ripple effect.",
+            "Intermediary làm lớp trung gian để giảm phụ thuộc trực tiếp.",
+            "Runtime registration cho phép thêm/bỏ thành phần linh hoạt lúc chạy.",
+            "Config file hoãn quyết định đến deploy/run time.",
+            "Polymorphism giúp thay implementation mà giữ interface.",
+            "Performance tactics: kiểm soát nhu cầu tài nguyên, quản lý tài nguyên, phân xử tài nguyên.",
+            "Tính toán hiệu quả hơn thường giảm latency/response time.",
+            "Giảm overhead là giảm xử lý/tài nguyên không cần thiết.",
+            "Concurrency giúp xử lý song song nếu thiết kế phù hợp.",
+            "Copy data có thể giảm tranh chấp, nhưng đồng bộ sẽ khó hơn.",
+            "Tăng tài nguyên có thể cải thiện performance nhưng tốn chi phí.",
+            "FIFO = First In First Out.",
+            "Security chống truy cập trái phép nhưng vẫn cho user hợp lệ dùng.",
+            "Authentication = xác thực danh tính.",
+            "Authorization = phân quyền sau khi xác thực.",
+            "Confidentiality thường dùng encryption.",
+            "Integrity đảm bảo dữ liệu không bị sửa sai, có thể dùng checksum/hash.",
+            "Firewall/DMZ giới hạn vùng truy cập.",
+            "Intrusion detection phát hiện dấu hiệu tấn công bất thường.",
+            "Audit trail lưu dấu vết để điều tra/truy vết.",
+            "Bốn ví dụ chính trong phần tactics: availability, modifiability, performance, security.",
+            "Static structure là code/module/layer tồn tại trước compile/run.",
+            "Static elements thường là modules, subsystems, layers.",
+            "Dynamic structures tồn tại lúc chạy.",
+            "Dynamic elements: threads, processes, shared data, runtime components.",
+            "Runtime view giúp phân tích performance, fault tolerance, security.",
+            "Allocation = software được gán vào hardware/team/file structure.",
+            "Deployment allocation ánh xạ process/software lên processor/node.",
+            "Work assignment mapping cho biết team/person nào làm module nào.",
+            "Implementation allocation ánh xạ module vào file/folder/source tree.",
+            "Pattern là kinh nghiệm thiết kế đã được tổng quát hóa, có tradeoff đã biết.",
+            "Layers giúp tách mức trừu tượng nên tốt cho modify/port/reuse.",
+            "Layers có thể tăng overhead call qua nhiều lớp và làm code lớn hơn."
+];
+
+        function getExplanation(i) {
+            return explanationData[i] || "Đáp án này phù hợp nhất với khái niệm được hỏi.";
+        }
+
+        function stripOptionPrefix(text) {
+            return text.replace(/^[A-D]\.\s*/, "");
+        }
+
+        function formatOptionText(displayIndex, originalText) {
+            return `${String.fromCharCode(65 + displayIndex)}. ${stripOptionPrefix(originalText)}`;
+        }
+
+        function renderOptionLabel(questionIndex, originalOptionIndex, displayIndex) {
+            return `<label><input type="radio" name="q${questionIndex}" onchange="checkAnswer(${questionIndex}, ${originalOptionIndex})">${formatOptionText(displayIndex, quizData[questionIndex].o[originalOptionIndex])}</label>`;
+        }
+
+        function resetOptionLabelsToOriginal(questionIndex) {
+            quizData[questionIndex].o.forEach((_, optionIndex) => {
+                const li = document.getElementById(`li-${questionIndex}-${optionIndex}`);
+                if (li) li.innerHTML = renderOptionLabel(questionIndex, optionIndex, optionIndex);
+            });
+        }
+
+        function shuffleExamAnswers(questionIndex) {
+            const order = shuffleArray(quizData[questionIndex].o.map((_, optionIndex) => optionIndex));
+            const ul = document.querySelector(`#q-card-${questionIndex} .options`);
+            if (!ul) return;
+            order.forEach((originalOptionIndex, displayIndex) => {
+                const li = document.getElementById(`li-${questionIndex}-${originalOptionIndex}`);
+                if (li) {
+                    li.innerHTML = renderOptionLabel(questionIndex, originalOptionIndex, displayIndex);
+                    ul.appendChild(li);
+                }
+            });
+        }
+
+
+        let currentScore = 0; let answeredQuestions = 0;
+        const totalQuestions = quizData.length;
+        const SCORE_KEY = 'cmu462_history'; const REVIEW_KEY = 'cmu462_review';
+
+        function readStore(key, fallback = []) {
+            try {
+                const raw = localStorage.getItem(key);
+                return raw ? JSON.parse(raw) : fallback;
+            } catch (e) {
+                console.warn('Không đọc được dữ liệu localStorage:', key, e);
+                return fallback;
+            }
+        }
+
+        function writeStore(key, value) {
+            try {
+                localStorage.setItem(key, JSON.stringify(value));
+                return true;
+            } catch (e) {
+                alert("Trình duyệt không cho lưu dữ liệu. Hãy kiểm tra chế độ ẩn danh, quyền lưu dữ liệu trang web hoặc dung lượng bộ nhớ.");
+                console.error('Không lưu được dữ liệu localStorage:', key, e);
+                return false;
+            }
+        }
+
+        let reviewBank = new Set(readStore(REVIEW_KEY, []));
+        let isReviewMode = false; let isExamMode = false;
+        let examAnswers = {}; let examTimer; let timeRemaining = 3600;
+        let examOrder = quizData.map((_, i) => i);
+
+        // Âm thanh
+        let audioCtx = null;
+        let soundEnabled = localStorage.getItem('cmu462_sound') !== 'false';
+        document.getElementById('btn-sound').innerText = soundEnabled ? '🎵' : '🔇';
+
+        function initAudio() { if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)(); }
+        function toggleSound() {
+            soundEnabled = !soundEnabled;
+            localStorage.setItem('cmu462_sound', soundEnabled);
+            document.getElementById('btn-sound').innerText = soundEnabled ? '🎵' : '🔇';
+        }
+        function playSound(type) {
+            if (!soundEnabled) return;
+            initAudio(); if (audioCtx.state === 'suspended') audioCtx.resume();
+            const osc = audioCtx.createOscillator(); const gain = audioCtx.createGain();
+            osc.connect(gain); gain.connect(audioCtx.destination);
+            const now = audioCtx.currentTime;
+            if (type === 'correct') {
+                osc.type = 'sine'; osc.frequency.setValueAtTime(600, now); osc.frequency.exponentialRampToValueAtTime(1200, now + 0.1);
+                gain.gain.setValueAtTime(0.1, now); gain.gain.exponentialRampToValueAtTime(0.01, now + 0.2);
+                osc.start(now); osc.stop(now + 0.2);
+            } else if (type === 'wrong') {
+                osc.type = 'sawtooth'; osc.frequency.setValueAtTime(150, now); osc.frequency.exponentialRampToValueAtTime(100, now + 0.2);
+                gain.gain.setValueAtTime(0.1, now); gain.gain.exponentialRampToValueAtTime(0.01, now + 0.2);
+                osc.start(now); osc.stop(now + 0.2);
+            } else if (type === 'tick') {
+                osc.type = 'sine'; osc.frequency.setValueAtTime(400, now);
+                gain.gain.setValueAtTime(0.05, now); gain.gain.exponentialRampToValueAtTime(0.01, now + 0.05);
+                osc.start(now); osc.stop(now + 0.05);
+            }
+        }
+
+        // Dark Mode
+        let isDarkMode = localStorage.getItem('cmu462_dark') === 'true';
+        if (isDarkMode) document.body.classList.add('dark-mode');
+        document.getElementById('btn-dark').innerText = isDarkMode ? '☀️' : '🌙';
+
+        function toggleDark() {
+            isDarkMode = !isDarkMode;
+            document.body.classList.toggle('dark-mode', isDarkMode);
+            localStorage.setItem('cmu462_dark', isDarkMode);
+            document.getElementById('btn-dark').innerText = isDarkMode ? '☀️' : '🌙';
+        }
+
+        function shuffleArray(arr) {
+            const shuffled = [...arr];
+            for (let i = shuffled.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+            }
+            return shuffled;
+        }
+
+        function applyExamQuestionOrder() {
+            examOrder.forEach((questionIndex, displayIndex) => {
+                const card = document.getElementById(`q-card-${questionIndex}`);
+                const title = document.getElementById(`q-title-${questionIndex}`);
+
+                if (card) container.appendChild(card);
+                if (title) title.innerText = `Câu ${displayIndex + 1}: ${quizData[questionIndex].q}`;
+            });
+        }
+
+        // Tìm kiếm
+        function filterQuestions() {
+            const term = document.getElementById('search-input').value.toLowerCase();
+            quizData.forEach((item, i) => {
+                const text = (item.q + " " + item.o.join(" ")).toLowerCase();
+                const card = document.getElementById(`q-card-${i}`);
+                if (card && !isReviewMode && !isExamMode) card.style.display = text.includes(term) ? 'block' : 'none';
+            });
+        }
+
+        const container = document.getElementById('quiz-container');
+        const rContainer = document.getElementById('review-container');
+        const navGrid = document.getElementById('nav-grid');
+
+        function saveReviewToStore() { writeStore(REVIEW_KEY, [...reviewBank]); }
+        function updateUI() {
+            document.getElementById('score').innerText = currentScore;
+            const totalScoreEl = document.getElementById('total-score');
+            if (totalScoreEl) totalScoreEl.innerText = totalQuestions;
+            document.getElementById('progress').innerText = answeredQuestions;
+            document.getElementById('review-count').innerText = reviewBank.size;
+        }
+
+        function renderSidebar(order = quizData.map((_, i) => i), useDisplayOrder = false) {
+            let html = '';
+            order.forEach((questionIndex, displayIndex) => {
+                const cls = reviewBank.has(questionIndex) ? 'nav-btn nav-unknown' : 'nav-btn';
+                const label = useDisplayOrder ? displayIndex + 1 : questionIndex + 1;
+                html += `<button class="${cls}" id="nav-btn-${questionIndex}" onclick="scrollToQ(${questionIndex})">${label}</button>`;
+            });
+            navGrid.innerHTML = html;
+        }
+
+        function renderQuestions() {
+            quizData.forEach((item, i) => {
+                const card = document.createElement('div'); card.className = 'question-card'; card.id = `q-card-${i}`;
+                let opts = '';
+                item.o.forEach((opt, oi) => {
+                    opts += `<li id="li-${i}-${oi}">${renderOptionLabel(i, oi, oi)}</li>`;
+                });
+                const isSaved = reviewBank.has(i);
+                card.innerHTML = `
+                    <div class="question-header">
+                        <div class="question-title" id="q-title-${i}">Câu ${i + 1}: ${item.q}</div>
+                        <div class="header-actions">
+                            <button class="unknown-btn ${isSaved ? 'saved-btn' : ''}" id="ubtn-${i}" onclick="markUnknown(${i})">${isSaved ? '⭐ Đã lưu' : '❓ Không biết'}</button>
+                        </div>
+                    </div>
+                    <ul class="options">${opts}</ul>
+                    <div class="explanation" id="exp-${i}">
+                        💡 <strong>Giải thích:</strong> ${getExplanation(i)}
+                        <br><button class="btn-save-review" id="srev-${i}" style="display:none;" onclick="addWrongReview(${i})">➕ Lưu vào Ôn tập</button>
+                    </div>`;
+                container.appendChild(card);
+            });
+        }
+
+        function scrollToQ(i) {
+            const id = isReviewMode ? `rq-card-${i}` : `q-card-${i}`;
+            const el = document.getElementById(id);
+            if (el && el.style.display !== 'none') {
+                el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                el.style.boxShadow = isReviewMode ? '0 0 20px rgba(155, 89, 182, 0.5)' : (isExamMode ? '0 0 20px rgba(243, 156, 18, 0.5)' : '0 0 20px rgba(52, 152, 219, 0.5)');
+                setTimeout(() => el.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)', 1000);
+            }
+        }
+
+        function checkAnswer(i, oi) {
+            const item = quizData[i]; const btn = document.getElementById(`nav-btn-${i}`);
+            const parentLi = document.getElementById(`li-${i}-${oi}`);
+            const allLis = document.querySelectorAll(`#q-card-${i} .options li`);
+
+            if (isExamMode) {
+                examAnswers[i] = oi;
+                allLis.forEach(li => li.classList.remove('exam-selected'));
+                parentLi.classList.add('exam-selected');
+                btn.className = 'nav-btn nav-exam-answered';
+                playSound('tick');
+                document.getElementById('progress').innerText = Object.keys(examAnswers).length;
+                return;
+            }
+
+            allLis.forEach(li => li.classList.add('answered'));
+
+            if (oi === item.a) {
+                parentLi.classList.add('correct-ans');
+                btn.className = 'nav-btn nav-correct';
+                currentScore++; playSound('correct');
+            } else {
+                parentLi.classList.add('wrong-ans');
+                document.getElementById(`li-${i}-${item.a}`).classList.add('correct-ans');
+                btn.className = 'nav-btn nav-wrong';
+                document.getElementById(`srev-${i}`).style.display = 'inline-block';
+                playSound('wrong');
+            }
+            const radios = document.getElementsByName(`q${i}`); radios.forEach(r => r.disabled = true);
+            document.getElementById(`ubtn-${i}`).style.display = 'none';
+            document.getElementById(`exp-${i}`).style.display = 'block';
+            answeredQuestions++; updateUI();
+        }
+
+        function markUnknown(i) {
+            if (isExamMode) return;
+            reviewBank.add(i); saveReviewToStore();
+            const allLis = document.querySelectorAll(`#q-card-${i} .options li`);
+            allLis.forEach(li => li.classList.add('answered'));
+            document.getElementById(`li-${i}-${quizData[i].a}`).classList.add('correct-ans');
+            const radios = document.getElementsByName(`q${i}`); radios.forEach(r => r.disabled = true);
+            document.getElementById(`ubtn-${i}`).style.display = 'none';
+            document.getElementById(`exp-${i}`).style.display = 'block';
+            document.getElementById(`nav-btn-${i}`).className = 'nav-btn nav-unknown';
+            answeredQuestions++; updateUI(); playSound('tick');
+        }
+
+        function addWrongReview(i) {
+            reviewBank.add(i); saveReviewToStore();
+            const b = document.getElementById(`srev-${i}`); b.innerText = "✔️ Đã lưu"; b.disabled = true;
+            document.getElementById(`nav-btn-${i}`).className = 'nav-btn nav-unknown'; updateUI();
+        }
+
+        function formatTime(secs) {
+            const m = Math.floor(secs / 60); const s = secs % 60;
+            return `⏱️ ${m < 10 ? '0' : ''}${m}:${s < 10 ? '0' : ''}${s}`;
+        }
+        function formatTimeUsed(secs) {
+            const m = Math.floor(secs / 60); const s = secs % 60;
+            return `${m}:${s < 10 ? '0' : ''}${s}`;
+        }
+
+        function startExamMode() {
+            if (!confirm("Bắt đầu thi 60 phút?")) return;
+            isExamMode = true; isReviewMode = false; currentScore = 0; answeredQuestions = 0; examAnswers = {};
+
+
+            //xáo câu hỏi
+            examOrder = shuffleArray(quizData.map((_, i) => i));
+
+
+            renderSidebar(examOrder, true);
+            applyExamQuestionOrder();
+            document.getElementById('search-bar-wrap').style.display = 'none';
+            document.getElementById('score-board-info').style.display = 'none';
+            document.getElementById('exam-timer-display').style.display = 'block';
+            document.getElementById('btn-exam-mode').style.display = 'none';
+            document.getElementById('btn-toggle-review').style.display = 'none';
+            document.getElementById('lg-correct').style.display = 'none';
+            document.getElementById('lg-wrong').style.display = 'none';
+            document.getElementById('lg-unknown').style.display = 'none';
+            document.getElementById('lg-exam').style.display = 'flex';
+            document.getElementById('bottom-actions').innerHTML = `<button class="action-btn" style="padding: 15px 30px; font-size: 1.2em; background-color: var(--danger); margin: 0 auto;" onclick="submitExam()">📤 Nộp Bài</button>`;
+            quizData.forEach((_, i) => {
+                document.getElementById(`nav-btn-${i}`).className = 'nav-btn';
+                document.getElementById(`q-card-${i}`).classList.add('exam-card');
+                resetOptionLabelsToOriginal(i);
+
+                
+                //xáo đáp án
+                // shuffleExamAnswers(i);
+
+
+                const lis = document.querySelectorAll(`#q-card-${i} li`);
+                lis.forEach(li => li.className = '');
+                const radios = document.getElementsByName(`q${i}`);
+                radios.forEach(r => { r.disabled = false; r.checked = false; });
+                document.getElementById(`exp-${i}`).style.display = 'none';
+                document.getElementById(`ubtn-${i}`).style.display = 'none';
+            });
+            timeRemaining = 3600;
+            document.getElementById('exam-timer-display').innerText = formatTime(timeRemaining);
+            examTimer = setInterval(() => {
+                timeRemaining--;
+                document.getElementById('exam-timer-display').innerText = formatTime(timeRemaining);
+                if (timeRemaining <= 180) document.getElementById('exam-timer-display').style.color = 'var(--danger)';
+                if (timeRemaining <= 0) { clearInterval(examTimer); submitExam(); }
+            }, 1000);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function submitExam() {
+            clearInterval(examTimer);
+            let timeUsed = 3600 - timeRemaining;
+            let timeStr = formatTimeUsed(timeUsed);
+            let score = 0;
+            quizData.forEach((item, i) => {
+                const ans = examAnswers[i];
+                const btn = document.getElementById(`nav-btn-${i}`);
+                document.getElementById(`q-card-${i}`).classList.remove('exam-card');
+                const radios = document.getElementsByName(`q${i}`);
+                radios.forEach(r => r.disabled = true);
+                document.getElementById(`exp-${i}`).style.display = 'block';
+                if (ans === item.a) {
+                    score++; document.getElementById(`li-${i}-${ans}`).classList.add('correct-ans');
+                    btn.className = 'nav-btn nav-correct';
+                } else {
+                    if (ans !== undefined) document.getElementById(`li-${i}-${ans}`).classList.add('wrong-ans');
+                    document.getElementById(`li-${i}-${item.a}`).classList.add('correct-ans');
+                    btn.className = 'nav-btn nav-wrong';
+                }
+            });
+            isExamMode = false; currentScore = score; answeredQuestions = totalQuestions;
+            document.getElementById('score-board-info').style.display = 'block';
+            document.getElementById('exam-timer-display').style.display = 'none';
+            document.getElementById('btn-exam-mode').style.display = 'inline-flex';
+            document.getElementById('btn-toggle-review').style.display = 'inline-flex';
+            document.getElementById('search-bar-wrap').style.display = 'block';
+            document.getElementById('lg-correct').style.display = 'flex';
+            document.getElementById('lg-wrong').style.display = 'flex';
+            document.getElementById('lg-unknown').style.display = 'flex';
+            document.getElementById('lg-exam').style.display = 'none';
+            document.getElementById('main-title').innerText = "KẾT QUẢ THI";
+            document.getElementById('bottom-actions').innerHTML = `<button class="action-btn" style="padding: 15px 30px; font-size: 1.2em; background-color: var(--primary); margin: 0 auto;" onclick="location.reload()">🔄 Kết thúc</button>`;
+            updateUI(); playSound(score >= 25 ? 'correct' : 'wrong');
+            saveScore(true, 'Thi thử', timeStr);
+            alert(`Kết quả: ${score}/${totalQuestions}. Thời gian: ${timeStr}`);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleReviewMode() {
+            if (isExamMode) return alert("Không thể mở Ôn tập khi đang thi!");
+            if (!isReviewMode) {
+                if (reviewBank.size === 0) return alert("Chưa có câu nào!");
+                isReviewMode = true; container.style.display = 'none';
+                document.getElementById('search-bar-wrap').style.display = 'none';
+                document.getElementById('bottom-actions').style.display = 'none';
+                document.getElementById('sidebar-legend').style.display = 'none';
+                document.getElementById('main-title').innerText = "📚 Ôn Tập";
+                document.getElementById('btn-toggle-review').innerHTML = '⬅️ Quay lại';
+                rContainer.style.display = 'block'; renderReview();
+            } else {
+                isReviewMode = false; container.style.display = 'block';
+                document.getElementById('search-bar-wrap').style.display = 'block';
+                document.getElementById('bottom-actions').style.display = 'block';
+                document.getElementById('sidebar-legend').style.display = 'flex';
+                document.getElementById('main-title').innerText = "Hệ Thống Pro";
+                document.getElementById('btn-toggle-review').innerHTML = `📚 Ôn tập (<span id="review-count">${reviewBank.size}</span>)`;
+                rContainer.style.display = 'none';
+            }
+        }
+
+        function renderReview() {
+            rContainer.innerHTML = '';
+            reviewBank.forEach(i => {
+                const item = quizData[i];
+                const card = document.createElement('div'); card.className = 'question-card review-card'; card.id = `rq-card-${i}`;
+                let opts = '';
+                item.o.forEach((opt, oi) => {
+                    opts += `<li id="rli-${i}-${oi}"><label><input type="radio" name="rq${i}" onchange="checkReview(${i}, ${oi})">${formatOptionText(oi, opt)}</label></li>`;
+                });
+                card.innerHTML = `
+                    <div class="question-header">
+                        <div class="question-title">Câu ${i + 1}: ${item.q}</div>
+                        <div class="header-actions">
+                            <button class="action-btn" id="rret-${i}" style="display:none; background-color: var(--primary); padding: 5px 10px; font-size: 0.8em;" onclick="retryReview(${i})">🔄 Lại</button>
+                            <button class="action-btn" style="background-color: var(--success); padding: 5px 10px; font-size: 0.8em;" onclick="doneReview(${i})">✔️ Thuộc</button>
+                        </div>
+                    </div>
+                    <ul class="options">${opts}</ul>
+                    <div class="explanation" id="rexp-${i}">💡 <strong>Giải thích:</strong> ${getExplanation(i)}</div>`;
+                rContainer.appendChild(card);
+            });
+        }
+
+        function checkReview(i, oi) {
+            if (oi === quizData[i].a) document.getElementById(`rli-${i}-${oi}`).classList.add('correct-ans');
+            else {
+                document.getElementById(`rli-${i}-${oi}`).classList.add('wrong-ans');
+                document.getElementById(`rli-${i}-${quizData[i].a}`).classList.add('correct-ans');
+            }
+            const radios = document.getElementsByName(`rq${i}`); radios.forEach(r => r.disabled = true);
+            document.getElementById(`rexp-${i}`).style.display = 'block'; document.getElementById(`rret-${i}`).style.display = 'block';
+        }
+
+        function retryReview(i) {
+            const allLis = document.querySelectorAll(`#rq-card-${i} .options li`);
+            allLis.forEach(li => li.className = '');
+            const radios = document.getElementsByName(`rq${i}`);
+            radios.forEach(r => { r.disabled = false; r.checked = false; });
+            document.getElementById(`rexp-${i}`).style.display = 'none'; document.getElementById(`rret-${i}`).style.display = 'none';
+        }
+
+        function doneReview(i) {
+            reviewBank.delete(i); saveReviewToStore();
+            document.getElementById(`rq-card-${i}`).style.display = 'none';
+            document.getElementById(`nav-btn-${i}`).className = 'nav-btn';
+            updateUI();
+            if (reviewBank.size === 0) toggleReviewMode();
+        }
+
+        function saveScore(isAuto = false, mode = 'Luyện tập', timeText = '') {
+            let history = readStore(SCORE_KEY, []);
+            const percent = Math.round((currentScore / totalQuestions) * 100);
+            history.unshift({ id: Date.now(), date: new Date().toLocaleString('vi-VN'), score: currentScore, total: totalQuestions, percent, mode, time: timeText });
+            writeStore(SCORE_KEY, history.slice(0, 30));
+            if (!isAuto) { alert("Lưu thành công!"); openHistoryModal(); }
+        }
+
+        function loadHistory() {
+            const history = readStore(SCORE_KEY, []);
+            const list = document.getElementById('history-list'); const hs = document.getElementById('high-score-display');
+            if (history.length === 0) {
+                list.innerHTML = '<li>Trống</li>'; hs.innerHTML = '🏆 Trống'; return;
+            }
+            let best = history.reduce((prev, curr) => (prev.percent > curr.percent) ? prev : curr);
+            hs.innerHTML = `🏆 Cao nhất: ${best.score}/${best.total} (${best.percent}%)`;
+            list.innerHTML = history.map(h => `
+                <li class="history-item ${h.id === best.id ? 'best' : ''}">
+                    <div>
+                        <div class="h-date">${h.date} <span class="badge ${h.mode === 'Thi thử' ? 'badge-exam' : 'badge-practice'}">${h.mode}</span> ${h.time ? '⏱️ ' + h.time : ''}</div>
+                        <div class="h-score">${h.score}/${h.total}</div>
+                    </div>
+                    <div class="history-right"><span>${h.percent}%</span><button class="btn-del-item" onclick="delHistory(${h.id})">❌</button></div>
+                </li>`).join('');
+        }
+
+        function delHistory(id) {
+            if (!confirm("Xóa?")) return;
+            let history = readStore(SCORE_KEY, []);
+            writeStore(SCORE_KEY, history.filter(h => h.id !== id)); loadHistory();
+        }
+        function clearAllHistory() { if (confirm("Xóa hết?")) { localStorage.removeItem(SCORE_KEY); loadHistory(); } }
+
+        function exportQuizData() {
+            const data = {
+                app: "cmu462_quiz_backup",
+                version: 1,
+                exportedAt: new Date().toISOString(),
+                history: readStore(SCORE_KEY, []),
+                review: [...reviewBank],
+                darkMode: localStorage.getItem('cmu462_dark'),
+                sound: localStorage.getItem('cmu462_sound')
+            };
+
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            const date = new Date().toISOString().slice(0, 10);
+            a.href = url;
+            a.download = `cmu462_quiz_backup_${date}.json`;
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            URL.revokeObjectURL(url);
+        }
+
+        function importQuizData(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                try {
+                    const data = JSON.parse(e.target.result);
+
+                    if (!Array.isArray(data.history) || !Array.isArray(data.review)) {
+                        alert("File khôi phục không đúng định dạng.");
+                        return;
+                    }
+
+                    writeStore(SCORE_KEY, data.history.slice(0, 30));
+                    reviewBank = new Set(data.review.filter(i => Number.isInteger(i) && i >= 0 && i < quizData.length));
+                    saveReviewToStore();
+
+                    if (data.darkMode !== null && data.darkMode !== undefined) localStorage.setItem('cmu462_dark', data.darkMode);
+                    if (data.sound !== null && data.sound !== undefined) localStorage.setItem('cmu462_sound', data.sound);
+
+                    renderSidebar();
+                    updateUI();
+                    loadHistory();
+
+                    alert("Khôi phục dữ liệu thành công!");
+                } catch (err) {
+                    alert("Không đọc được file khôi phục.");
+                    console.error(err);
+                } finally {
+                    event.target.value = "";
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        function toggleTopBar() {
+            const isHidden = document.body.classList.toggle('topbar-hidden');
+            const btn = document.getElementById('mobile-topbar-toggle');
+            if (btn) btn.innerText = isHidden ? '☰' : '✕';
+        }
+
+        function scrollToQuestionNav() {
+            const target = document.getElementById('sidebar') || document.getElementById('layout-container') || document.body;
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        const modal = document.getElementById("historyModal");
+        function openHistoryModal() { loadHistory(); modal.style.display = "block"; }
+        function closeHistoryModal() { modal.style.display = "none"; }
+        window.onclick = (e) => { if (e.target == modal) closeHistoryModal(); }
+
+        renderSidebar(); renderQuestions(); updateUI();
+    </script>
 </body>
+
 </html>
