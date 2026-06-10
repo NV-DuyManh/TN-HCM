@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -2185,7 +2186,12 @@
             }
         }
 
-        let reviewBank = new Set(readStore(REVIEW_KEY, []));
+        let reviewBank = new Set(
+            readStore(REVIEW_KEY, [])
+                .map(Number)
+                .filter(i => Number.isInteger(i) && i >= 0 && i < quizData.length)
+        );
+        writeStore(REVIEW_KEY, [...reviewBank]);
         let isReviewMode = false; let isExamMode = false;
         let examAnswers = {}; let examTimer; let timeRemaining = 3600;
         let examOrder = quizData.map((_, i) => i);
@@ -2267,7 +2273,14 @@
         const rContainer = document.getElementById('review-container');
         const navGrid = document.getElementById('nav-grid');
 
-        function saveReviewToStore() { writeStore(REVIEW_KEY, [...reviewBank]); }
+        function saveReviewToStore() {
+            reviewBank = new Set(
+                [...reviewBank]
+                    .map(Number)
+                    .filter(i => Number.isInteger(i) && i >= 0 && i < quizData.length)
+            );
+            return writeStore(REVIEW_KEY, [...reviewBank]);
+        }
         function updateUI() {
             document.getElementById('score').innerText = currentScore;
             const totalScoreEl = document.getElementById('total-score');
@@ -2356,21 +2369,61 @@
 
         function markUnknown(i) {
             if (isExamMode) return;
-            reviewBank.add(i); saveReviewToStore();
+            const wasSaved = reviewBank.has(i);
+            reviewBank.add(i);
+            if (!saveReviewToStore()) return;
+
+            const btnUnknown = document.getElementById(`ubtn-${i}`);
+            if (btnUnknown) {
+                btnUnknown.innerText = '⭐ Đã lưu';
+                btnUnknown.classList.add('saved-btn');
+            }
+
             const allLis = document.querySelectorAll(`#q-card-${i} .options li`);
             allLis.forEach(li => li.classList.add('answered'));
-            document.getElementById(`li-${i}-${quizData[i].a}`).classList.add('correct-ans');
-            const radios = document.getElementsByName(`q${i}`); radios.forEach(r => r.disabled = true);
-            document.getElementById(`ubtn-${i}`).style.display = 'none';
-            document.getElementById(`exp-${i}`).style.display = 'block';
-            document.getElementById(`nav-btn-${i}`).className = 'nav-btn nav-unknown';
-            answeredQuestions++; updateUI(); playSound('tick');
+
+            const correctLi = document.getElementById(`li-${i}-${quizData[i].a}`);
+            if (correctLi) correctLi.classList.add('correct-ans');
+
+            const radios = document.getElementsByName(`q${i}`);
+            radios.forEach(r => r.disabled = true);
+
+            const exp = document.getElementById(`exp-${i}`);
+            if (exp) exp.style.display = 'block';
+
+            const navBtn = document.getElementById(`nav-btn-${i}`);
+            if (navBtn) navBtn.className = 'nav-btn nav-unknown';
+
+            if (!wasSaved) {
+                const expWasHidden = exp && exp.style.display !== 'block';
+                answeredQuestions++;
+            }
+
+            updateUI();
+            playSound('tick');
         }
 
         function addWrongReview(i) {
-            reviewBank.add(i); saveReviewToStore();
-            const b = document.getElementById(`srev-${i}`); b.innerText = "✔️ Đã lưu"; b.disabled = true;
-            document.getElementById(`nav-btn-${i}`).className = 'nav-btn nav-unknown'; updateUI();
+            reviewBank.add(i);
+            if (!saveReviewToStore()) return;
+
+            const b = document.getElementById(`srev-${i}`);
+            if (b) {
+                b.innerText = "✔️ Đã lưu";
+                b.disabled = true;
+            }
+
+            const ubtn = document.getElementById(`ubtn-${i}`);
+            if (ubtn) {
+                ubtn.innerText = '⭐ Đã lưu';
+                ubtn.classList.add('saved-btn');
+            }
+
+            const navBtn = document.getElementById(`nav-btn-${i}`);
+            if (navBtn) navBtn.className = 'nav-btn nav-unknown';
+
+            updateUI();
+            playSound('tick');
         }
 
         function formatTime(secs) {
@@ -2486,7 +2539,7 @@
                 document.getElementById('search-bar-wrap').style.display = 'block';
                 document.getElementById('bottom-actions').style.display = 'block';
                 document.getElementById('sidebar-legend').style.display = 'flex';
-                document.getElementById('main-title').innerText = "Hệ Thống Pro";
+                document.getElementById('main-title').innerText = "Môn Học: Software Architecture";
                 document.getElementById('btn-toggle-review').innerHTML = `📚 Ôn tập (<span id="review-count">${reviewBank.size}</span>)`;
                 rContainer.style.display = 'none';
             }
@@ -2534,9 +2587,21 @@
         }
 
         function doneReview(i) {
-            reviewBank.delete(i); saveReviewToStore();
-            document.getElementById(`rq-card-${i}`).style.display = 'none';
-            document.getElementById(`nav-btn-${i}`).className = 'nav-btn';
+            reviewBank.delete(i);
+            saveReviewToStore();
+
+            const card = document.getElementById(`rq-card-${i}`);
+            if (card) card.style.display = 'none';
+
+            const navBtn = document.getElementById(`nav-btn-${i}`);
+            if (navBtn) navBtn.className = 'nav-btn';
+
+            const ubtn = document.getElementById(`ubtn-${i}`);
+            if (ubtn) {
+                ubtn.innerText = '❓ Không biết';
+                ubtn.classList.remove('saved-btn');
+            }
+
             updateUI();
             if (reviewBank.size === 0) toggleReviewMode();
         }
