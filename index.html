@@ -12,7 +12,7 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Software Architecture Quiz - Ultimate Edition</title>
+    <title>Software Architecture MCQ Quiz - Ultimate Edition</title>
     <style>
         :root {
             --primary: #3498db;
@@ -932,7 +932,7 @@
 
     <div id="score-board">
         <div id="score-board-info" class="score-info">
-            Điểm: <span id="score">0</span> / <span id="total-score">100</span>
+            Điểm: <span id="score">0</span> / <span id="total-score">155</span>
             <div class="progress-info">Đã trả lời: <span id="progress">0</span> câu</div>
         </div>
 
@@ -962,7 +962,7 @@
     <div id="layout-container">
         <div id="main-content">
             <div id="quiz-header">
-                <h1 id="main-title">Môn Học: Software Architecture</h1>
+                <h1 id="main-title">Môn Học: Software Architecture MCQ</h1>
                 <p class="intro-text" id="main-desc">Actor: Duy Mạnh</p>
             </div>
 
@@ -1019,1109 +1019,1724 @@
     <script>
         const quizData = [
             {
-                        "q": "Which of the following is NOT typically considered part of the business context?",
+                        "q": "What is the primary concern of software architecture?",
                         "o": [
-                                    "Organizational structure and culture",
-                                    "Market forces and competition",
-                                    "Business strategy and regulations",
-                                    "Source code implementation details"
-                        ],
-                        "a": 3
-            },
-            {
-                        "q": "Business constraints in the business context may include...",
-                        "o": [
-                                    "Regulatory compliance, budget limits, and deadlines",
-                                    "Choice of variable names in source code",
-                                    "Preferred programming style of developers",
-                                    "The syntax of SQL queries"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "Which type of organization is usually large, complex, and integrates multiple products and services across different markets?",
-                        "o": [
-                                    "Enterprises",
-                                    "Product-oriented companies",
-                                    "Startups",
-                                    "Service-based companies"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "Which of the following best describes a System Context Diagram (SCD)?",
-                        "o": [
-                                    "A diagram that shows the internal modules and components of the system.",
-                                    "A diagram that focuses on external actors and their interactions with the system.",
-                                    "A diagram that shows how database tables are linked together.",
-                                    "A diagram used to model detailed business processes inside the system."
+                                    "Ensuring the system works as expected",
+                                    "Handling long-term design and quality attributes",
+                                    "Meeting coding standards",
+                                    "Handling user interface design"
                         ],
                         "a": 1
             },
             {
-                        "q": "Which of the following is NOT usually included in a System Context Diagram?",
+                        "q": "Which of the following is NOT an architectural structure category?",
                         "o": [
-                                    "External systems interacting with the system.",
-                                    "Human users who exchange information with the system.",
-                                    "The detailed logic of internal system processes.",
-                                    "Information flows between the system and its environment."
+                                    "UI structures",
+                                    "Module structures",
+                                    "Allocation structures",
+                                    "Component-and-connector structures"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "What is the main purpose of a software architecture?",
+                        "o": [
+                                    "Implementing algorithms",
+                                    "Reasoning about the system’s structures and qualities",
+                                    "Testing system functionality",
+                                    "Building user interfaces"
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "What is a module structure?",
+                        "o": [
+                                    "A runtime structure",
+                                    "A static structure for organizing system functionality",
+                                    "A view for system execution",
+                                    "An interaction model"
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "What is a runtime structure in software architecture called?",
+                        "o": [
+                                    "Module structure",
+                                    "Data flow",
+                                    "Component-and-connector (C&C) structure",
+                                    "Allocation structure"
                         ],
                         "a": 2
             },
             {
-                        "q": "In a System Context Diagram, the system is usually represented as:",
+                        "q": "What is the definition of software architecture according to the book?",
                         "o": [
-                                    "A central box / black box with no internal details.",
-                                    "A detailed flowchart showing step-by-step processes.",
-                                    "A layered structure with modules and sub-modules.",
-                                    "A network diagram with servers and routers."
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "Which of the following is a common mistake when designing a System Context Diagram?",
-                        "o": [
-                                    "Keeping the system as a black box.",
-                                    "Including too many unnecessary internal details.",
-                                    "Showing external actors around the system.",
-                                    "Using arrows to represent information flow."
+                                    "A design methodology",
+                                    "A set of structures needed to reason about a system",
+                                    "A programming framework",
+                                    "A system prototype"
                         ],
                         "a": 1
             },
             {
-                        "q": "In the matching question about SCD concepts, which description matches Information Flow?",
+                        "q": "What is the role of software elements in architecture?",
                         "o": [
-                                    "Arrows or lines showing data/control exchanged between system and environment.",
-                                    "Users, external systems, or organizations interacting with the system.",
-                                    "Treating the system as a central unit without internal processes.",
-                                    "Adding unnecessary details of the internal system."
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "A startup wants to keep decision-making fast and flexible. Which organizational category aligns with this business context?",
-                        "o": [
-                                    "Functional organization",
-                                    "Product-based organization",
-                                    "Matrix organization",
-                                    "Flat organization"
-                        ],
-                        "a": 3
-            },
-            {
-                        "q": "Match the organizational category with the correct real-world example: Product-oriented companies, Enterprises, Service-based companies.",
-                        "o": [
-                                    "Apple, IBM, AWS",
-                                    "AWS, Apple, IBM",
-                                    "IBM, AWS, Apple",
-                                    "Apple, AWS, IBM"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "What are the main sources of architectural drivers in a business context?",
-                        "o": [
-                                    "Business goals, stakeholders, quality attributes, constraints, functional requirements",
-                                    "Coding style, indentation, comments, file names",
-                                    "Database tables, primary keys, foreign keys only",
-                                    "User interface colors and font size only"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "Does the TOGAF framework focus specifically on software architecture?",
-                        "o": [
-                                    "Yes, it focuses only on software architecture",
-                                    "No, it focuses more on Enterprise Architecture",
-                                    "Yes, it focuses only on source code structure",
-                                    "No, it focuses only on database design"
+                                    "They define system processes",
+                                    "They represent the system’s behavior and properties",
+                                    "They store system data",
+                                    "They define business logic"
                         ],
                         "a": 1
             },
             {
-                        "q": "What are the three main categories of companies discussed in the lecture?",
+                        "q": "Which structure helps in analyzing system performance?",
                         "o": [
-                                    "Product-oriented companies, enterprises, service-based companies",
-                                    "Small, medium, and large companies only",
-                                    "Frontend, backend, and database companies",
-                                    "Local, national, and international companies only"
+                                    "Component-and-connector (C&C) structure",
+                                    "Module structure",
+                                    "Allocation structure",
+                                    "Class structure"
                         ],
                         "a": 0
             },
             {
-                        "q": "In enterprise organizations, what is the primary purpose of the goal 'reducing complexity'?",
+                        "q": "What architectural structure relates to system deployment?",
                         "o": [
-                                    "To make the user interface more colorful",
-                                    "To simplify management and integration of large systems and business processes",
-                                    "To remove all software from the organization",
-                                    "To avoid using architecture completely"
+                                    "Allocation structure",
+                                    "Component-and-connector structure",
+                                    "Module structure",
+                                    "Data model"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "What are connectors in software architecture?",
+                        "o": [
+                                    "Data storage units",
+                                    "Interaction links between components",
+                                    "System modules",
+                                    "Hardware drivers"
                         ],
                         "a": 1
             },
             {
-                        "q": "What are the three categories of requirements that serve as architectural drivers?",
+                        "q": "What is a system architecture concerned with?",
                         "o": [
-                                    "Functional requirements, quality attribute requirements, and constraints",
-                                    "User interface design, database design, and testing",
-                                    "Hardware, software, and network components",
-                                    "Coding standards, comments, and documentation"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "Does the structure of software impact the functionality that can be implemented?",
-                        "o": [
-                                    "Yes, software structure completely determines all functionality",
-                                    "No, functionality can be achieved by many structures, but structure strongly affects quality attributes",
-                                    "Yes, structure only affects the user interface",
-                                    "No, structure has no impact on software at all"
+                                    "Just software design",
+                                    "A combination of hardware and software components",
+                                    "Only the user interface",
+                                    "Network protocols"
                         ],
                         "a": 1
             },
             {
-                        "q": "In terms of quality attributes, what does 'Performance' primarily measure?",
+                        "q": "Which type of architecture concerns business processes and organizational goals?",
                         "o": [
-                                    "The visual appearance of the system",
-                                    "Response time, throughput, and resource usage",
-                                    "The number of developers working on the system",
-                                    "The amount of documentation written for the system"
+                                    "System architecture",
+                                    "Enterprise architecture",
+                                    "Software architecture",
+                                    "Data architecture"
                         ],
                         "a": 1
             },
             {
-                        "q": "Technical constraints are often described as being what to the design space?",
+                        "q": "Which structure provides insight into a system’s concurrency?",
                         "o": [
-                                    "Decorative elements",
-                                    "Load-bearing walls",
-                                    "Optional suggestions",
-                                    "Temporary features"
+                                    "Module structure",
+                                    "Component-and-connector structure",
+                                    "Allocation structure",
+                                    "Layered structure"
                         ],
                         "a": 1
             },
             {
-                        "q": "Software architecture is mainly concerned with:",
+                        "q": "What is a “layer” in a layered structure?",
                         "o": [
-                                    "Only the colors and layout of the user interface",
-                                    "Structures of the system, software elements, visible properties, and relationships",
-                                    "Only programming syntax",
-                                    "Only test cases"
+                                    "A database unit",
+                                    "A virtual machine providing a set of services",
+                                    "A module of a system",
+                                    "A network protocol"
                         ],
                         "a": 1
             },
             {
-                        "q": "According to the lecture, why do managers need to understand software architecture?",
+                        "q": "Which of these patterns is commonly used in component-and-connector structures?",
                         "o": [
-                                    "Because management activities and technical activities are interdependent",
-                                    "Because managers must write all source code",
-                                    "Because architecture removes the need for planning",
-                                    "Because software architecture is only about documentation"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "Architectural alignment means:",
-                        "o": [
-                                    "The source code is written in one programming language",
-                                    "The system structure supports the properties needed by the business context",
-                                    "The UI buttons are aligned on the screen",
-                                    "The database tables have the same number of columns"
+                                    "Client-side scripting",
+                                    "Client-server pattern",
+                                    "Data mining",
+                                    "Object pooling"
                         ],
                         "a": 1
             },
             {
-                        "q": "Which factor was important in the cell phone industry example?",
+                        "q": "What is an example of a dynamic system structure?",
                         "o": [
-                                    "Ability to create product variants quickly",
-                                    "Ability to remove all features",
-                                    "Ability to avoid market competition",
-                                    "Ability to ignore software quality"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "In the Amazon example, decreasing latency can impact:",
-                        "o": [
-                                    "Sales",
-                                    "Source code comments",
-                                    "Developer salaries only",
-                                    "Database table names"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "In the Google example, loading time affects:",
-                        "o": [
-                                    "Ad revenue",
-                                    "Keyboard shortcuts",
-                                    "Code indentation",
-                                    "File naming conventions"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "Which quality attribute is most related to 'response time'?",
-                        "o": [
-                                    "Performance",
-                                    "Modifiability",
-                                    "Portability",
-                                    "Usability only"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "Which quality attribute is most related to 'ability to change the system easily'?",
-                        "o": [
-                                    "Availability",
-                                    "Modifiability",
-                                    "Security",
-                                    "Throughput"
+                                    "Class diagrams",
+                                    "Service interactions",
+                                    "File directories",
+                                    "Database schemas"
                         ],
                         "a": 1
             },
             {
-                        "q": "Which quality attribute is most related to 'the system keeps working when failures happen'?",
+                        "q": "In which scenario is a component-and-connector structure NOT useful?",
                         "o": [
-                                    "Availability",
-                                    "Color consistency",
-                                    "Naming convention",
-                                    "Product price"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "Which quality attribute is most related to resisting unauthorized access?",
-                        "o": [
-                                    "Performance",
-                                    "Security",
-                                    "Reusability",
-                                    "Portability"
+                                    "Defining system services",
+                                    "Defining code ownership in teams",
+                                    "Analyzing performance",
+                                    "Analyzing system availability"
                         ],
                         "a": 1
             },
             {
-                        "q": "Which of the following is an architecturally significant requirement?",
+                        "q": "What defines the relationship between software and hardware elements?",
                         "o": [
-                                    "The system must support 10,000 users with average response time under 2 seconds",
-                                    "The button should be blue",
-                                    "The variable should be named x",
-                                    "The comment should be written in English"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "A vague quality attribute requirement is:",
-                        "o": [
-                                    "The system shall be modifiable",
-                                    "The system shall process each payment within 2 seconds under peak load",
-                                    "The system shall recover within 30 seconds after server crash",
-                                    "The system shall support 500 concurrent users"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "Why is 'The system shall be modifiable' considered weak?",
-                        "o": [
-                                    "It does not specify what changes, how fast, or under what conditions",
-                                    "It is too detailed",
-                                    "It is a functional use case",
-                                    "It describes database normalization"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "Quality Attribute Scenarios are used to:",
-                        "o": [
-                                    "Better characterize and quantify quality attributes",
-                                    "Replace all functional requirements",
-                                    "Draw only database diagrams",
-                                    "Write source code automatically"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "How many parts does a Quality Attribute Scenario have in the lecture?",
-                        "o": [
-                                    "3",
-                                    "4",
-                                    "5",
-                                    "6"
-                        ],
-                        "a": 3
-            },
-            {
-                        "q": "Which is NOT one of the six parts of a Quality Attribute Scenario?",
-                        "o": [
-                                    "Stimulus",
-                                    "Source of stimulus",
-                                    "Response measure",
-                                    "Programming language syntax"
-                        ],
-                        "a": 3
-            },
-            {
-                        "q": "In a Quality Attribute Scenario, 'stimulus' means:",
-                        "o": [
-                                    "A condition/event that affects the system",
-                                    "The final source code",
-                                    "The database schema",
-                                    "The project logo"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "In a Quality Attribute Scenario, 'response measure' means:",
-                        "o": [
-                                    "The metric used to evaluate the system’s response",
-                                    "The name of the developer",
-                                    "The UI color palette",
-                                    "The number of database tables"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "A smoke detector sends an alarm under peak load; the system raises an alarm within 0.5 seconds. The response measure is:",
-                        "o": [
-                                    "Smoke detector",
-                                    "Peak load",
-                                    "Within 0.5 seconds",
-                                    "Building management system"
+                                    "Module view",
+                                    "Class structure",
+                                    "Allocation structure",
+                                    "Business rules"
                         ],
                         "a": 2
             },
             {
-                        "q": "In the same scenario, 'under peak load' is the:",
+                        "q": "What is the key output of object-oriented analysis and design in architecture?",
+                        "o": [
+                                    "Data model",
+                                    "Class diagrams",
+                                    "Service components",
+                                    "Deployment model"
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "What is the role of allocation structures in architecture?",
+                        "o": [
+                                    "Defining component interactions",
+                                    "Mapping software elements to external environments",
+                                    "Organizing database structures",
+                                    "Describing user interface elements"
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "Which structure helps in reasoning about system modifiability?",
+                        "o": [
+                                    "Data model",
+                                    "Concurrency structure",
+                                    "Module structure",
+                                    "Deployment structure"
+                        ],
+                        "a": 2
+            },
+            {
+                        "q": "What is an architectural pattern?",
+                        "o": [
+                                    "A programming language feature",
+                                    "A solution for recurring design problems",
+                                    "A specific software tool",
+                                    "A testing methodology"
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "Which pattern describes interoperation between independent services?",
+                        "o": [
+                                    "Layered pattern",
+                                    "Shared-data pattern",
+                                    "Allocation pattern",
+                                    "Client-server pattern"
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "What aspect is NOT part of a software architecture?",
+                        "o": [
+                                    "Behavior of components",
+                                    "Relationships between components",
+                                    "Physical layout of the office",
+                                    "Properties of system elements"
+                        ],
+                        "a": 2
+            },
+            {
+                        "q": "What is the purpose of a deployment structure?",
+                        "o": [
+                                    "To define modules",
+                                    "To map software components to hardware systems",
+                                    "To store logs",
+                                    "To handle system workflows"
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "How does architecture influence a system’s development?",
+                        "o": [
+                                    "By selecting coding standards",
+                                    "By defining major design decisions that impact the whole system",
+                                    "By determining file structure",
+                                    "By setting system memory limits"
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "What makes a view different from a structure?",
+                        "o": [
+                                    "Views are static",
+                                    "Views represent structures as seen by stakeholders",
+                                    "Structures are abstract",
+                                    "Views are only used in implementation"
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "What is the architecture business cycle?",
+                        "o": [
+                                    "The influence between architecture and the organization that developed it",
+                                    "The process of code optimization",
+                                    "The lifecycle of a software product",
+                                    "The organization’s marketing strategy"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "What does a “skeletal system” mean in architecture?",
+                        "o": [
+                                    "A system without data",
+                                    "A minimal system that exercises major communication paths",
+                                    "A system that is incomplete",
+                                    "A prototype system"
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "What is the role of architecture documentation?",
+                        "o": [
+                                    "To capture code syntax",
+                                    "To describe the system’s structure and behavior for stakeholders",
+                                    "To store system logs",
+                                    "To define UI layouts"
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "Which architectural structure is important for assigning responsibilities to development teams?",
+                        "o": [
+                                    "Work assignment structure",
+                                    "Module structure",
+                                    "Deployment structure",
+                                    "Component-and-connector structure"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "What does a “good” architecture achieve?",
+                        "o": [
+                                    "High system costs",
+                                    "Alignment with business goals and quality attributes",
+                                    "Large team sizes",
+                                    "Complex system designs"
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "Which architectural pattern enforces strict use of layers?",
+                        "o": [
+                                    "Layered pattern",
+                                    "Service-oriented pattern",
+                                    "Client-server pattern",
+                                    "Repository pattern"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "What is a common quality attribute influenced by architecture?",
+                        "o": [
+                                    "Budget",
+                                    "Modifiability",
+                                    "Code formatting",
+                                    "User experience"
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "Which term refers to communication pathways between runtime components?",
+                        "o": [
+                                    "Modules",
+                                    "Connectors",
+                                    "Threads",
+                                    "Data models"
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "Why is it important to reason about an architecture early in the development process?",
+                        "o": [
+                                    "To implement user feedback",
+                                    "To predict system quality attributes",
+                                    "To develop a prototype",
+                                    "To select coding languages"
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "Which attribute is critical for systems that must operate even when faults occur?",
+                        "o": [
+                                    "Usability",
+                                    "Availability",
+                                    "Scalability",
+                                    "Modifiability"
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "What is a key property of well-defined architectural modules?",
+                        "o": [
+                                    "They hide internal complexity and promote separation of concerns",
+                                    "They include all system details",
+                                    "They interact with external systems directly",
+                                    "They contain user interface components"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "In which scenario is architecture NOT critical?",
+                        "o": [
+                                    "Designing a distributed system",
+                                    "Managing system performance",
+                                    "Creating a basic script or utility tool",
+                                    "Implementing quality attributes"
+                        ],
+                        "a": 2
+            },
+            {
+                        "q": "What is the significance of architectural patterns in system design?",
+                        "o": [
+                                    "They provide reusable solutions to common problems",
+                                    "They define system-specific requirements",
+                                    "They organize code",
+                                    "They ensure modularity"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Which structure ensures that changes to the system do not affect unrelated components?",
+                        "o": [
+                                    "Deployment structure",
+                                    "Module structure",
+                                    "Concurrency structure",
+                                    "File system structure"
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "How does a client-server pattern work?",
+                        "o": [
+                                    "The client manages data while the server processes requests",
+                                    "Clients request services from servers which provide responses",
+                                    "Clients and servers execute on the same machine",
+                                    "Data is stored on the client side"
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "What architectural documentation is used to communicate with stakeholders?",
+                        "o": [
+                                    "Views",
+                                    "Code diagrams",
+                                    "Performance tests",
+                                    "Security protocols"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Which structure addresses how data is transmitted between components?",
+                        "o": [
+                                    "Concurrency structure",
+                                    "Module structure",
+                                    "Deployment structure",
+                                    "Class structure"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "What is a scenario in architecture evaluation?",
+                        "o": [
+                                    "A system error",
+                                    "A use case to test quality attributes in the architecture",
+                                    "A code deployment method",
+                                    "A debugging process"
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "Which quality attribute is often prioritized in mission-critical systems?",
+                        "o": [
+                                    "Usability",
+                                    "Scalability",
+                                    "Reliability",
+                                    "Modifiability"
+                        ],
+                        "a": 2
+            },
+            {
+                        "q": "What does the term \"scalability\" refer to in software architecture?",
+                        "o": [
+                                    "The system's ability to handle growth in demand or size",
+                                    "The system's ability to operate at maximum performance",
+                                    "The ease of system maintenance",
+                                    "The use of object-oriented patterns"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "What does the term \"modifiability\" refer to in architecture?",
+                        "o": [
+                                    "The ease with which the system can be changed or updated",
+                                    "The system's performance under stress",
+                                    "The user interface design",
+                                    "The type of hardware used"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Which structure helps organize how system modules interact at runtime?",
+                        "o": [
+                                    "Deployment structure",
+                                    "Component-and-connector structure",
+                                    "Module structure",
+                                    "Data structure"
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "What is the purpose of an architectural evaluation?",
+                        "o": [
+                                    "To analyze the system's user interface",
+                                    "To assess if the architecture can meet quality attribute goals",
+                                    "To create code templates",
+                                    "To prepare for system deployment"
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "How is system reliability achieved through architecture?",
+                        "o": [
+                                    "Using modern programming languages",
+                                    "Through redundancy and fault-tolerant designs",
+                                    "By using cloud infrastructure",
+                                    "By following Agile principles"
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "What is the primary focus of enterprise architecture?",
+                        "o": [
+                                    "System component interaction",
+                                    "Aligning software systems with business goals and processes",
+                                    "Building user interfaces",
+                                    "Optimizing network traffic"
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "How does software architecture support incremental development?",
+                        "o": [
+                                    "By prioritizing Agile methods",
+                                    "Through designing systems to be built and tested in parts",
+                                    "By focusing on hardware resources",
+                                    "By using AI for automation"
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "What is a non-local change in architecture?",
+                        "o": [
+                                    "A change to system documentation",
+                                    "A change that affects multiple elements but does not alter the architecture itself",
+                                    "A minor update in a single module",
+                                    "A complete redesign of the system"
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "Which structure maps software components to the underlying hardware?",
+                        "o": [
+                                    "Component structure",
+                                    "Deployment structure",
+                                    "Data structure",
+                                    "Service structure"
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "What is the main advantage of using well-documented architecture?",
+                        "o": [
+                                    "It shortens the development cycle",
+                                    "It enhances communication between stakeholders and ensures design consistency",
+                                    "It improves system runtime performance",
+                                    "It prevents all system errors"
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "Which quality attribute focuses on how well a system performs under load?",
+                        "o": [
+                                    "Performance",
+                                    "Modifiability",
+                                    "Usability",
+                                    "Maintainability"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Which quality attribute ensures that a system can continue to operate in the event of partial failure?",
+                        "o": [
+                                    "Scalability",
+                                    "Fault tolerance",
+                                    "Usability",
+                                    "Performance"
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "What kind of structure is a class diagram?",
+                        "o": [
+                                    "Component structure",
+                                    "Module structure",
+                                    "Allocation structure",
+                                    "Deployment structure"
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "What role does a system architect play in an organization?",
+                        "o": [
+                                    "Writing code for the system",
+                                    "Designing the system's structure to meet business and technical goals",
+                                    "Testing the system's performance",
+                                    "Managing the organization's network traffic"
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "The term 'enterprise architecture' describes ...",
+                        "o": [
+                                    "software elements of a system.",
+                                    "hardware elements and how they are interconnected.",
+                                    "business structures and how they are interconnected.",
+                                    "both the hardware and software elements of a system."
+                        ],
+                        "a": 2
+            },
+            {
+                        "q": "Enterprise and system architecture...",
+                        "o": [
+                                    "provide an environment in which software operates.",
+                                    "provide requirements and constraints to which software architecture must adhere.",
+                                    "are likely to be associated with one or more software architectures.",
+                                    "all of the above",
+                                    "none of the above"
+                        ],
+                        "a": 3
+            },
+            {
+                        "q": "Which of the following is a concern of software architecture?",
+                        "o": [
+                                    "Software elements of the system",
+                                    "Human elements of the system",
+                                    "Hardware elements of the system",
+                                    "All of the above",
+                                    "None of the above"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Software architecture is an abstraction of a system that...",
+                        "o": [
+                                    "suppresses details of what software elements do internally.",
+                                    "shows how software elements will be implemented.",
+                                    "describes the algorithms and data structures used by software elements.",
+                                    "identifies the public and private interfaces of software elements."
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "The 'externally visible properties' of a software architecture's elements refers to all of the following except...",
+                        "o": [
+                                    "quality attributes of those elements.",
+                                    "\"as is\" design of those elements.",
+                                    "functions and services provided by those elements.",
+                                    "resources provided and used by those elements."
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "Which of the following is not true concerning software architecture?",
+                        "o": [
+                                    "An architecture comprises many different structures.",
+                                    "An architecture is best described by a single, coherent structure.",
+                                    "An architectural structure might show runtime elements and relationships.",
+                                    "An architectural structure might show non-runtime elements and relationships."
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "Which of the following is true concerning software architecture?",
+                        "o": [
+                                    "Architecture is concerned primarily with the private details of element interfaces.",
+                                    "An architecture is composed of a fixed set of candidate structures.",
+                                    "Every system has an architecture, explicit or implicit.",
+                                    "A software architecture is the planned implementation of a system."
+                        ],
+                        "a": 2
+            },
+            {
+                        "q": "Which of the following cannot be inferred from the description of a software architecture's elements?",
+                        "o": [
+                                    "How many elements a system has",
+                                    "The design of individual elements",
+                                    "Commonalities between system elements",
+                                    "Relationships between system elements"
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "Which of the following is not true of architectural patterns?",
+                        "o": [
+                                    "They are often selected to promote various quality attribute properties.",
+                                    "They are well-known solutions to recurring design problems.",
+                                    "They are industry -defined standards for software design.",
+                                    "They are often selected in the early stages of architectural design."
+                        ],
+                        "a": 2
+            },
+            {
+                        "q": "Which of the following would not be part of a reference model?",
+                        "o": [
+                                    "What major functions a system is expected to perform",
+                                    "How system functions are allocated to software elements",
+                                    "What data flows to, from, and between system functions",
+                                    "Which functions are mandatory and which are optional"
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "Which of the following would not be part of a reference architecture?",
+                        "o": [
+                                    "Elements of the architecture and their externally visible properties",
+                                    "Relationships between elements and the properties of those elements",
+                                    "Which elements, relationships, and properties are optional in any given implementation of the architecture",
+                                    "How to instantiate the architecture for a particular application"
+                        ],
+                        "a": 3
+            },
+            {
+                        "q": "There are three primary reasons why a software architecture is important. Which of the following is not one of them?",
+                        "o": [
+                                    "It reveals early design decisions about a system.",
+                                    "It enables communication among stakeholders regarding the system.",
+                                    "It ensures implementation conformance to a defined specification.",
+                                    "It is a transferable, reusable abstraction of a system."
+                        ],
+                        "a": 2
+            },
+            {
+                        "q": "Software architecture provides a common frame of reference for all of the following except...",
+                        "o": [
+                                    "negotiating requirements with stakeholders.",
+                                    "keeping the customer informed of progress and cost.",
+                                    "minimizing the amount of time spent in component design.",
+                                    "deciding how to structure the development organization and allocate resources."
+                        ],
+                        "a": 2
+            },
+            {
+                        "q": "Which of the following is least likely to be imposed on the implementation by software architecture?",
+                        "o": [
+                                    "Test procedures",
+                                    "Process-scheduling priorities",
+                                    "Elements and interactions",
+                                    "Data sharing"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Which of the following processes within a development organization is not affected by software architecture?",
+                        "o": [
+                                    "Budgeting and scheduling",
+                                    "Partitioning and assigning work",
+                                    "Performing user testing",
+                                    "Planning testing and deployment"
+                        ],
+                        "a": 2
+            },
+            {
+                        "q": "Software architecture allows us to predict...",
+                        "o": [
+                                    "how much the system will impact the technological environment.",
+                                    "how well quality attributes will be achieved.",
+                                    "how satisfied customers will be with the product.",
+                                    "how often requirements will change."
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "Architecture helps us to reason about and manage change, because it partitions all changes into these three classes of change:",
+                        "o": [
+                                    "requirements, design, and implementation changes.",
+                                    "local, nonlocal, and ar chitectural changes.",
+                                    "high-level design, detailed design, and coding changes.",
+                                    "life-cycle, process, and practice changes."
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "Once an architecture has been defined, it can be analyzed and prototyped as a skeletal system. Which of the following is not a benefit of this approach?",
+                        "o": [
+                                    "Elements can be plugged into a skeletal framework of the architecture.",
+                                    "Risky elements can be identified and prototyped.",
+                                    "The system is executable early in the product's life cycle.",
+                                    "Development can proceed before the architectural mismatches have been identified."
+                        ],
+                        "a": 3
+            },
+            {
+                        "q": "Which of the following is false regarding software architecture?",
+                        "o": [
+                                    "Software architecture enables more accurate cost and schedule estimates.",
+                                    "Software architecture enables more accurate project planning and tracking.",
+                                    "Software architecture enables more accurate process conformance estimates.",
+                                    "Software architecture enables more accurate predictions of resource usage."
+                        ],
+                        "a": 2
+            },
+            {
+                        "q": "Software architecture can serve as the basis of a strategic reuse agenda that includes reuse of all of the following except...",
+                        "o": [
+                                    "product-specific functionality and qualities.",
+                                    "work breakdown structures and requirements.",
+                                    "project personnel and experience.",
+                                    "components and standards."
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Architecture-based development...",
+                        "o": [
+                                    "focuses on composing elements rather than programming them.",
+                                    "relaxes constraints on which third-party products can be incorporated into the system.",
+                                    "avoids implementation standards to promote flexibility.",
+                                    "inhibits component interchangeability."
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Architecture enables template-based development. Which of the following isnot true of this type of development?",
+                        "o": [
+                                    "Templates can be used to localize how elements interact.",
+                                    "Templates can be used to code element interaction frameworks.",
+                                    "Templates speed up development and increase reliability.",
+                                    "Templates promote standardization but reduce performance."
+                        ],
+                        "a": 3
+            },
+            {
+                        "q": "Which of the following structures is most likely to be of interest in determining how modifiable software is in terms of supporting a new hardware platform?",
+                        "o": [
+                                    "Uses structure",
+                                    "Shared-data repository structure",
+                                    "Implementation structure",
+                                    "Work assignment structure"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Which of the following structures is most likely to be of interest in determining how secure a system is from unauthorized external access?",
+                        "o": [
+                                    "Implementation structure",
+                                    "Deployment structure",
+                                    "Class/generalization structure",
+                                    "Decomposition structure"
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "Which of the following structures is most likely to be of interest in determining how well a system will perform when faced by simultaneous access by 1,000 users?",
+                        "o": [
+                                    "Layered structure",
+                                    "Process structure",
+                                    "Work assignment structure",
+                                    "Implementation structure"
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "Architects primarily focus on designing whatever structures will provide them with the most leverage in achieving...",
+                        "o": [
+                                    "the functional requirements of the system.",
+                                    "the operational requirements of the system.",
+                                    "the quality attributes requirements of the system.",
+                                    "all of the above",
+                                    "none of the above"
+                        ],
+                        "a": 2
+            },
+            {
+                        "q": "The Architecture Business Cycle best refers to...",
+                        "o": [
+                                    "the business, social, and technical influences on an architecture.",
+                                    "the influence of architecture on cost, schedule, and resource allocation.",
+                                    "the cyclic nature of architecture -centric development.",
+                                    "the ideal lifecycle model for architecture-based development.",
+                                    "none of the above"
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Which of these factors is least likely to influence the design of a software architecture?",
+                        "o": [
+                                    "The architect's background and experience",
+                                    "The technical environment in which the system is developed",
+                                    "The way in which the architecture is represented",
+                                    "The structure of the development organization"
+                        ],
+                        "a": 2
+            },
+            {
+                        "q": "Why should software architects involve stakeholders early in the life cycle of a system?",
+                        "o": [
+                                    "To inform stakeholders of the system's priorities",
+                                    "To limit the real constraints of a system",
+                                    "To manage stakeholder expectations",
+                                    "To discuss design alternatives"
+                        ],
+                        "a": 2
+            },
+            {
+                        "q": "Which of the following might be an organizational influence on software architectures?",
+                        "o": [
+                                    "Available expertise",
+                                    "Organizational structure",
+                                    "Investment in existing assets",
+                                    "All of the above",
+                                    "None of the above"
+                        ],
+                        "a": 3
+            },
+            {
+                        "q": "The existing technical environment will...",
+                        "o": [
+                                    "be the most influential cost driver of the system.",
+                                    "be a key factor in minimizing the constraints imposed on a system.",
+                                    "likely influence the design of an architecture.",
+                                    "have the least impact on the cost of the system."
+                        ],
+                        "a": 2
+            },
+            {
+                        "q": "The design choices made by a software architect might be influenced by his or her...",
+                        "o": [
+                                    "past experience in designing service-oriented architectures.",
+                                    "personal goals and objectives.",
+                                    "education and training.",
+                                    "all of the above",
+                                    "none of the above"
+                        ],
+                        "a": 3
+            },
+            {
+                        "q": "The design of an architecture is least likely to influence...",
+                        "o": [
+                                    "the formation of development teams.",
+                                    "development, test, and integration activities.",
+                                    "conformance to project tracking and reporting practices.",
+                                    "resource allocation in schedules and budgets."
+                        ],
+                        "a": 2
+            },
+            {
+                        "q": "Software architecture does not offer which of the following benefits?",
+                        "o": [
+                                    "Allowing the company to enter a specific market segment",
+                                    "Guaranteeing that implementations will conform to the architecture specification",
+                                    "Providing a basis for resource allocation and budgeting",
+                                    "Enabling efficient production and deployment of similar systems"
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "Occasionally, a system or architecture will introduce itself into the technical environment in a way that will impact the architectural design of many systems for the foreseeable future. All of the following are examples of this except for:",
+                        "o": [
+                                    "The World Wide Web",
+                                    "C++",
+                                    "Service-oriented architecture",
+                                    "Windows operating system"
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "Understanding the influences described by the Architecture Business Cycle helps the architect to do many things. Which of the following is not one of them?",
+                        "o": [
+                                    "Realize that system requirements are not the only influence on architectural design",
+                                    "Determine when and how these influences will occur during the life cycle",
+                                    "Actively look for and assess the impact of such influences on the architecture",
+                                    "Prepare for and manage these influences throughout the life cycle"
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "Which of the following architectural influences can affect customer requirements?",
+                        "o": [
+                                    "Customers perceive the benefit of existing architectures and want similar kinds of architectures for their systems.",
+                                    "Customers will alter their requirements based on the availability of existing systems and components.",
+                                    "Customers ask for features that are available on existing systems.",
+                                    "All of the above",
+                                    "None of the above"
+                        ],
+                        "a": 3
+            },
+            {
+                        "q": "Which of the following offers the best example of a non-operational description of a quality attribute requirement?",
+                        "o": [
+                                    "Modifiability: \"Developers must be able to port the software to a Mac within six months.\"",
+                                    "Performance: \"The software must outperform competing software by a factor of 20.\"",
+                                    "Usability: \"The system shall be easy for operations personnel to learn and use.\"",
+                                    "Security: \"The system shall prevent all unauthorized access to top-secret records.\""
+                        ],
+                        "a": 2
+            },
+            {
+                        "q": "Which of the following best describes \"quality attributes?\"",
+                        "o": [
+                                    "Properties of work products or goods by which their quality will be judged by stakeholders",
+                                    "Properties of software systems that drive how systems will be partitioned to achieve the desired functionality",
+                                    "Properties of work products or goods that determine their marketability",
+                                    "Properties of software systems that are well defined by industry standards and used as a basis for determining whether a system is \"fit for purpose\""
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Quality attributes requirements are derived from...",
+                        "o": [
+                                    "stakeholder concerns.",
+                                    "industry standards.",
+                                    "functional requirements.",
+                                    "architectural structure."
+                        ],
+                        "a": 0
+            },
+            {
+                        "q": "Which of the following is not true concerning quality attributes?",
+                        "o": [
+                                    "Quality attributes have a significant influence on the architecture of a system.",
+                                    "Architectural decisions are often made to promote various quality attributes.",
+                                    "Architecture provides the foundation for achieving quality attributes and guarantees that those qualities will be met in the final implementation of the system.",
+                                    "Changes in an architecture to promote one quality attribute may have a negative impact on other quality attributes."
+                        ],
+                        "a": 2
+            },
+            {
+                        "q": "Which of the following is not true concerning the functional requirements of a system?",
+                        "o": [
+                                    "We can achieve functional requirements using any architecture.",
+                                    "Functional requirements often have associated quality attribute requirements.",
+                                    "We can achieve functional requirements yet fail to meet quality attribute requirements.",
+                                    "Functional requirements have a significant influence on the architecture of a system."
+                        ],
+                        "a": 3
+            },
+            {
+                        "q": "Failing to understand the quality attribute requirements for a system is often the result of...",
+                        "o": [
+                                    "ignoring industry-standard definitions for those requirements.",
+                                    "wide variation in the vocabulary used to describe those requirements.",
+                                    "a lack of tool support for recording and tracking those requirements.",
+                                    "following a life-cycle model that does not accommodate those requirements."
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "A \"quality attribute scenario\" is...",
+                        "o": [
+                                    "the relationship between different qualities of a system.",
+                                    "a list of all quality attributes relevant to some part of a system.",
+                                    "a short description of how a user will interact with some part of a system.",
+                                    "a short description of how a system should respond to some stimulus."
+                        ],
+                        "a": 3
+            },
+            {
+                        "q": "Which of the following is not part of a quality attribute scenario?",
                         "o": [
                                     "Environment",
-                                    "Source",
-                                    "Artifact",
-                                    "Response measure"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "In the same scenario, the external smoke detector is the:",
-                        "o": [
-                                    "Source of stimulus",
                                     "Response measure",
-                                    "Architecture pattern",
-                                    "Constraint"
+                                    "Evaluation",
+                                    "Stimulus source"
+                        ],
+                        "a": 2
+            },
+            {
+                        "q": "The main purpose of developing quality attribute scenarios is to...",
+                        "o": [
+                                    "better understand quality attributes requirements.",
+                                    "select architectural patterns.",
+                                    "unveil conflicting stakeholder requirements.",
+                                    "select architectural tactics."
                         ],
                         "a": 0
             },
             {
-                        "q": "Functional requirements describe:",
+                        "q": "Which of the following statements is true?",
                         "o": [
-                                    "What the system must do",
-                                    "Only how fast the system is",
-                                    "Only which server is used",
-                                    "Only how code is formatted"
+                                    "A general scenario is an instantiation of a concrete scenario.",
+                                    "A concrete scenario is an instantiation of a general scenario.",
+                                    "Concrete scenarios are system independent.",
+                                    "General scenarios are formed by combining concrete scenarios."
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "Which of the following statements is not true?",
+                        "o": [
+                                    "General scenarios can help stakeholders communicate more effectively about quality attribute requirements.",
+                                    "General scenarios are system-specific but domain-independent scenarios.",
+                                    "General scenarios can help stakeholders develop concrete scenarios.",
+                                    "General scenarios can be developed for any quality attribute."
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "The Quality Attribute Workshop (QAW) engages stakeholders to...",
+                        "o": [
+                                    "evaluate the design of a system.",
+                                    "discover the quality attribute requirements for a system.",
+                                    "determine whether a system is \"fit for purpose\".",
+                                    "propose and select system design alternatives."
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "The Quality Attribute Workshop (QAW) is best used...",
+                        "o": [
+                                    "before architectural design.",
+                                    "during architectural design.",
+                                    "after architectural design but before non-architectural design.",
+                                    "during non-architectural design."
                         ],
                         "a": 0
             },
             {
-                        "q": "At architectural design time, functional requirements should mainly be:",
+                        "q": "Which of the following results from the Quality Attribute Workshop (QAW)?",
                         "o": [
-                                    "High-level functionality",
-                                    "Every line of code",
-                                    "Every CSS class",
-                                    "Every variable name"
+                                    "Improved allocation of project resources",
+                                    "Consensus on the non-architectural design for a system",
+                                    "Reduced and better control over stakeholder communication",
+                                    "Increased stakeholder communication"
+                        ],
+                        "a": 3
+            },
+            {
+                        "q": "Which of the following best describes the relationship between architectural patterns and architectural tactics?",
+                        "o": [
+                                    "Any tactic implements different patterns.",
+                                    "Patterns and tactics are equivalent.",
+                                    "A pattern may employ one or more tactics.",
+                                    "Tactics and patterns are unrelated."
+                        ],
+                        "a": 2
+            },
+            {
+                        "q": "Which of the following is not part of describing or determining an architectural pattern?",
+                        "o": [
+                                    "Implementation details",
+                                    "Interaction mechanisms or connectors",
+                                    "Semantic constraints",
+                                    "Element types"
                         ],
                         "a": 0
             },
             {
-                        "q": "Functional requirements can be captured using:",
+                        "q": "The purpose of applying patterns in software architecture is to...",
                         "o": [
-                                    "Use cases, feature descriptions, operational descriptions, formal specifications",
-                                    "Only color palettes",
-                                    "Only keyboard shortcuts",
-                                    "Only comments in code"
+                                    "build multiple related systems.",
+                                    "address one or more architectural tactics.",
+                                    "isolate one or more quality attributes.",
+                                    "promote one or more quality attributes."
+                        ],
+                        "a": 3
+            },
+            {
+                        "q": "The purpose of identifying patterns in a software architecture is to...",
+                        "o": [
+                                    "improve stakeholder communication.",
+                                    "help predict specific qualities in an architecture.",
+                                    "enable reuse of legacy systems.",
+                                    "help build multiple products in a product line."
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "A software architecture view is...",
+                        "o": [
+                                    "an opinion regarding software architecture.",
+                                    "a representation of a structure found in a software system.",
+                                    "a collection of UML diagrams.",
+                                    "a list of elements in a software system."
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "Documenting a software architecture is best described as a process of...",
+                        "o": [
+                                    "documenting the structures, elements, and relationships that will best support non-architectural design.",
+                                    "documenting relevant views and then adding information that applies to more than one view.",
+                                    "documenting runtime interactions and behaviors and their impact on quality attributes requirements.",
+                                    "documenting the module structures that will best support the development and management teams."
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "Which type of architectural view shows sets of code units?",
+                        "o": [
+                                    "Allocation views",
+                                    "Module views",
+                                    "Component-and-connector views",
+                                    "User action/feedback views"
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "Which type of architectural view shows the runtime interactions of sets of elements?",
+                        "o": [
+                                    "Allocation views",
+                                    "Module views",
+                                    "Component-and-connector views",
+                                    "User action/feedback views"
+                        ],
+                        "a": 2
+            },
+            {
+                        "q": "Which type of architectural view shows how software and non-software elements are related within a system?",
+                        "o": [
+                                    "Allocation views",
+                                    "Module views",
+                                    "Component-and-connector views",
+                                    "User action/feedback views"
                         ],
                         "a": 0
             },
             {
-                        "q": "Which information should be captured for functional requirements?",
+                        "q": "A process view of a system's software architecture would most likely be used to reason about which of the following quality attribute properties of that system?",
                         "o": [
-                                    "Preconditions, happy path, alternative flows, error conditions, postconditions",
-                                    "Only the logo",
-                                    "Only programming language",
-                                    "Only developer names"
+                                    "Maintainability and buildability",
+                                    "Performance and reliability",
+                                    "Security and modifiability",
+                                    "Reusability and availability"
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "An allocation view of a software architecture shows...",
+                        "o": [
+                                    "runtime behavior and interactions of elements.",
+                                    "code units that implement functionality.",
+                                    "user interactions with system elements.",
+                                    "relationships between software elements to environment elements."
+                        ],
+                        "a": 3
+            },
+            {
+                        "q": "A deployment view of a system's software architecture would most likely be used to reason about which of the following quality attribute properties of that system?",
+                        "o": [
+                                    "Modifiability and security",
+                                    "Availability and affordability",
+                                    "Reusability and reliability",
+                                    "Interoperability and subsetability"
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "One of the most important factors to consider when deciding which views to develop for an architecture is...",
+                        "o": [
+                                    "what life-cycle model will be followed during the course of development.",
+                                    "what notation and process will be used for creating and verifying the correctness of views.",
+                                    "what tools are available for view creation, dissemination, and maintenance.",
+                                    "which views will best serve stakeholder needs."
+                        ],
+                        "a": 3
+            },
+            {
+                        "q": "Views often include information about all of the following except for...",
+                        "o": [
+                                    "a primary presentation, element catalog, and context diagram.",
+                                    "driving architectural requirements and design rationale.",
+                                    "results of design-related analysis, prototyping, and experimentation.",
+                                    "pseudo descriptions for key algorithms and database schemata."
+                        ],
+                        "a": 3
+            },
+            {
+                        "q": "Beyond views, it is useful to describe all of the following when documenting an architecture except for...",
+                        "o": [
+                                    "a system overview and documentation roadmap.",
+                                    "the major architectural approaches taken and their relationship to key requirements.",
+                                    "the relationship between implementation constructs and architectural elements.",
+                                    "a mapping between architectural elements and key requirements."
+                        ],
+                        "a": 2
+            },
+            {
+                        "q": "One should not proceed with architectural design until...",
+                        "o": [
+                                    "architectural drivers are known with some confidence.",
+                                    "functional requirements have been documented and validated.",
+                                    "quality attribute requirements have been documented and validated.",
+                                    "design constraints have been documented and validated."
                         ],
                         "a": 0
             },
             {
-                        "q": "Business constraints usually include:",
+                        "q": "Which of the following is true?",
                         "o": [
-                                    "Market, cost, schedule, workforce, product line, rollout plan",
-                                    "Variable names only",
-                                    "HTML tags only",
-                                    "Mouse type used by developers"
+                                    "Non-architectural design should begin only after the completion of architectural design.",
+                                    "Architectural design should not begin before the completion of requirements analysis.",
+                                    "Non-architectural design may begin before the completion of architectural design.",
+                                    "Architectural design should begin before requirements analysis."
+                        ],
+                        "a": 2
+            },
+            {
+                        "q": "Attribute-Driven Design (ADD) is an approach to defining software architecture where decomposition is based on...",
+                        "o": [
+                                    "minimizing interactions between architecturally significant elements.",
+                                    "recursive decomposition of functional partitions to maximize architectural cohesion.",
+                                    "applying architectural patterns and tactics to satisfy quality attribute requirements.",
+                                    "compartmentalizing functions and behaviors to maximize architectural coherence."
+                        ],
+                        "a": 2
+            },
+            {
+                        "q": "Which of the following is not an input of the ADD method?",
+                        "o": [
+                                    "Quality attribute requirements",
+                                    "Module decomposition requirements",
+                                    "Functional requirements",
+                                    "Design constraints"
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "Which of the following is least likely to be a benefit of architecture evaluations?",
+                        "o": [
+                                    "They provide input into where an architecture can be improved.",
+                                    "They provide a forum for identifying and discussing unclear, missing, or invalid requirements.",
+                                    "They allow immediate stakeholder input about how to redesign an architecture to correct problems.",
+                                    "They result in improved communications between stakeholders."
+                        ],
+                        "a": 2
+            },
+            {
+                        "q": "Which of the following is the least desirable point in the software life cycle to perform an architecture evaluation?",
+                        "o": [
+                                    "When acquiring a system",
+                                    "When building a system",
+                                    "When the system is first released",
+                                    "When substantial changes are proposed for a system"
+                        ],
+                        "a": 2
+            },
+            {
+                        "q": "Which of the following is unlikely to be a cost associated with architecture evaluations?",
+                        "o": [
+                                    "Managing an organization's architecture evaluation capability",
+                                    "Training the evaluation team",
+                                    "Excessive communication among stakeholders",
+                                    "Loss of productivity for senior designers"
+                        ],
+                        "a": 2
+            },
+            {
+                        "q": "Architecture evaluation methods generally fall into what two categories?",
+                        "o": [
+                                    "Scenario verification and prototyp ing techniques",
+                                    "Questioning and measuring techniques",
+                                    "Simulation-based and questionnaire-based techniques",
+                                    "Checklist and quantitative techniques"
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "In questionnaire-based evaluation techniques...",
+                        "o": [
+                                    "the architect answers a prepared list of questions.",
+                                    "detailed sets of yes/no questions focus on particular qualities.",
+                                    "the quality of the design process is measured.",
+                                    "specific interactions between a system and stakeholder are described."
                         ],
                         "a": 0
             },
             {
-                        "q": "Technical constraints include:",
+                        "q": "In scenario-based evaluation techniques...",
                         "o": [
-                                    "Legacy systems, mandated technologies, protocols, standards",
-                                    "Office decoration",
-                                    "Slide background color only",
-                                    "Developer lunch schedule"
+                                    "the architect answers a prepared list of questions.",
+                                    "detailed sets of yes/no questions focus on particular qualities.",
+                                    "the quality of the design process is measured.",
+                                    "specific interactions between a system and stakeholder are described."
+                        ],
+                        "a": 3
+            },
+            {
+                        "q": "In checklist-based evaluation techniques...",
+                        "o": [
+                                    "the architect answers a prepared list of questions.",
+                                    "detailed sets of yes/no questions focus on particular qualities.",
+                                    "the quality of the design process is measured.",
+                                    "specific interactions between a system and stakeholder are described."
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "In an architectural evaluation, the term \"metrics\" means...",
+                        "o": [
+                                    "quantitative and observable measures of an architecture.",
+                                    "numeric measures of the quality of the design process.",
+                                    "numeric measures of the quality of the evaluation process.",
+                                    "standardized but qualitative measures of an architecture."
                         ],
                         "a": 0
             },
             {
-                        "q": "Why must constraints be documented?",
+                        "q": "Which of the following is not a focus of metric-based architecture evaluations?",
                         "o": [
-                                    "They shape architecture and must be followed",
-                                    "They are optional decorations",
-                                    "They are never important",
-                                    "They replace all requirements"
+                                    "Results of applying metrics.",
+                                    "Choosing a set of metrics",
+                                    "Comparing different sets of metrics",
+                                    "Assumptions underlying the metrics"
+                        ],
+                        "a": 2
+            },
+            {
+                        "q": "Which of the following is not a typical output from an architectural evaluation?",
+                        "o": [
+                                    "Detailed implementation plans",
+                                    "Enhanced system documentation",
+                                    "Sets of scenarios for future use",
+                                    "Sets of ranked risks or issues"
                         ],
                         "a": 0
             },
             {
-                        "q": "According to the lecture, constraints do not need to be prioritized because:",
+                        "q": "The purpose of the ATAM is to...",
                         "o": [
-                                    "By definition, they must be adhered to",
-                                    "They are always ignored",
-                                    "They are the same as suggestions",
-                                    "They only affect UI color"
+                                    "discover the right architecture for a system.",
+                                    "assess the consequences of architectural decisions.",
+                                    "provide precise analyses.",
+                                    "compare competing architectural designs for a system."
+                        ],
+                        "a": 1
+            },
+            {
+                        "q": "A quality attribute utility tree...",
+                        "o": [
+                                    "facilitates the derivation of quality attribute scenarios from architectural tradeoffs.",
+                                    "measures the utility of proposed design alternatives.",
+                                    "maps architectural patterns to quality attribut es.",
+                                    "prioritizes a list of quality attribute scenarios."
+                        ],
+                        "a": 3
+            },
+            {
+                        "q": "In the context of software architecture evaluations, which of the following best describes \"a risk?\"",
+                        "o": [
+                                    "A potentially problematic architectural decision",
+                                    "An architectural decision that affects one or more quality attribute responses positively while negatively affecting others",
+                                    "An architectural decision that is positively correlated to at least one quality attribute response measure",
+                                    "A good architectural decision implicit in the architecture"
                         ],
                         "a": 0
             },
             {
-                        "q": "It can be helpful to assign what to constraints?",
+                        "q": "In the context of software architecture evaluations, which of the following best describes \"a tradeoff?\"",
                         "o": [
-                                    "Difficulty rankings",
-                                    "Random colors",
-                                    "Variable names",
-                                    "User avatars"
+                                    "A potentially problematic architectural decision",
+                                    "An architectural decision that affects one or more quality attribute responses positively while negatively affecting others",
+                                    "An architectural decision that is positively correlated to at least one quality attribute response measure",
+                                    "A good architectural decision implicit in the architecture"
                         ],
-                        "a": 0
+                        "a": 1
             },
             {
-                        "q": "Why is 'non-functional requirement' considered a problematic term?",
+                        "q": "In the context of software architecture evaluations, which of the following best describes \"a sensitivity point?\"",
                         "o": [
-                                    "It creates a false partition and quality attributes still involve functionality",
-                                    "It means the system has no functions",
-                                    "It only refers to hardware",
-                                    "It only refers to documentation"
+                                    "A potentially problematic architectural decision",
+                                    "An architectural decision that affects one or more quality attribute responses positively while negatively affecting others",
+                                    "An architectural decision that is positively correlated to at least one quality attribute response measure",
+                                    "A good architectural decision implicit in the architecture"
                         ],
-                        "a": 0
+                        "a": 2
             },
             {
-                        "q": "Quality attributes and constraints drive architecture more than:",
+                        "q": "In the context of software architecture evaluations, which of the following best describes \"a nonrisk?\"",
                         "o": [
-                                    "Functionality alone",
-                                    "Font size",
-                                    "Button color",
-                                    "File extension"
+                                    "A potentially problematic architectural decision",
+                                    "An architectural decision that affects one or more quality attribute responses positively while negatively affecting others",
+                                    "An architectural decision that is positively correlated to at least one quality attribute response measure",
+                                    "A good architectural decision implicit in the architecture"
                         ],
-                        "a": 0
+                        "a": 3
             },
             {
-                        "q": "Availability is concerned with:",
+                        "q": "Which of the following is not characteristic of a software product line?",
                         "o": [
-                                    "System failure and its consequences",
-                                    "UI theme only",
-                                    "Marketing slogan",
-                                    "Database table names"
+                                    "A software product line comprises a set of similar software systems.",
+                                    "Products in a software product line share a common, managed set of features.",
+                                    "A software product line minimizes constraints on product variation.",
+                                    "Products in a software product line are developed from a common set of core assets."
                         ],
-                        "a": 0
+                        "a": 2
             },
             {
-                        "q": "Which is an availability concern?",
+                        "q": "Software product line architectures epitomize strategic, planned reuse that might very well include reuse of all of the following except for...",
                         "o": [
-                                    "Detecting and recovering from system failures",
-                                    "Choosing a font",
-                                    "Naming a variable",
-                                    "Writing a comment"
+                                    "architectural designs, code, and test plans.",
+                                    "requirements, performance models, and network load analyses.",
+                                    "work breakdown structures, project plans, and project schedules.",
+                                    "user documentation, product-specific features, and development tools."
                         ],
-                        "a": 0
+                        "a": 3
             },
             {
-                        "q": "Which of the following is an availability tactic for fault detection?",
+                        "q": "The \"scope\" of a product line architecture refers to...",
                         "o": [
-                                    "Heartbeat",
-                                    "Polymorphism",
-                                    "Authentication",
-                                    "FIFO scheduling"
+                                    "what stakeholders will be involved in defining the product line.",
+                                    "which products are included in the product line and which are not.",
+                                    "what markets and users will be targeted by the product line.",
+                                    "how product variations will impact the development schedule.",
+                                    "none of the above"
                         ],
-                        "a": 0
+                        "a": 1
             },
             {
-                        "q": "Ping/Echo is mainly used for:",
+                        "q": "The scope of a product line should be...",
                         "o": [
-                                    "Fault detection",
-                                    "UI design",
-                                    "Database normalization",
-                                    "Code formatting"
+                                    "as narrow as possible to maximize the benefit we get from developing the product line.",
+                                    "not too narrow and not too broad to justify the investment in development and to minimize maintenance efforts.",
+                                    "as broad as possible to maximize the number of stakeholder needs we are able to satisfy.",
+                                    "defined broadly until the first product is released.",
+                                    "none of the above"
                         ],
-                        "a": 0
+                        "a": 1
             },
             {
-                        "q": "Heartbeat means:",
+                        "q": "Variation between two or more products in a software product line might include differences in...",
                         "o": [
-                                    "One component sends periodic messages while another listens",
-                                    "One class changes color",
-                                    "One database table is deleted",
-                                    "One user changes password"
+                                    "functional and quality attribute requirements.",
+                                    "target platforms and product configurations.",
+                                    "target markets and user interfaces.",
+                                    "all of the above",
+                                    "none of the above"
                         ],
-                        "a": 0
+                        "a": 3
             },
             {
-                        "q": "Voting is a tactic mainly related to:",
+                        "q": "Which of the following answers is false? It is particularly important to evaluate a product line architecture because...",
                         "o": [
-                                    "Fault recovery",
-                                    "User interface style",
-                                    "Database indexing only",
-                                    "Source code comments"
+                                    "a good architecture may be critical to the success of the organization.",
+                                    "products that deviate from the core asset base can be identified and developed separately.",
+                                    "many software systems will depend on the architecture.",
+                                    "the investment is greater than the investment in creating the architecture for a single product."
                         ],
-                        "a": 0
+                        "a": 1
             },
             {
-                        "q": "Active redundancy means:",
+                        "q": "Which of the following is not true for product lines?",
                         "o": [
-                                    "Redundant components respond to events in parallel",
-                                    "Only one primary component works and standby waits",
-                                    "No backup exists",
-                                    "All components are removed"
+                                    "Tools and processes must be robust.",
+                                    "Architecture must support variation between skills of development team members.",
+                                    "Software components must be designed to be general.",
+                                    "Architecture must support variation between products."
                         ],
-                        "a": 0
+                        "a": 1
             },
             {
-                        "q": "Passive redundancy means:",
+                        "q": "The World Wide Web case study illustrates all of the following except...",
                         "o": [
-                                    "A primary component responds and informs standby components of state updates",
-                                    "All components work in parallel",
-                                    "The system has no backup",
-                                    "The system ignores failures"
+                                    "the Architecture Business Cycle in action.",
+                                    "how technological advances tend to stabilize attribute requirements.",
+                                    "the influence an architecture can have on the technical, business, and social environment.",
+                                    "how architectural decisions lead to the achievement of quality attribute requirements."
                         ],
-                        "a": 0
+                        "a": 1
             },
             {
-                        "q": "Checkpoint/Rollback is used to:",
+                        "q": "Which of the following factors contributed the least to the success of Celsius Tech's software product line architecture?",
                         "o": [
-                                    "Record a consistent state and return to it after failure",
-                                    "Change UI color",
-                                    "Increase font size",
-                                    "Rename files"
+                                    "Domain knowledge and experience with similar systems",
+                                    "Building similar systems in parallel",
+                                    "Coding expertise in command and control systems",
+                                    "Emphasis on information hiding and encapsulation"
                         ],
-                        "a": 0
-            },
-            {
-                        "q": "Removal from service is a tactic for:",
-                        "o": [
-                                    "Fault prevention",
-                                    "User authentication",
-                                    "Market analysis",
-                                    "Source code indentation"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "Transactions help availability because they:",
-                        "o": [
-                                    "Allow a bundle of steps to be undone if one step fails",
-                                    "Make buttons larger",
-                                    "Remove all error handling",
-                                    "Make code comments shorter"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "A process monitor is used to:",
-                        "o": [
-                                    "Monitor critical components and restart/re-instantiate them if needed",
-                                    "Design the company logo",
-                                    "Write business strategy",
-                                    "Choose variable names"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "Modifiability tactics include:",
-                        "o": [
-                                    "Localization of modifications, prevention of ripple effects, deferral of binding time",
-                                    "Authentication, authorization, encryption only",
-                                    "Scheduling and FIFO only",
-                                    "Ping and heartbeat only"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "Maintain semantic coherence means:",
-                        "o": [
-                                    "Responsibilities in a module should work together coherently",
-                                    "Every module should do everything",
-                                    "UI should use many colors",
-                                    "Every function should access every database table"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "Anticipate expected changes means:",
-                        "o": [
-                                    "Design with envisioned future changes in mind",
-                                    "Never allow any change",
-                                    "Change code randomly",
-                                    "Avoid requirements"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "Hide information is mainly used to:",
-                        "o": [
-                                    "Prevent accidental ripple effects",
-                                    "Increase latency",
-                                    "Remove all interfaces",
-                                    "Avoid testing"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "Using adapters and stubs is related to which modifiability tactic?",
-                        "o": [
-                                    "Maintain existing interfaces",
-                                    "Active redundancy",
-                                    "Authentication",
-                                    "Scheduling"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "Restrict communication paths helps modifiability by:",
-                        "o": [
-                                    "Limiting which modules share data or communicate",
-                                    "Allowing every module to depend on every other module",
-                                    "Removing all modules",
-                                    "Increasing UI animation"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "Use intermediaries may include:",
-                        "o": [
-                                    "Repositories, bridges, proxies, name servers, resource brokers",
-                                    "Only fonts and icons",
-                                    "Only test cases",
-                                    "Only keyboard shortcuts"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "Runtime registration supports:",
-                        "o": [
-                                    "Plug-and-play operation",
-                                    "No runtime flexibility",
-                                    "Database deletion",
-                                    "Static-only compilation"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "Configuration files are a tactic for:",
-                        "o": [
-                                    "Deferral of binding time",
-                                    "Fault detection only",
-                                    "Authentication only",
-                                    "UI color only"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "Polymorphism supports modifiability because it allows:",
-                        "o": [
-                                    "Late binding of method calls",
-                                    "Permanent hard-coding of all behavior",
-                                    "Removal of all interfaces",
-                                    "No substitution"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "Performance tactics are commonly grouped into:",
-                        "o": [
-                                    "Resource demand, resource management, resource arbitration",
-                                    "Login, register, logout",
-                                    "Design, code, comment",
-                                    "UI, UX, color"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "Increasing computational efficiency is used to:",
-                        "o": [
-                                    "Decrease latency",
-                                    "Increase unnecessary overhead",
-                                    "Remove all algorithms",
-                                    "Make UI brighter"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "Reducing computational overhead means:",
-                        "o": [
-                                    "Reducing unnecessary resource usage and processing",
-                                    "Adding extra processing everywhere",
-                                    "Increasing database duplication randomly",
-                                    "Removing all performance goals"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "Introducing concurrency helps performance by:",
-                        "o": [
-                                    "Processing requests in parallel",
-                                    "Blocking all requests",
-                                    "Removing all threads",
-                                    "Preventing any parallelism"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "Maintaining multiple copies of data can improve performance by:",
-                        "o": [
-                                    "Reducing contention at a single location",
-                                    "Making synchronization easier in all cases",
-                                    "Removing the need for storage",
-                                    "Eliminating all data"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "Increasing available resources means:",
-                        "o": [
-                                    "Using more/faster processors, memory, networks, etc.",
-                                    "Removing servers",
-                                    "Reducing all hardware",
-                                    "Avoiding deployment"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "FIFO scheduling means:",
-                        "o": [
-                                    "First in, first out",
-                                    "Fast input, fast output",
-                                    "File input, file output",
-                                    "First interface, first object"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "Security is the ability of the system to:",
-                        "o": [
-                                    "Resist unauthorized access while allowing legitimate users",
-                                    "Make the interface beautiful",
-                                    "Reduce all functionality",
-                                    "Avoid documentation"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "Authentication is used to:",
-                        "o": [
-                                    "Ensure user identity",
-                                    "Increase response time only",
-                                    "Remove passwords",
-                                    "Ignore attackers"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "Authorization is used to:",
-                        "o": [
-                                    "Control access to data/services for authenticated users",
-                                    "Verify system latency",
-                                    "Restart failed components",
-                                    "Increase CPU speed"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "Maintaining data confidentiality usually involves:",
-                        "o": [
-                                    "Encryption",
-                                    "Deleting all logs",
-                                    "Disabling login",
-                                    "Removing firewalls"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "Maintaining integrity may involve:",
-                        "o": [
-                                    "Checksums or hash results",
-                                    "Changing button colors",
-                                    "Removing validation",
-                                    "Ignoring data corruption"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "Limit access is commonly implemented using:",
-                        "o": [
-                                    "Firewalls and DMZs",
-                                    "Fonts and icons",
-                                    "Comments and indentation",
-                                    "Product slogans"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "Intrusion detection is used to:",
-                        "o": [
-                                    "Detect attacks by observing unusual behavior or traffic",
-                                    "Create UI wireframes",
-                                    "Improve font readability",
-                                    "Replace all testing"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "An audit trail helps security by:",
-                        "o": [
-                                    "Recording actions to help identify attackers or reconstruct events",
-                                    "Removing all records",
-                                    "Hiding all user activity from administrators",
-                                    "Making the system slower intentionally"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "The classic quality attributes discussed as examples include:",
-                        "o": [
-                                    "Availability, modifiability, performance, security",
-                                    "Color, font, icon, animation",
-                                    "HTML, CSS, JavaScript, SQL",
-                                    "Planning, coding, testing, deploying"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "Static structures are elements that exist:",
-                        "o": [
-                                    "Prior to compilation and execution",
-                                    "Only during runtime",
-                                    "Only in deployment servers",
-                                    "Only in user manuals"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "Examples of static elements include:",
-                        "o": [
-                                    "Modules, subsystems, layers",
-                                    "Threads, processes, runtime messages only",
-                                    "Users, customers, managers only",
-                                    "Servers, routers, switches only"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "Dynamic structures are elements that exist:",
-                        "o": [
-                                    "During execution/runtime",
-                                    "Only before coding",
-                                    "Only in business strategy",
-                                    "Only in requirement documents"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "Examples of dynamic elements include:",
-                        "o": [
-                                    "Threads, processes, shared data, components",
-                                    "Only packages and files",
-                                    "Only stakeholders",
-                                    "Only product roadmap items"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "Dynamic views are useful for analyzing:",
-                        "o": [
-                                    "Performance, fault tolerance, security",
-                                    "Font size only",
-                                    "Marketing slogans only",
-                                    "Developer birthdays only"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "Allocation structures show:",
-                        "o": [
-                                    "Mapping of software elements to the environment",
-                                    "Only class inheritance",
-                                    "Only UI layout",
-                                    "Only function names"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "Deployment allocation maps:",
-                        "o": [
-                                    "Processes to processors",
-                                    "Colors to buttons",
-                                    "Comments to files",
-                                    "Users to passwords only"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "Work breakdown allocation maps:",
-                        "o": [
-                                    "Code modules to people or teams",
-                                    "Buttons to colors",
-                                    "Tables to rows only",
-                                    "Screens to pixels"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "Implementation allocation maps:",
-                        "o": [
-                                    "Code modules to file structure",
-                                    "Runtime threads to CPU only",
-                                    "Stakeholders to business goals only",
-                                    "Users to UI colors"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "Architectural patterns are useful because they:",
-                        "o": [
-                                    "Provide proven problem-solution structures and known tradeoffs",
-                                    "Replace all design decisions",
-                                    "Guarantee perfect performance",
-                                    "Are the same as source code comments"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "The layered pattern usually promotes:",
-                        "o": [
-                                    "Modifiability, portability, and reusability",
-                                    "Only maximum performance",
-                                    "No structure",
-                                    "Random dependencies"
-                        ],
-                        "a": 0
-            },
-            {
-                        "q": "The layered pattern may inhibit:",
-                        "o": [
-                                    "Performance and implementation size",
-                                    "All modifiability",
-                                    "All portability",
-                                    "All reusability"
-                        ],
-                        "a": 0
+                        "a": 2
             }
 ];
 
 
         const explanationData = [
-            "Business context nói về tổ chức, thị trường, chiến lược, quy định; chi tiết source code là phần kỹ thuật.",
-            "Business constraints thường là luật/quy định, ngân sách, deadline, lịch rollout, nguồn lực.",
-            "Enterprises thường lớn, phức tạp, nhiều hệ thống/sản phẩm/dịch vụ và nhiều thị trường.",
-            "SCD xem hệ thống như hộp đen, tập trung vào actor/hệ thống bên ngoài và luồng tương tác.",
-            "SCD không mô tả logic xử lý chi tiết bên trong hệ thống.",
-            "System nằm ở giữa như black box, không bung chi tiết nội bộ.",
-            "Lỗi phổ biến là nhét quá nhiều xử lý/module nội bộ vào context diagram.",
-            "Information Flow là mũi tên/đường thể hiện dữ liệu hoặc control trao đổi với môi trường.",
-            "Startup cần ít tầng quản lý, quyết định nhanh, nên hợp flat organization.",
-            "Product-oriented = Apple, Enterprise = IBM, Service-based = AWS.",
-            "Architectural drivers đến từ goals, stakeholders, quality attributes, constraints, functional requirements.",
-            "TOGAF chủ yếu là Enterprise Architecture, không chỉ riêng software architecture.",
-            "Ba nhóm chính: product-oriented, enterprises, service-based companies.",
-            "Reducing complexity giúp doanh nghiệp dễ quản lý, tích hợp và vận hành hệ thống lớn.",
-            "Nhớ FQC: Functional, Quality Attribute, Constraints.",
-            "Một chức năng có thể làm bằng nhiều kiến trúc, nhưng cấu trúc ảnh hưởng mạnh đến quality attributes.",
-            "Performance liên quan response time, latency, throughput, resource usage.",
-            "Technical constraints giống tường chịu lực vì giới hạn không gian thiết kế.",
-            "Định nghĩa architecture gồm structures, elements, externally visible properties và relationships.",
-            "Quyết định quản lý và kỹ thuật ảnh hưởng lẫn nhau, nhất là tradeoff.",
-            "Alignment là kiến trúc hỗ trợ đúng properties mà business cần.",
-            "Ví dụ cell phone nhấn mạnh khả năng ra biến thể sản phẩm nhanh để theo kịp thị trường.",
-            "Latency/response time ảnh hưởng trực tiếp đến doanh thu/sales.",
-            "Loading time tốt hơn có thể tăng ad revenue.",
-            "Response time là dấu hiệu cực mạnh của performance.",
-            "Change/easy to modify = modifiability.",
-            "Availability quan tâm failure và hậu quả của failure.",
-            "Unauthorized access là security.",
-            "Yêu cầu có tải, response time, con số đo được sẽ ảnh hưởng kiến trúc.",
-            "Chỉ nói 'modifiable' quá mơ hồ, không biết thay đổi gì và đo thế nào.",
-            "Quality attribute tốt cần có ngữ cảnh và thước đo.",
-            "QAS giúp biến quality attribute mơ hồ thành scenario đo được.",
-            "Có 6 phần: stimulus, source, environment, artifact, response, response measure.",
-            "Programming language syntax không thuộc 6 phần của QAS.",
-            "Stimulus là sự kiện/điều kiện tác động lên hệ thống.",
-            "Response measure là chỉ số đo phản hồi, ví dụ within 0.5 seconds.",
-            "Response measure chính là mốc đo kết quả: within 0.5 seconds.",
-            "Peak load mô tả điều kiện xảy ra stimulus, nên là environment.",
-            "Smoke detector tạo ra stimulus nên là source.",
-            "Functional requirement mô tả hệ thống phải làm gì.",
-            "Ở mức architecture, quan tâm high-level function, không đi vào code chi tiết.",
-            "Các cách phổ biến: use case, feature description, operational description, formal specification.",
-            "Use case tốt nên có precondition, happy path, alternative/error flows, postcondition.",
-            "Business constraints đến từ thị trường, chi phí, lịch, nguồn lực, rollout, product line.",
-            "Technical constraints gồm legacy, công nghệ bắt buộc, protocol, standard.",
-            "Constraints phải được ghi lại vì định hướng và giới hạn kiến trúc.",
-            "Constraint là thứ bắt buộc tuân thủ, không phải wish list.",
-            "Không ưu tiên constraint, nhưng có thể đánh độ khó để xử lý.",
-            "Quality attributes vẫn liên quan function; quan trọng là có architecturally significant không.",
-            "Functionality quan trọng, nhưng quality attributes/constraints thường định hình cấu trúc mạnh hơn.",
-            "Availability tập trung vào failure, detection, recovery, degraded mode.",
-            "Detect/recover failure là trọng tâm của availability.",
-            "Heartbeat là tactic phát hiện lỗi.",
-            "Ping/Echo kiểm tra component còn phản hồi không.",
-            "Heartbeat là gửi tín hiệu định kỳ để phát hiện lỗi.",
-            "Voting dùng nhiều process tính output rồi voter quyết định.",
-            "Active redundancy: các bản dự phòng chạy song song.",
-            "Passive redundancy: primary xử lý, standby nhận update state.",
-            "Checkpoint/rollback giúp phục hồi về trạng thái nhất quán.",
-            "Removal from service đưa component ra khỏi hoạt động để ngăn lỗi dự đoán.",
-            "Transaction giúp rollback nếu một bước thất bại.",
-            "Process monitor theo dõi và khởi tạo lại process/component khi cần.",
-            "Ba nhóm lớn: localize modifications, prevent ripple effects, defer binding time.",
-            "Các responsibility trong module nên liên quan chặt chẽ, ít phụ thuộc dư thừa.",
-            "Dự đoán thay đổi giúp chuẩn bị cấu trúc dễ sửa sau này.",
-            "Information hiding giảm ảnh hưởng lan truyền khi module thay đổi.",
-            "Adapter/stub giúp giữ interface cũ khi thay đổi bên trong.",
-            "Giới hạn đường giao tiếp giảm coupling và ripple effect.",
-            "Intermediary làm lớp trung gian để giảm phụ thuộc trực tiếp.",
-            "Runtime registration cho phép thêm/bỏ thành phần linh hoạt lúc chạy.",
-            "Config file hoãn quyết định đến deploy/run time.",
-            "Polymorphism giúp thay implementation mà giữ interface.",
-            "Performance tactics: kiểm soát nhu cầu tài nguyên, quản lý tài nguyên, phân xử tài nguyên.",
-            "Tính toán hiệu quả hơn thường giảm latency/response time.",
-            "Giảm overhead là giảm xử lý/tài nguyên không cần thiết.",
-            "Concurrency giúp xử lý song song nếu thiết kế phù hợp.",
-            "Copy data có thể giảm tranh chấp, nhưng đồng bộ sẽ khó hơn.",
-            "Tăng tài nguyên có thể cải thiện performance nhưng tốn chi phí.",
-            "FIFO = First In First Out.",
-            "Security chống truy cập trái phép nhưng vẫn cho user hợp lệ dùng.",
-            "Authentication = xác thực danh tính.",
-            "Authorization = phân quyền sau khi xác thực.",
-            "Confidentiality thường dùng encryption.",
-            "Integrity đảm bảo dữ liệu không bị sửa sai, có thể dùng checksum/hash.",
-            "Firewall/DMZ giới hạn vùng truy cập.",
-            "Intrusion detection phát hiện dấu hiệu tấn công bất thường.",
-            "Audit trail lưu dấu vết để điều tra/truy vết.",
-            "Bốn ví dụ chính trong phần tactics: availability, modifiability, performance, security.",
-            "Static structure là code/module/layer tồn tại trước compile/run.",
-            "Static elements thường là modules, subsystems, layers.",
-            "Dynamic structures tồn tại lúc chạy.",
-            "Dynamic elements: threads, processes, shared data, runtime components.",
-            "Runtime view giúp phân tích performance, fault tolerance, security.",
-            "Allocation = software được gán vào hardware/team/file structure.",
-            "Deployment allocation ánh xạ process/software lên processor/node.",
-            "Work assignment mapping cho biết team/person nào làm module nào.",
-            "Implementation allocation ánh xạ module vào file/folder/source tree.",
-            "Pattern là kinh nghiệm thiết kế đã được tổng quát hóa, có tradeoff đã biết.",
-            "Layers giúp tách mức trừu tượng nên tốt cho modify/port/reuse.",
-            "Layers có thể tăng overhead call qua nhiều lớp và làm code lớn hơn."
+            "Đáp án đúng theo file MCQ: B. Handling long-term design and quality attributes",
+            "Đáp án đúng theo file MCQ: A. UI structures",
+            "Đáp án đúng theo file MCQ: B. Reasoning about the system’s structures and qualities",
+            "Đáp án đúng theo file MCQ: B. A static structure for organizing system functionality",
+            "Đáp án đúng theo file MCQ: C. Component-and-connector (C&C) structure",
+            "Đáp án đúng theo file MCQ: B. A set of structures needed to reason about a system",
+            "Đáp án đúng theo file MCQ: B. They represent the system’s behavior and properties",
+            "Đáp án đúng theo file MCQ: A. Component-and-connector (C&C) structure",
+            "Đáp án đúng theo file MCQ: A. Allocation structure",
+            "Đáp án đúng theo file MCQ: B. Interaction links between components",
+            "Đáp án đúng theo file MCQ: B. A combination of hardware and software components",
+            "Đáp án đúng theo file MCQ: B. Enterprise architecture",
+            "Đáp án đúng theo file MCQ: B. Component-and-connector structure",
+            "Đáp án đúng theo file MCQ: B. A virtual machine providing a set of services",
+            "Đáp án đúng theo file MCQ: B. Client-server pattern",
+            "Đáp án đúng theo file MCQ: B. Service interactions",
+            "Đáp án đúng theo file MCQ: B. Defining code ownership in teams",
+            "Đáp án đúng theo file MCQ: C. Allocation structure",
+            "Đáp án đúng theo file MCQ: B. Class diagrams",
+            "Đáp án đúng theo file MCQ: B. Mapping software elements to external environments",
+            "Đáp án đúng theo file MCQ: C. Module structure",
+            "Đáp án đúng theo file MCQ: B. A solution for recurring design problems",
+            "Đáp án đúng theo file MCQ: B. Shared-data pattern",
+            "Đáp án đúng theo file MCQ: C. Physical layout of the office",
+            "Đáp án đúng theo file MCQ: B. To map software components to hardware systems",
+            "Đáp án đúng theo file MCQ: B. By defining major design decisions that impact the whole system",
+            "Đáp án đúng theo file MCQ: B. Views represent structures as seen by stakeholders",
+            "Đáp án đúng theo file MCQ: A. The influence between architecture and the organization that developed it",
+            "Đáp án đúng theo file MCQ: B. A minimal system that exercises major communication paths",
+            "Đáp án đúng theo file MCQ: B. To describe the system’s structure and behavior for stakeholders",
+            "Đáp án đúng theo file MCQ: A. Work assignment structure",
+            "Đáp án đúng theo file MCQ: B. Alignment with business goals and quality attributes",
+            "Đáp án đúng theo file MCQ: A. Layered pattern",
+            "Đáp án đúng theo file MCQ: B. Modifiability",
+            "Đáp án đúng theo file MCQ: B. Connectors",
+            "Đáp án đúng theo file MCQ: B. To predict system quality attributes",
+            "Đáp án đúng theo file MCQ: B. Availability",
+            "Đáp án đúng theo file MCQ: A. They hide internal complexity and promote separation of concerns",
+            "Đáp án đúng theo file MCQ: C. Creating a basic script or utility tool",
+            "Đáp án đúng theo file MCQ: A. They provide reusable solutions to common problems",
+            "Đáp án đúng theo file MCQ: B. Module structure",
+            "Đáp án đúng theo file MCQ: B. Clients request services from servers which provide responses",
+            "Đáp án đúng theo file MCQ: A. Views",
+            "Đáp án đúng theo file MCQ: A. Concurrency structure",
+            "Đáp án đúng theo file MCQ: B. A use case to test quality attributes in the architecture",
+            "Đáp án đúng theo file MCQ: C. Reliability",
+            "Đáp án đúng theo file MCQ: A. The system's ability to handle growth in demand or size",
+            "Đáp án đúng theo file MCQ: A. The ease with which the system can be changed or updated",
+            "Đáp án đúng theo file MCQ: B. Component-and-connector structure",
+            "Đáp án đúng theo file MCQ: B. To assess if the architecture can meet quality attribute goals",
+            "Đáp án đúng theo file MCQ: B. Through redundancy and fault-tolerant designs",
+            "Đáp án đúng theo file MCQ: B. Aligning software systems with business goals and processes",
+            "Đáp án đúng theo file MCQ: B. Through designing systems to be built and tested in parts",
+            "Đáp án đúng theo file MCQ: B. A change that affects multiple elements but does not alter the architecture itself",
+            "Đáp án đúng theo file MCQ: B. Deployment structure",
+            "Đáp án đúng theo file MCQ: B. It enhances communication between stakeholders and ensures design consistency",
+            "Đáp án đúng theo file MCQ: A. Performance",
+            "Đáp án đúng theo file MCQ: B. Fault tolerance",
+            "Đáp án đúng theo file MCQ: B. Module structure",
+            "Đáp án đúng theo file MCQ: B. Designing the system's structure to meet business and technical goals",
+            "Đáp án đúng theo file MCQ: C. business structures and how they are interconnected.",
+            "Đáp án đúng theo file MCQ: D. all of the above",
+            "Đáp án đúng theo file MCQ: A. Software elements of the system",
+            "Đáp án đúng theo file MCQ: A. suppresses details of what software elements do internally.",
+            "Đáp án đúng theo file MCQ: B. \"as is\" design of those elements.",
+            "Đáp án đúng theo file MCQ: B. An architecture is best described by a single, coherent structure.",
+            "Đáp án đúng theo file MCQ: C. Every system has an architecture, explicit or implicit.",
+            "Đáp án đúng theo file MCQ: B. The design of individual elements",
+            "Đáp án đúng theo file MCQ: C. They are industry -defined standards for software design.",
+            "Đáp án đúng theo file MCQ: B. How system functions are allocated to software elements",
+            "Đáp án đúng theo file MCQ: D. How to instantiate the architecture for a particular application",
+            "Đáp án đúng theo file MCQ: C. It ensures implementation conformance to a defined specification.",
+            "Đáp án đúng theo file MCQ: C. minimizing the amount of time spent in component design.",
+            "Đáp án đúng theo file MCQ: A. Test procedures",
+            "Đáp án đúng theo file MCQ: C. Performing user testing",
+            "Đáp án đúng theo file MCQ: B. how well quality attributes will be achieved.",
+            "Đáp án đúng theo file MCQ: B. local, nonlocal, and ar chitectural changes.",
+            "Đáp án đúng theo file MCQ: D. Development can proceed before the architectural mismatches have been identified.",
+            "Đáp án đúng theo file MCQ: C. Software architecture enables more accurate process conformance estimates.",
+            "Đáp án đúng theo file MCQ: A. product-specific functionality and qualities.",
+            "Đáp án đúng theo file MCQ: A. focuses on composing elements rather than programming them.",
+            "Đáp án đúng theo file MCQ: D. Templates promote standardization but reduce performance.",
+            "Đáp án đúng theo file MCQ: A. Uses structure",
+            "Đáp án đúng theo file MCQ: B. Deployment structure",
+            "Đáp án đúng theo file MCQ: B. Process structure",
+            "Đáp án đúng theo file MCQ: C. the quality attributes requirements of the system.",
+            "Đáp án đúng theo file MCQ: A. the business, social, and technical influences on an architecture.",
+            "Đáp án đúng theo file MCQ: C. The way in which the architecture is represented",
+            "Đáp án đúng theo file MCQ: C. To manage stakeholder expectations",
+            "Đáp án đúng theo file MCQ: D. All of the above",
+            "Đáp án đúng theo file MCQ: C. likely influence the design of an architecture.",
+            "Đáp án đúng theo file MCQ: D. all of the above",
+            "Đáp án đúng theo file MCQ: C. conformance to project tracking and reporting practices.",
+            "Đáp án đúng theo file MCQ: B. Guaranteeing that implementations will conform to the architecture specification",
+            "Đáp án đúng theo file MCQ: B. C++",
+            "Đáp án đúng theo file MCQ: B. Determine when and how these influences will occur during the life cycle",
+            "Đáp án đúng theo file MCQ: D. All of the above",
+            "Đáp án đúng theo file MCQ: C. Usability: \"The system shall be easy for operations personnel to learn and use.\"",
+            "Đáp án đúng theo file MCQ: A. Properties of work products or goods by which their quality will be judged by stakeholders",
+            "Đáp án đúng theo file MCQ: A. stakeholder concerns.",
+            "Đáp án đúng theo file MCQ: C. Architecture provides the foundation for achieving quality attributes and guarantees that those qualities will be met in the final implementation of the system.",
+            "Đáp án đúng theo file MCQ: D. Functional requirements have a significant influence on the architecture of a system.",
+            "Đáp án đúng theo file MCQ: B. wide variation in the vocabulary used to describe those requirements.",
+            "Đáp án đúng theo file MCQ: D. a short description of how a system should respond to some stimulus.",
+            "Đáp án đúng theo file MCQ: C. Evaluation",
+            "Đáp án đúng theo file MCQ: A. better understand quality attributes requirements.",
+            "Đáp án đúng theo file MCQ: B. A concrete scenario is an instantiation of a general scenario.",
+            "Đáp án đúng theo file MCQ: B. General scenarios are system-specific but domain-independent scenarios.",
+            "Đáp án đúng theo file MCQ: B. discover the quality attribute requirements for a system.",
+            "Đáp án đúng theo file MCQ: A. before architectural design.",
+            "Đáp án đúng theo file MCQ: D. Increased stakeholder communication",
+            "Đáp án đúng theo file MCQ: C. A pattern may employ one or more tactics.",
+            "Đáp án đúng theo file MCQ: A. Implementation details",
+            "Đáp án đúng theo file MCQ: D. promote one or more quality attributes.",
+            "Đáp án đúng theo file MCQ: B. help predict specific qualities in an architecture.",
+            "Đáp án đúng theo file MCQ: B. a representation of a structure found in a software system.",
+            "Đáp án đúng theo file MCQ: B. documenting relevant views and then adding information that applies to more than one view.",
+            "Đáp án đúng theo file MCQ: B. Module views",
+            "Đáp án đúng theo file MCQ: C. Component-and-connector views",
+            "Đáp án đúng theo file MCQ: A. Allocation views",
+            "Đáp án đúng theo file MCQ: B. Performance and reliability",
+            "Đáp án đúng theo file MCQ: D. relationships between software elements to environment elements.",
+            "Đáp án đúng theo file MCQ: B. Availability and affordability",
+            "Đáp án đúng theo file MCQ: D. which views will best serve stakeholder needs.",
+            "Đáp án đúng theo file MCQ: D. pseudo descriptions for key algorithms and database schemata.",
+            "Đáp án đúng theo file MCQ: C. the relationship between implementation constructs and architectural elements.",
+            "Đáp án đúng theo file MCQ: A. architectural drivers are known with some confidence.",
+            "Đáp án đúng theo file MCQ: C. Non-architectural design may begin before the completion of architectural design.",
+            "Đáp án đúng theo file MCQ: C. applying architectural patterns and tactics to satisfy quality attribute requirements.",
+            "Đáp án đúng theo file MCQ: B. Module decomposition requirements",
+            "Đáp án đúng theo file MCQ: C. They allow immediate stakeholder input about how to redesign an architecture to correct problems.",
+            "Đáp án đúng theo file MCQ: C. When the system is first released",
+            "Đáp án đúng theo file MCQ: C. Excessive communication among stakeholders",
+            "Đáp án đúng theo file MCQ: B. Questioning and measuring techniques",
+            "Đáp án đúng theo file MCQ: A. the architect answers a prepared list of questions.",
+            "Đáp án đúng theo file MCQ: D. specific interactions between a system and stakeholder are described.",
+            "Đáp án đúng theo file MCQ: B. detailed sets of yes/no questions focus on particular qualities.",
+            "Đáp án đúng theo file MCQ: A. quantitative and observable measures of an architecture.",
+            "Đáp án đúng theo file MCQ: C. Comparing different sets of metrics",
+            "Đáp án đúng theo file MCQ: A. Detailed implementation plans",
+            "Đáp án đúng theo file MCQ: B. assess the consequences of architectural decisions.",
+            "Đáp án đúng theo file MCQ: D. prioritizes a list of quality attribute scenarios.",
+            "Đáp án đúng theo file MCQ: A. A potentially problematic architectural decision",
+            "Đáp án đúng theo file MCQ: B. An architectural decision that affects one or more quality attribute responses positively while negatively affecting others",
+            "Đáp án đúng theo file MCQ: C. An architectural decision that is positively correlated to at least one quality attribute response measure",
+            "Đáp án đúng theo file MCQ: D. A good architectural decision implicit in the architecture",
+            "Đáp án đúng theo file MCQ: C. A software product line minimizes constraints on product variation.",
+            "Đáp án đúng theo file MCQ: D. user documentation, product-specific features, and development tools.",
+            "Đáp án đúng theo file MCQ: B. which products are included in the product line and which are not.",
+            "Đáp án đúng theo file MCQ: B. not too narrow and not too broad to justify the investment in development and to minimize maintenance efforts.",
+            "Đáp án đúng theo file MCQ: D. all of the above",
+            "Đáp án đúng theo file MCQ: B. products that deviate from the core asset base can be identified and developed separately.",
+            "Đáp án đúng theo file MCQ: B. Architecture must support variation between skills of development team members.",
+            "Đáp án đúng theo file MCQ: B. how technological advances tend to stabilize attribute requirements.",
+            "Đáp án đúng theo file MCQ: C. Coding expertise in command and control systems"
 ];
 
         function getExplanation(i) {
@@ -2186,12 +2801,7 @@
             }
         }
 
-        let reviewBank = new Set(
-            readStore(REVIEW_KEY, [])
-                .map(Number)
-                .filter(i => Number.isInteger(i) && i >= 0 && i < quizData.length)
-        );
-        writeStore(REVIEW_KEY, [...reviewBank]);
+        let reviewBank = new Set(readStore(REVIEW_KEY, []));
         let isReviewMode = false; let isExamMode = false;
         let examAnswers = {}; let examTimer; let timeRemaining = 3600;
         let examOrder = quizData.map((_, i) => i);
@@ -2273,14 +2883,7 @@
         const rContainer = document.getElementById('review-container');
         const navGrid = document.getElementById('nav-grid');
 
-        function saveReviewToStore() {
-            reviewBank = new Set(
-                [...reviewBank]
-                    .map(Number)
-                    .filter(i => Number.isInteger(i) && i >= 0 && i < quizData.length)
-            );
-            return writeStore(REVIEW_KEY, [...reviewBank]);
-        }
+        function saveReviewToStore() { writeStore(REVIEW_KEY, [...reviewBank]); }
         function updateUI() {
             document.getElementById('score').innerText = currentScore;
             const totalScoreEl = document.getElementById('total-score');
@@ -2369,61 +2972,21 @@
 
         function markUnknown(i) {
             if (isExamMode) return;
-            const wasSaved = reviewBank.has(i);
-            reviewBank.add(i);
-            if (!saveReviewToStore()) return;
-
-            const btnUnknown = document.getElementById(`ubtn-${i}`);
-            if (btnUnknown) {
-                btnUnknown.innerText = '⭐ Đã lưu';
-                btnUnknown.classList.add('saved-btn');
-            }
-
+            reviewBank.add(i); saveReviewToStore();
             const allLis = document.querySelectorAll(`#q-card-${i} .options li`);
             allLis.forEach(li => li.classList.add('answered'));
-
-            const correctLi = document.getElementById(`li-${i}-${quizData[i].a}`);
-            if (correctLi) correctLi.classList.add('correct-ans');
-
-            const radios = document.getElementsByName(`q${i}`);
-            radios.forEach(r => r.disabled = true);
-
-            const exp = document.getElementById(`exp-${i}`);
-            if (exp) exp.style.display = 'block';
-
-            const navBtn = document.getElementById(`nav-btn-${i}`);
-            if (navBtn) navBtn.className = 'nav-btn nav-unknown';
-
-            if (!wasSaved) {
-                const expWasHidden = exp && exp.style.display !== 'block';
-                answeredQuestions++;
-            }
-
-            updateUI();
-            playSound('tick');
+            document.getElementById(`li-${i}-${quizData[i].a}`).classList.add('correct-ans');
+            const radios = document.getElementsByName(`q${i}`); radios.forEach(r => r.disabled = true);
+            document.getElementById(`ubtn-${i}`).style.display = 'none';
+            document.getElementById(`exp-${i}`).style.display = 'block';
+            document.getElementById(`nav-btn-${i}`).className = 'nav-btn nav-unknown';
+            answeredQuestions++; updateUI(); playSound('tick');
         }
 
         function addWrongReview(i) {
-            reviewBank.add(i);
-            if (!saveReviewToStore()) return;
-
-            const b = document.getElementById(`srev-${i}`);
-            if (b) {
-                b.innerText = "✔️ Đã lưu";
-                b.disabled = true;
-            }
-
-            const ubtn = document.getElementById(`ubtn-${i}`);
-            if (ubtn) {
-                ubtn.innerText = '⭐ Đã lưu';
-                ubtn.classList.add('saved-btn');
-            }
-
-            const navBtn = document.getElementById(`nav-btn-${i}`);
-            if (navBtn) navBtn.className = 'nav-btn nav-unknown';
-
-            updateUI();
-            playSound('tick');
+            reviewBank.add(i); saveReviewToStore();
+            const b = document.getElementById(`srev-${i}`); b.innerText = "✔️ Đã lưu"; b.disabled = true;
+            document.getElementById(`nav-btn-${i}`).className = 'nav-btn nav-unknown'; updateUI();
         }
 
         function formatTime(secs) {
@@ -2539,7 +3102,7 @@
                 document.getElementById('search-bar-wrap').style.display = 'block';
                 document.getElementById('bottom-actions').style.display = 'block';
                 document.getElementById('sidebar-legend').style.display = 'flex';
-                document.getElementById('main-title').innerText = "Môn Học: Software Architecture";
+                document.getElementById('main-title').innerText = "Môn Học: Software Architecture MCQ";
                 document.getElementById('btn-toggle-review').innerHTML = `📚 Ôn tập (<span id="review-count">${reviewBank.size}</span>)`;
                 rContainer.style.display = 'none';
             }
@@ -2587,21 +3150,9 @@
         }
 
         function doneReview(i) {
-            reviewBank.delete(i);
-            saveReviewToStore();
-
-            const card = document.getElementById(`rq-card-${i}`);
-            if (card) card.style.display = 'none';
-
-            const navBtn = document.getElementById(`nav-btn-${i}`);
-            if (navBtn) navBtn.className = 'nav-btn';
-
-            const ubtn = document.getElementById(`ubtn-${i}`);
-            if (ubtn) {
-                ubtn.innerText = '❓ Không biết';
-                ubtn.classList.remove('saved-btn');
-            }
-
+            reviewBank.delete(i); saveReviewToStore();
+            document.getElementById(`rq-card-${i}`).style.display = 'none';
+            document.getElementById(`nav-btn-${i}`).className = 'nav-btn';
             updateUI();
             if (reviewBank.size === 0) toggleReviewMode();
         }
