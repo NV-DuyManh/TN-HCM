@@ -2073,7 +2073,8 @@
             }
         }
 
-        let reviewBank = new Set(readStore(REVIEW_KEY, []));
+        let reviewBank = new Set(readStore(REVIEW_KEY, []).filter(i => Number.isInteger(i) && i >= 0 && i < quizData.length));
+        saveReviewToStore();
         let isReviewMode = false; let isExamMode = false;
         let examAnswers = {}; let examTimer; let timeRemaining = 3600;
         let examOrder = quizData.map((_, i) => i);
@@ -2233,9 +2234,9 @@
                 parentLi.classList.add('wrong-ans');
                 document.getElementById(`li-${i}-${item.a}`).classList.add('correct-ans');
                 btn.className = 'nav-btn nav-wrong';
-                document.getElementById(`srev-${i}`).style.display = 'inline-block';
                 playSound('wrong');
             }
+            document.getElementById(`srev-${i}`).style.display = 'inline-block';
             const radios = document.getElementsByName(`q${i}`); radios.forEach(r => r.disabled = true);
             document.getElementById(`ubtn-${i}`).style.display = 'none';
             document.getElementById(`exp-${i}`).style.display = 'block';
@@ -2415,6 +2416,8 @@
             const radios = document.getElementsByName(`rq${i}`);
             radios.forEach(r => { r.disabled = false; r.checked = false; });
             document.getElementById(`rexp-${i}`).style.display = 'none'; document.getElementById(`rret-${i}`).style.display = 'none';
+            const rCard = document.getElementById(`rq-card-${i}`);
+            if (rCard) rCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
 
         function doneReview(i) {
