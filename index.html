@@ -11,7 +11,7 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tư Tưởng Hồ Chí Minh MCQ Quiz - Ultimate Edition</title>
+    <title>SQL Database MCQ Quiz - Ultimate Edition</title>
     <style>
         :root {
             --primary: #3498db;
@@ -931,7 +931,7 @@
 
     <div id="score-board">
         <div id="score-board-info" class="score-info">
-            Điểm: <span id="score">0</span> / <span id="total-score">90</span>
+            Điểm: <span id="score">0</span> / <span id="total-score">125</span>
             <div class="progress-info">Đã trả lời: <span id="progress">0</span> câu</div>
         </div>
 
@@ -961,7 +961,7 @@
     <div id="layout-container">
         <div id="main-content">
             <div id="quiz-header">
-                <h1 id="main-title">Môn Học: Tư Tưởng Hồ Chí Minh MCQ</h1>
+                <h1 id="main-title">Môn Học: SQL Database MCQ</h1>
                 <p class="intro-text" id="main-desc">Actor: Duy Mạnh</p>
             </div>
 
@@ -1015,1008 +1015,1395 @@
 
     <script>
         const quizData = [
-            {
-                "q": "Thuật ngữ “Tư tưởng Hồ Chí Minh” được Đảng ta chính thức sử dụng bắt đầu từ khi nào?",
-                "o": [
-                    "Từ năm 1969",
-                    "Từ năm 1986",
-                    "Từ năm 1990",
-                    "Từ năm 1991"
-                ],
-                "a": 3
-            },
-            {
-                "q": "Thuật ngữ “Tư tưởng Hồ Chí Minh” được dùng theo nghĩa nào?",
-                "o": [
-                    "Tư tưởng của một cá nhân",
-                    "Tư tưởng của lãnh tụ",
-                    "Tư tưởng của một giai cấp, một dân tộc",
-                    "Tất cả những nghĩa trên"
-                ],
-                "a": 2
-            },
-            {
-                "q": "\"Đảng lấy chủ nghĩa Mác-Lênin và tư tưởng Hồ Chí Minh làm nền tảng tư tưởng và kim chỉ nam cho mọi hành động cách mạng”. Câu nói trên được Đảng ta khẳng định lần đầu tiên tại Đại hội đại biểu toàn quốc lần thứ mấy?",
-                "o": [
-                    "Đại hội lần thứ V",
-                    "Đại hội lần thứ VI",
-                    "Đại hội lần thứ VII",
-                    "Đại hội lần thứ VIII"
-                ],
-                "a": 2
-            },
-            {
-                "q": "Tư tưởng Hồ Chí Minh là gì?",
-                "o": [
-                    "Tư tưởng Hồ Chí Minh là kết quả của sự vận dụng sáng tạo chủ nghĩa Mác - Lênin vào điều kiện thực tế của nước ta.",
-                    "Tư tưởng Hồ Chí Minh là kết quả của sự vận dụng và phát triển sáng tạo chủ nghĩa Mác - Lênin vào điều kiện cụ thể của nước ta.",
-                    "Tư tưởng Hồ Chí Minh là kết quả của sự phát triển sáng tạo chủ nghĩa Mác - Lênin vào điều kiện thực tế của nước ta.",
-                    "Tư tưởng Hồ Chí Minh là chủ nghĩa Mác – Lênin ở Việt Nam."
-                ],
-                "a": 1
-            },
-            {
-                "q": "\"Dân tộc ta, nhân dân ta, non sông đất nước ta đã sinh ra Hồ Chủ tịch, người anh hùng dân tộc vĩ đại, và chính Người đã làm rạng rỡ dân tộc ta, nhân dân ta và non sông đất nước ta\". Câu nói trên ở trong văn kiện nào?",
-                "o": [
-                    "Lời kêu gọi của Ban chấp hành Trung ương Đảng lao động Việt Nam ngày 3/9/1969",
-                    "Điếu văn của Ban Chấp hành Trung ương Đảng lao động Việt Nam đọc tại lễ truy điệu Chủ tịch Hồ Chí Minh ngày 9/9/1969",
-                    "Diễn văn của Ban Chấp hành Trung ương Đảng LĐVN đọc tại lễ kỷ niệm 80 năm ngày sinh của Hồ Chí Minh",
-                    "Diễn văn của Ban Chấp hành Trung ương Đảng CSVN đọc tại lễ kỷ niệm 100 năm ngày sinh của Hồ Chí Minh"
-                ],
-                "a": 1
-            },
-            {
-                "q": "Đối tượng của bộ môn Tư tưởng Hồ Chí Minh?",
-                "o": [
-                    "Quá trình sản sinh tư tưởng",
-                    "Quá trình hiện thực hoá tư tưởng",
-                    "Là hệ thống quan điểm toàn diện và sâu sắc về những vấn đề cơ bản của cách mạng Việt Nam và quá trình “hiện thực hóa” hệ thống quan điểm đó trong quá trình phát triển của dân tộc Việt Nam.",
-                    "Quá trình Đảng Cộng sản Việt Nam vận dụng tư tưởng Hồ Chí Minh"
-                ],
-                "a": 2
-            },
-            {
-                "q": "Tư tưởng Hồ Chí Minh có vị trí như thế nào trong hệ thống tư tưởng của Đảng Cộng sản Việt Nam?",
-                "o": [
-                    "Là một bộ phận trong hệ thống tư tưởng của Đảng",
-                    "Là bộ phận quan trọng trong hệ thống tư tưởng của Đảng",
-                    "Là bộ phận rất quan trọng trong hệ thống tư tưởng của Đảng",
-                    "Là bộ phận nền tảng, kim chỉ nam cho hành động của Đảng"
-                ],
-                "a": 3
-            },
-            {
-                "q": "Vai trò của chủ nghĩa Mác - Lênin, tư tưởng Hồ Chí Minh được Đảng ta xác định như thế nào?",
-                "o": [
-                    "Chủ nghĩa Mác - Lênin là nền tảng tư tưởng, kim chỉ nam cho hành động của Đảng ta.",
-                    "Tư tưởng Hồ Chí Minh là nền tảng tư tưởng, kim chỉ nam cho hành động của Đảng ta.",
-                    "Cùng với chủ nghĩa Mác - Lênin, tư tưởng Hồ Chí Minh là nền tảng tư tưởng và kim chỉ nam cho hành động cách mạng của Đảng ta.",
-                    "Cùng với chủ nghĩa Mác - Lênin, tư tưởng Hồ Chí Minh là kim chỉ nam cho hành động cách mạng của Đảng ta."
-                ],
-                "a": 2
-            },
-            {
-                "q": "Khi nghiên cứu tư tưởng Hồ Chí Minh, cần quán triệt nguyên tắc và quan điểm phương pháp luận nào sau đây?",
-                "o": [
-                    "Thống nhất tính đảng và tính khoa học",
-                    "Thống nhất lý luận và thực tiễn",
-                    "Quan điểm lịch sử - cụ thể",
-                    "Tất cả các phương án đều đúng"
-                ],
-                "a": 3
-            },
-            {
-                "q": "Ý nghĩa của việc thực hiện phương châm của Hồ Chí Minh về giáo dục: Học đi đôi với hành, lý luận liên hệ với thực tế; học tập kết hợp với lao động; kết hợp gia đình – nhà trường – xã hội là gì?",
-                "o": [
-                    "Để có chất lượng và hiệu quả cao trong học tập.",
-                    "Để tạo ra phong trào rộng rãi trong cả nước.",
-                    "Tận dụng tất cả các điều kiện cho học tập.",
-                    "Để mọi người đều có cơ hội học tập."
-                ],
-                "a": 0
-            },
-            {
-                "q": "Trong thời gian ở nước ngoài, Nguyễn Tất Thành đã làm những công việc gì?",
-                "o": [
-                    "Phụ bếp, cào tuyết.",
-                    "Thợ ảnh, làm bánh.",
-                    "Đốt lò, bán báo.",
-                    "Tất cả các công việc trên."
-                ],
-                "a": 3
-            },
-            {
-                "q": "Hồ Chí Minh đã tiếp thu những yếu tố nào của Phật giáo?",
-                "o": [
-                    "Lòng thương người",
-                    "Tinh thần cứu khổ, cứu nạn",
-                    "Tinh thần từ bi, bác ái",
-                    "Cả A, B, C."
-                ],
-                "a": 3
-            },
-            {
-                "q": "Quốc hội đầu tiên của nước Việt Nam mới họp phiên đầu tiên vào thời gian nào?",
-                "o": [
-                    "Ngày 2 tháng 3 năm 1945",
-                    "Ngày 2 tháng 3 năm 1946",
-                    "Ngày 2 tháng 3 năm 1947",
-                    "Ngày 2 tháng 3 năm 1948"
-                ],
-                "a": 1
-            },
-            {
-                "q": "Để có một nhà nước hợp pháp, hợp hiến, việc làm đầu tiên của Hồ Chí Minh sau cách mạng tháng Tám năm 1945 là gì?",
-                "o": [
-                    "Thiết kế mô hình nhà nước cách mạng",
-                    "Lựa chọn, sắp xếp cán bộ",
-                    "Tổ chức tổng tuyển cử trong cả nước",
-                    "Kêu gọi thế giới công nhận chính quyền mới"
-                ],
-                "a": 2
-            },
-            {
-                "q": "Quan điểm cơ bản nhất của chủ tịch Hồ Chí Minh về xây dựng nhà nước cách mạng?",
-                "o": [
-                    "Nhà nước pháp quyền Việt Nam",
-                    "Nhà nước công-nông",
-                    "Nhà nước chuyên chính vô sản",
-                    "Nhà nước do nhân dân lao động làm chủ"
-                ],
-                "a": 3
-            },
-            {
-                "q": "Cuối thế kỷ XIX – đầu thể kỷ XX, trong xã hội Việt Nam tồn tại mâu thuẫn nào?",
-                "o": [
-                    "Giữa giai cấp nông dân với địa chủ phong kiến",
-                    "Giữa công nhân Việt Nam với giai cấp tư sản",
-                    "Giữa toàn thể nhân dân Việt Nam với thực dân Pháp",
-                    "Tất cả các phương án đều đúng"
-                ],
-                "a": 2
-            },
-            {
-                "q": "Truyền thống quý báu nhất của dân tộc Việt Nam được Hồ Chí Minh kế thừa và phát triển là gì?",
-                "o": [
-                    "Lòng nhân ái",
-                    "Chủ nghĩa yêu nước",
-                    "Tinh thần hiếu học",
-                    "Cần cù lao động."
-                ],
-                "a": 1
-            },
-            {
-                "q": "Nguồn gốc hình thành tư tưởng Hồ Chí Minh.",
-                "o": [
-                    "Giá trị truyền thống của dân tộc Việt Nam",
-                    "Tinh hoa văn hóa nhân loại (trong đó có chủ nghĩa Mác – Lênin)",
-                    "Nhân tố chủ quan Hồ Chí Minh",
-                    "Tất cả các phương án đều đúng"
-                ],
-                "a": 3
-            },
-            {
-                "q": "Theo Hồ Chí Minh, ưu điểm lớn nhất của học thuyết Khổng Tử là gì?",
-                "o": [
-                    "Tinh thần hiếu học",
-                    "Quản lý xã hội bằng đạo đức.",
-                    "Sự tu dưỡng đạo đức cá nhân",
-                    "Tự do"
-                ],
-                "a": 2
-            },
-            {
-                "q": "Hồ Chí Minh đã kế thừa và phát triển tư tưởng nào của Lão giáo?",
-                "o": [
-                    "Tư tưởng vị tha, từ bi bác ái",
-                    "Tư tưởng thoát mọi ràng buộc của vòng danh lợi",
-                    "Tư tưởng chống phân biệt đẳng cấp",
-                    "Tư tưởng dùng nhân trị, đức trị để quản lý xã hội"
-                ],
-                "a": 1
-            },
-            {
-                "q": "Trong những tiền đề lý luận sau đây, tiền đề nào quyết định bước phát triển mới về chất trong tư tưởng Hồ Chí Minh?",
-                "o": [
-                    "Chủ nghĩa Mác- Lênin",
-                    "Tinh hoa văn hoá nhân loại",
-                    "Giá trị truyền thống tốt đẹp của dân tộc",
-                    "Tất cả các tiền đề trên"
-                ],
-                "a": 0
-            },
-            {
-                "q": "Tư tưởng nào của cụ Nguyễn Sinh Sắc có ảnh hưởng quyết định đến tư tưởng xây dựng một nhà nước của dân, do dân, vì dân của Hồ Chí Minh?",
-                "o": [
-                    "Tư tưởng “thân dân”",
-                    "Lòng yêu nước",
-                    "Lòng căm thù bọn xâm lược",
-                    "Thương yêu người nghèo"
-                ],
-                "a": 0
-            },
-            {
-                "q": "Nguyễn Tất Thành ra nước ngoài tìm đường cứu nước vào thời gian nào?",
-                "o": [
-                    "Ngày 6 tháng 5 năm 1911",
-                    "Ngày 4 tháng 6 năm 1911",
-                    "Ngày 2 tháng 6 năm 1911",
-                    "Ngày 5 tháng 6 năm 1911"
-                ],
-                "a": 3
-            },
-            {
-                "q": "Theo Hồ Chí Minh, việc học phải được tiến hành như thế nào?",
-                "o": [
-                    "Học ở mọi lúc, mọi nơi, suốt đời",
-                    "Học ở mọi người",
-                    "Tự học, tự đào tạo và đào tạo lại",
-                    "Cả A, B, C"
-                ],
-                "a": 3
-            },
-            {
-                "q": "Nguyễn Ái Quốc gửi bản yêu sách của nhân dân An Nam tới hội nghị Véc- xây vào năm nào?",
-                "o": [
-                    "Năm 1918",
-                    "Năm 1919",
-                    "Năm 1920",
-                    "Năm 1921"
-                ],
-                "a": 1
-            },
-            {
-                "q": "Nguyễn Ái Quốc đọc luận cương của Lênin về vấn đề dân tộc và thuộc địa vào năm nào?",
-                "o": [
-                    "Năm 1918",
-                    "Năm 1919",
-                    "Năm 1920",
-                    "Năm 1921"
-                ],
-                "a": 2
-            },
-            {
-                "q": "Bác Hồ tham gia sáng lập Đảng Cộng sản Pháp và trở thành người Cộng sản Việt Nam đầu tiên năm nào?",
-                "o": [
-                    "Năm 1918",
-                    "Năm 1919",
-                    "Năm 1920",
-                    "Năm 1921"
-                ],
-                "a": 2
-            },
-            {
-                "q": "Thời kỳ hình thành những nội dung cơ bản tư tưởng về cách mạng Việt Nam được tính từ:",
-                "o": [
-                    "Năm 1911 đến năm 1920",
-                    "Năm 1920 đến năm 1930",
-                    "Năm 1930 đến năm 1941",
-                    "Năm 1941 đến năm 1969"
-                ],
-                "a": 1
-            },
-            {
-                "q": "“Luận cương của Lênin làm cho tôi rất phấn khởi... Đây là cái cần thiết cho chúng ta, đây là con đường giải phóng chúng ta”. Câu trên được trích dẫn từ tác phẩm nào của Nguyễn Ái Quốc?",
-                "o": [
-                    "Đời hoạt động của Hồ Chủ tịch",
-                    "Con đường dẫn tôi đến với chủ nghĩa Lênin",
-                    "Lênin vĩ đại",
-                    "Cách mạng tháng Mười và con đường giải phóng thuộc địa"
-                ],
-                "a": 1
-            },
-            {
-                "q": "Tác phẩm “Bản án chế độ thực dân Pháp” của Bác Hồ được viết năm nào?",
-                "o": [
-                    "Năm 1925",
-                    "Năm 1927",
-                    "Năm 1928",
-                    "Năm 1929"
-                ],
-                "a": 0
-            },
-            {
-                "q": "Phương hướng vận dụng và phát triển tư tưởng Hồ Chí Minh trong sự nghiệp đổi mới là:",
-                "o": [
-                    "Nắm vững quan điểm thực tiễn",
-                    "Vận dụng và phát triển sáng tạo tư tưởng Hồ Chí Minh",
-                    "Giải quyết đúng những vấn đề do thực tiễn đặt ra",
-                    "Cả A, B, C."
-                ],
-                "a": 3
-            },
-            {
-                "q": "“Tất cả các dân tộc trên thế giới đều sinh ra bình đẳng...”. Câu trên của Hồ Chí Minh được trích trong văn kiện nào?",
-                "o": [
-                    "Tuyên ngôn độc lập",
-                    "Bản án chế độ thực dân Pháp",
-                    "Đường Cách mệnh",
-                    "Lời kêu gọi toàn quốc kháng chiến."
-                ],
-                "a": 0
-            },
-            {
-                "q": "Theo Hồ Chí Minh, cách mạng giải phóng dân tộc muốn giành được thắng lợi phải đi theo con đường nào?",
-                "o": [
-                    "Cách mạng tư sản",
-                    "Cách mạng vô sản",
-                    "Con đường cách mạng phản đế",
-                    "Con đường đấu tranh giải phóng"
-                ],
-                "a": 1
-            },
-            {
-                "q": "Mối quan hệ giữa cách mạng ở các nước thuộc địa và cách mạng ở chính quốc được theo quan điểm của Hồ Chí Minh.",
-                "o": [
-                    "Cách mạng giải phóng dân tộc giành thắng lợi đồng thời với thắng lợi cách mạng vô sản ở chính quốc.",
-                    "Thắng lợi của cách mạng vô sản ở thuộc địa phải phụ thuộc vào thắng lợi của cách mạng vô sản ở chính quốc.",
-                    "Thắng lợi của cách mạng vô sản tồn tại song song với thắng lợi của các cuộc cách mạng tư sản",
-                    "Cách mạng giải phóng dân tộc ở thuộc địa có khả năng giành được thắng lợi trước cách mạng vô sản ở chính quốc."
-                ],
-                "a": 3
-            },
-            {
-                "q": "“Toàn thể dân tộc Việt Nam quyết đem tất cả tinh thần và lực lượng, tính mạng và của cải để giữ vững quyền tự do, độc lập ấy”. Đoạn văn trên trích từ bài viết nào của Hồ Chí Minh:",
-                "o": [
-                    "Thư kêu gọi Tổng khởi nghĩa",
-                    "Tuyên ngôn độc lập",
-                    "Lời kêu gọi toàn quốc kháng chiến",
-                    "Thư gởi đồng bào Nam bộ"
-                ],
-                "a": 1
-            },
-            {
-                "q": "Kiên trì con đường Chủ tịch Hồ Chí Minh đã lựa chọn nghĩa là:",
-                "o": [
-                    "Giữ vững nền độc lập dân tộc.",
-                    "Thực hiện triệt để cuộc cách mạng dân tộc dân chủ nhân dân.",
-                    "Thực hiện mục tiêu độc lập dân tộc gắn liền với chủ nghĩa xã hội.",
-                    "Hội nhập với nền kinh tế thế giới."
-                ],
-                "a": 2
-            },
-            {
-                "q": "Theo Hồ Chí Minh, vai trò lãnh đạo của giai cấp công nhân trong cách mạng Việt Nam do yếu tố nào quy định?",
-                "o": [
-                    "Do ý muốn của Đảng Cộng sản",
-                    "Do số lượng giai cấp công nhân.",
-                    "Do địa vị kinh tế, chính trị, xã hội khách quan của giai cấp công nhân",
-                    "Do kinh tế của giai cấp công nhân"
-                ],
-                "a": 2
-            },
-            {
-                "q": "Theo Hồ Chí Minh, đặc trưng kinh tế nổi bật nhất của Chủ nghĩa xã hội là gì?",
-                "o": [
-                    "Sở hữu xã hội về tư liệu sản xuất",
-                    "Cơ cấu công – nông nghiệp hợp lý",
-                    "Sở hữu về của cải",
-                    "Khoa học – kỹ thuật"
-                ],
-                "a": 0
-            },
-            {
-                "q": "Hồ Chí Minh đã dùng hình tượng nào dưới đây để chỉ chủ nghĩa tư bản?",
-                "o": [
-                    "Con bạch tuộc",
-                    "Con đỉa hai vòi",
-                    "Con chim đại bàng",
-                    "Con kền kền"
-                ],
-                "a": 1
-            },
-            {
-                "q": "Theo tư tưởng Hồ Chí Minh, nguyên tắc phân phối chủ yếu trong chủ nghĩa xã hội là gì?",
-                "o": [
-                    "Làm theo năng lực, hưởng theo nhu cầu",
-                    "Làm theo năng lực, hưởng theo lao động",
-                    "Phân phối bình quân cho tất cả mọi người",
-                    "Làm ít hưởng vừa đủ"
-                ],
-                "a": 1
-            },
-            {
-                "q": "Theo tư tưởng Hồ Chí Minh, đặc trưng nổi bật nhất về chính trị của chủ nghĩa xã hội là gì?",
-                "o": [
-                    "Đảng Cộng sản lãnh đạo",
-                    "Thực hiện một nền dân chủ triệt để",
-                    "Mọi người được hưởng nhân quyền",
-                    "Thực hiện dân quyền"
-                ],
-                "a": 1
-            },
-            {
-                "q": "“… Tôi chỉ có một ham muốn, ham muốn tột bậc, là làm sao cho nước ta được hoàn toàn độc lập...”. Câu nói trên của Chủ tịch Hồ Chí Minh được dẫn từ tác phẩm nào của Người dưới đây?",
-                "o": [
-                    "Bài nói chuyện tại lớp nghiên cứu chính trị khoá I (7/1956)",
-                    "Diễn văn khai mạc Đại hội Đại biểu toàn quốc lần thứ III (9/1960)",
-                    "Nâng cao đạo đức cách mạng, quét sạch chủ nghĩa cá nhân (3/2/1969)",
-                    "Trả lời các nhà báo nước ngoài (1/1946)."
-                ],
-                "a": 3
-            },
-            {
-                "q": "Theo Hồ Chí Minh, muốn xây dựng chủ nghĩa xã hội trước hết cần có cái gì?",
-                "o": [
-                    "Khoa học – kỹ thuật.",
-                    "Kinh tế phát triển",
-                    "Con người toàn diện",
-                    "Con người xã hội chủ nghĩa"
-                ],
-                "a": 3
-            },
-            {
-                "q": "Theo Hồ Chí Minh, mục tiêu tổng quát của chủ nghĩa xã hội là gì?",
-                "o": [
-                    "Một nền kinh tế hiện đại, có sức tăng trưởng cao.",
-                    "Không ngừng cải thiện và nâng cao đời sống của nhân dân lao động.",
-                    "Phát triển mạnh mẽ khoa học – kỹ thuật.",
-                    "Không ngừng phát triển kinh tế."
-                ],
-                "a": 1
-            },
-            {
-                "q": "Theo Hồ Chí Minh, động lực quyết định nhất của chủ nghĩa xã hội là gì?",
-                "o": [
-                    "Khoa học – kỹ thuật.",
-                    "Con người.",
-                    "Chính trị",
-                    "Sự giúp đỡ, ủng hộ quốc tế."
-                ],
-                "a": 1
-            },
-            {
-                "q": "Ai soạn thảo “Chánh cương vắn tắt”, “sách lược vắn tắt”, “chương trình, điều lệ vắn tắt của Đảng”?",
-                "o": [
-                    "Nguyễn Ái Quốc",
-                    "Trịnh Đình Cửu",
-                    "Trần Phú",
-                    "Lê Hồng Phong"
-                ],
-                "a": 0
-            },
-            {
-                "q": "Ai chủ trì hội nghị hợp nhất 3 tổ chức cộng sản của nước ta?",
-                "o": [
-                    "Trịnh Đình Cửu",
-                    "Trần Phú",
-                    "Nguyễn Ái Quốc",
-                    "Lê Hồng Phong"
-                ],
-                "a": 2
-            },
-            {
-                "q": "Đảng cộng sản Việt Nam, do Hồ Chí Minh sáng lập và lãnh đạo, hoạt dộng vì lợi ích của ai?",
-                "o": [
-                    "Vì lợi ích của dân tộc Việt Nam",
-                    "Vì lợi ích của giai cấp công nhân",
-                    "Vì lợi ích của công nhân, nông dân, trí thức",
-                    "Vì lợi ích của bản thân Đảng"
-                ],
-                "a": 0
-            },
-            {
-                "q": "Đảng lãnh đạo là nhân tố có ý nghĩa thế nào đối với thắng lợi cách mạng nước ta?",
-                "o": [
-                    "Có ý nghĩa quyết định hàng đầu",
-                    "Có ý nghĩa rất quan trọng",
-                    "Có ý nghĩa quan trọng đặc biệt",
-                    "Có ý nghĩa quan trọng"
-                ],
-                "a": 0
-            },
-            {
-                "q": "Trong các thuật ngữ chỉ vai trò Đảng lãnh đạo xã hội mà chủ tịch Hồ Chí Minh thường dùng sau đây thì thuật ngữ nào phản ánh rõ nhất, chính xác nhất vai trò lãnh đạo của đảng?",
-                "o": [
-                    "Đảng nắm quyền",
-                    "Đảng lãnh đạo chính quyền",
-                    "Đảng cầm quyền",
-                    "Các thuật ngữ trên đều phản ánh rõ vai trò của Đảng"
-                ],
-                "a": 2
-            },
-            {
-                "q": "Trong tư tưởng Hồ Chí Minh, là người lãnh đạo, Đảng phải có những phẩm chất gì?",
-                "o": [
-                    "Tư cách, đạo đức, năng lực cần thiết",
-                    "Phải có khả năng làm cho dân tin, dân mến, dân phục, dân theo",
-                    "Đảng phải gắn bó mật thiết với nhân dân...",
-                    "Tất cả các phương án đều đúng"
-                ],
-                "a": 3
-            },
-            {
-                "q": "Quan điểm của Hồ Chí Minh: “Đảng ta vừa là người lãnh đạo, vừa là người đầy tớ thật trung thành của nhân dân” được hiểu như thế nào?",
-                "o": [
-                    "Là tận tâm, tận lực phụng sự quần chúng",
-                    "Là việc gì có lợi cho dân thì phải hết sức làm, việc gì có hại cho dân thì phải hết sức tránh",
-                    "Là khổ trước thiên hạ, vui sau thiên hạ",
-                    "Tất cả các phương án đều đúng"
-                ],
-                "a": 3
-            },
-            {
-                "q": "Theo Hồ Chí Minh, nền tảng tư tưởng của Đảng cộng sản Việt Nam là:",
-                "o": [
-                    "Tinh hoa văn hóa dân tộc Việt Nam",
-                    "Tinh hoa văn hóa nhân loại",
-                    "Tinh hoá dân tộc và tinh hoa văn hóa nhân loại",
-                    "Chủ nghĩa Mác-Lênin"
-                ],
-                "a": 3
-            },
-            {
-                "q": "Trong tư tưởng Hồ Chí Minh, luận điểm: “Sự lãnh đạo của Đảng là nhân tố hàng đầu đưa cách mạng nước ta đến thắng lợi”, là để:",
-                "o": [
-                    "Xác định vị thế cầm quyền của Đảng",
-                    "Xác định mục đích của Đảng",
-                    "Xác định vai trò lãnh đạo của Đảng",
-                    "Xác định nhiệm vụ của Đảng"
-                ],
-                "a": 2
-            },
-            {
-                "q": "Luận điểm “Đảng cộng sản là đảng của giai cấp công nhân, của nhân dân lao động và của cả dân tộc”, là nhằm:",
-                "o": [
-                    "Xác định vai trò lãnh đạo của Đảng",
-                    "Xác định vị thế cầm quyền của Đảng",
-                    "Xác định bản chất của Đảng",
-                    "Xác định chức năng, nhiệm vụ của Đảng"
-                ],
-                "a": 2
-            },
-            {
-                "q": "Theo Hồ Chí Minh, Đảng lãnh đạo Nhà nước bằng phương thức nào?",
-                "o": [
-                    "Đường lối, chủ trương, chính sách.",
-                    "Qua các tổ chức đảng, đảng viên trong bộ máy nhà nước.",
-                    "Bằng công tác kiểm tra.",
-                    "Tất cả các phương án đều đúng"
-                ],
-                "a": 3
-            },
-            {
-                "q": "“Đảng muốn vững, phải có chủ nghĩa làm cốt... Đảng mà không có chủ nghĩa cũng như người không có trí khôn, tàu không có bàn chỉ nam”. Chủ nghĩa mà Hồ Chí Minh nói ở đây là chủ nghĩa gì?",
-                "o": [
-                    "Chủ nghĩa quốc gia - dân tộc",
-                    "Chủ nghĩa Mác-Lênin",
-                    "Chủ nghĩa quốc tế",
-                    "Chủ nghĩa tam dân"
-                ],
-                "a": 1
-            },
-            {
-                "q": "“Đảng ta là một Đảng cầm quyền, các đồng chí từ chi bộ đến trung ương phải giữ gìn sự đoàn kết nhất trí trong Đảng như giữ gìn con ngươi của mắt mình”. Câu trên trích từ tác phẩm nào của Hồ Chi Minh?",
-                "o": [
-                    "Diễn văn chính trị tại đại hội III của Đảng",
-                    "Bài nói chuyện tại trường Nguyễn Ái Quốc trung ương năm 1957",
-                    "Di chúc",
-                    "Bài nói chuyện với cán bộ cao cấp quân đội nhân dân Việt Nam"
-                ],
-                "a": 2
-            },
-            {
-                "q": "Theo tư tưởng Hồ Chí Minh, trong xã hội ta lực lượng nào có quyền lực cao nhất?",
-                "o": [
-                    "Đảng cộng sản Việt Nam",
-                    "Nhân dân Việt Nam",
-                    "Quốc hội nước CHXHCNVN",
-                    "Chính phủ nước cộng hòa XHCNVN"
-                ],
-                "a": 1
-            },
-            {
-                "q": "Theo Hồ Chí Minh, muốn xây dựng nhà nước trong sạch vững mạnh, cần chống những căn bệnh nào?",
-                "o": [
-                    "Đặc quyền, đặc lợi",
-                    "Tham ô, lãng phí, quan liêu",
-                    "Tư túng, chia rẽ, kiêu ngạo",
-                    "Tất cả những căn bệnh trên"
-                ],
-                "a": 3
-            },
-            {
-                "q": "Theo Hồ Chí Minh, đại đoàn kết dân tộc có ý nghĩa thế nào trong sự nghiệp cách mạng?",
-                "o": [
-                    "Rất quan trọng",
-                    "Đặc biệt quan trọng",
-                    "Là vấn đề chiến lược",
-                    "Là vấn đề có ý nghĩa sách lược"
-                ],
-                "a": 2
-            },
-            {
-                "q": "“Sông to, biển rộng thì bao nhiêu nước cũng chứa được... Người mà tự kiêu, tự mãn, cũng như cái chén, cái đĩa cạn”. Câu trên của Bác Hồ ngụ ý gì?",
-                "o": [
-                    "Phê bình một số cán bộ, đảng viên kiêu căng, tự mãn",
-                    "Phê phán lối sống hẹp hòi, ích kỷ",
-                    "Giáo dục cán bộ, đảng viên và quần chúng lòng khoan dung, độ lượng",
-                    "Tất cả các phương án đều đúng"
-                ],
-                "a": 3
-            },
-            {
-                "q": "\"Đoàn kết là một truyền thống cực kỳ quý báu của Đảng và của dân ta...\" Câu viết trên ở trong tác phẩm nào của Hồ Chí Minh?",
-                "o": [
-                    "Đạo đức cách mạng",
-                    "Sửa đổi lối làm việc",
-                    "Thường thức chính trị",
-                    "Di chúc"
-                ],
-                "a": 3
-            },
-            {
-                "q": "Hình thức tổ chức của khối đại đoàn kết dân tộc là gì?",
-                "o": [
-                    "Mặt trận dân tộc thống nhất",
-                    "Nhà nước của dân, do dân, vì dân",
-                    "Các tổ chức hội, đoàn của quần chúng",
-                    "Đảng Cộng sản"
-                ],
-                "a": 0
-            },
-            {
-                "q": "Theo Hồ Chí Minh, chúng ta cần đoàn kết với những đối tượng quốc tế nào?",
-                "o": [
-                    "Phong trào cộng sản và công nhân thế giới",
-                    "Phong trào đấu tranh giải phóng dân tộc",
-                    "Lực lượng tiến bộ, yêu chuộng hòa bình, dân chủ, tự do và công lý",
-                    "Tất cả các phương án đều đúng"
-                ],
-                "a": 3
-            },
-            {
-                "q": "Đối với Phong trào cộng sản và công nhân quốc tế, Hồ Chí Minh đã giương cao ngọn cờ gì để xây dựng khối đoàn kết quốc tế?",
-                "o": [
-                    "Độc lập dân tộc gắn liền với chủ nghĩa xã hội",
-                    "Độc lập, tự do và quyền bình đẳng giữa các dân tộc",
-                    "Hòa bình trong công lý",
-                    "Cả 3 ngọn cờ trên"
-                ],
-                "a": 0
-            },
-            {
-                "q": "Đối với các dân tộc trên thế giới, Hồ Chí Minh đã giương cao ngọn cờ gì để xây dựng khối đoàn kết quốc tế?",
-                "o": [
-                    "Độc lập dân tộc gắn liền với chủ nghĩa xã hội",
-                    "Độc lập, tự do và quyền bình đẳng giữa các dân tộc",
-                    "Hòa bình trong công lý",
-                    "Cả 3 ngọn cờ trên"
-                ],
-                "a": 1
-            },
-            {
-                "q": "Trong những khẩu hiệu tập hợp lực lượng dưới đây, khẩu hiệu nào do Hồ Chí Minh nêu lên?",
-                "o": [
-                    "Nhân dân yêu chuộng hòa bình và công lý trên thế giới đoàn kết lại",
-                    "Vô sản tất cả các nước liên hiệp lại",
-                    "Vô sản các nước và các dân tộc bị áp bức trên thế giới đoàn kết lại",
-                    "Lao động tất cả các nước đoàn kết lại"
-                ],
-                "a": 2
-            },
-            {
-                "q": "Theo Hồ Chí Minh, lực lượng giải phóng dân tộc gồm nhưng thành phần giai cấp nào trong xã hội?",
-                "o": [
-                    "Công nhân, nông dân.",
-                    "Công nhân, nông dân, trí thức.",
-                    "Toàn dân tộc",
-                    "Công nhân, tiểu tư sản."
-                ],
-                "a": 2
-            },
-            {
-                "q": "Câu “chủ trương làm tư sản dân quyền cách mạng và thổ địa cách mạng để đi tới một xã hội cộng sản” trích từ văn kiện nào?",
-                "o": [
-                    "Chánh cương, sách lược vắn tắt",
-                    "Đường cách mệnh",
-                    "Chương trình tóm tắt của Đảng",
-                    "Chương trình của mặt trận Việt minh."
-                ],
-                "a": 0
-            },
-            {
-                "q": "“Hỡi đồng bào yêu quý! Giờ quyết định vận mệnh của dân tộc đã đến...”. Lời kêu gọi trên được trích từ văn kiện nào?",
-                "o": [
-                    "Quân lệnh số một của uỷ ban khởi nghĩa toàn quốc",
-                    "Lời kêu gọi toàn quốc kháng chiến của Hồ Chủ tịch",
-                    "Hiệu triệu tổng khởi nghĩa",
-                    "Tuyên ngôn độc lập"
-                ],
-                "a": 2
-            },
-            {
-                "q": "\"Chiến tranh có thể kéo dài 5 năm, 10 năm, 20 năm hoặc lâu hơn nữa... Không có gì quý hơn độc lập tự do\". Câu nói trên của Chủ tịch Hồ Chí Minh vào thời gian nào?",
-                "o": [
-                    "Lời kêu gọi của Hồ Chí Minh ngày 19/12/1946",
-                    "Lời kêu gọi của Hồ Chí Minh ngày 17/7/1966",
-                    "Thư chúc tết đầu Xuân 1969",
-                    "Bản Di chúc của Hồ Chí Minh được công bố tại lễ truy điệu Người ngày 9 /9/1969"
-                ],
-                "a": 1
-            },
-            {
-                "q": "“Cương lĩnh đầu tiên của Đảng” do Bác Hồ khởi thảo vào năm nào?",
-                "o": [
-                    "Năm 1930",
-                    "Năm 1931",
-                    "Năm 1932",
-                    "Năm 1933"
-                ],
-                "a": 0
-            },
-            {
-                "q": "Thử thách mà Hồ Chí Minh phải vượt qua trong giai đoạn 1930 – 1945 là thử thách gì?",
-                "o": [
-                    "Bị đế quốc cầm tù",
-                    "Quan điểm tả khuynh của Quốc tế Cộng sản thời kỳ đó",
-                    "Đời sống khổ cực của người cách mạng trong điều kiện hoạt động bí mật",
-                    "Bị bệnh hiểm nghèo"
-                ],
-                "a": 1
-            },
-            {
-                "q": "Những căn bệnh nào trong bộ máy nhà nước mà Hồ Chí Minh gọi là \"giặc nội xâm\"?",
-                "o": [
-                    "Cậy thế, hủ hoá, tư túng",
-                    "Tham ô, lãng phí, quan liêu",
-                    "Trái phép, chia rẽ, kiêu ngạo",
-                    "Đặc quyền, đặc lợi"
-                ],
-                "a": 1
-            },
-            {
-                "q": "Hồ Chí Minh đánh giá cao nhất yếu tố nào trong giá trị văn hóa dân tộc?",
-                "o": [
-                    "Ý thức đoàn kết cộng đồng",
-                    "Yêu lao động",
-                    "Lòng yêu nước",
-                    "Lòng thương người"
-                ],
-                "a": 2
-            },
-            {
-                "q": "Trong tư tưởng Hồ Chí Minh, đạo đức cách mạng có vai trò gì?",
-                "o": [
-                    "Là nền tảng lý luận của người cách mạng",
-                    "Là phương châm hành động của người cách mạng",
-                    "Là cái gốc, là nền tảng của người cách mạng",
-                    "Là lẽ sống của người cách mạng"
-                ],
-                "a": 2
-            },
-            {
-                "q": "“Cũng như sông thì có nguồn mới có nước... Người cách mạng phải có đạo đức, không có đạo đức thì dù tài giỏi mấy cũng không lãnh đạo được nhân dân”. Câu trên trích từ tác phẩm nào của Hồ Chí Minh?",
-                "o": [
-                    "Đường cách mạng",
-                    "Chính cương sách lược vắn tắt",
-                    "Di chúc",
-                    "Đạo đức cách mạng"
-                ],
-                "a": 3
-            },
-            {
-                "q": "Theo Hồ Chí Minh, đạo đức con người được thể hiện ở mối quan hệ nào?",
-                "o": [
-                    "Trong quan hệ với công việc",
-                    "Trong quan hệ với người khác",
-                    "Trong quan hệ với bản thân mình",
-                    "Cả 3 mối quan hệ trên"
-                ],
-                "a": 3
-            },
-            {
-                "q": "Theo Hồ Chí Minh, chữ “người” nghĩa là gì?",
-                "o": [
-                    "Gia đình, anh em, họ hàng, bầu bạn",
-                    "Loài người",
-                    "Đồng bào cả nước",
-                    "Tất cả các phương án đều đúng"
-                ],
-                "a": 3
-            },
-            {
-                "q": "“Việc gì có lợi cho dân,ta phải hết sức làm; việc gì có hại cho dân, ta phải hết sức tránh”. Câu trên trích từ tác phẩm nào của Bác Hồ?",
-                "o": [
-                    "Đường cách mệnh",
-                    "Sửa đổi lề lối làm việc",
-                    "Đạo đức cách mạng",
-                    "Thư gửi uỷ ban nhân dân các kỳ, tỉnh, huyện và làng ngày 17 tháng 10 năm 1945"
-                ],
-                "a": 3
-            },
-            {
-                "q": "Phương hướng vận dụng và phát triển tư tưởng Hồ Chí Minh trong sự nghiệp đổi mới là:",
-                "o": [
-                    "Nắm vững quan điểm thực tiễn",
-                    "Vận dụng và phát triển sáng tạo tư tưởng Hồ Chí Minh",
-                    "Giải quyết đúng những vấn đề do thực tiễn đặt ra",
-                    "Tất cả các phương án đều đúng"
-                ],
-                "a": 3
-            },
-            {
-                "q": "Phẩm chất nào dưới đây là phẩm chất trung tâm của đạo đức cách mạng trong tư tưởng đạo đức của Hồ Chí Minh?",
-                "o": [
-                    "Trung với nước, hiếu với dân",
-                    "Yêu thương con người, sống có nghĩa, có tình",
-                    "Cần, kiệm, liêm, chính, chí công, vô tư",
-                    "Tinh thần quốc tế trong sáng"
-                ],
-                "a": 0
-            },
-            {
-                "q": "\"Việc gì lợi cho dân, ta phải hết sức làm. Việc gì hại đến dân, ta phải hết sức tránh. Chúng ta phải yêu dân, kính dân thì dân mới yêu ta, kính ta\" Những câu trên trích từ bài viết nào của Hồ Chí Minh?",
-                "o": [
-                    "Bài phát biểu tại kỳ họp đầu tiên của Quốc hội khoá I, năm 1946",
-                    "Thư gửi các đồng chí tỉnh nhà",
-                    "Thư gửi ủy ban nhân dân các kỳ, tỉnh, huyện và làng",
-                    "Thư gửi các đồng chí Bắc Bộ"
-                ],
-                "a": 2
-            },
-            {
-                "q": "Theo Hồ Chí Minh, vai trò của đạo đức được xác định là:",
-                "o": [
-                    "Nền tảng của người cách mạng",
-                    "Chỗ dựa của người cách mạng",
-                    "Vũ khí của người cách mạng",
-                    "Hành trang của người cách mạng"
-                ],
-                "a": 0
-            },
-            {
-                "q": "Để xây dựng những phẩm chất đạo đức tốt đẹp và chống lại những cái vô đạo đức có kết quả, theo quan điểm của Hồ Chí Minh phải:",
-                "o": [
-                    "Tạo thành phong trào quần chúng rộng rãi",
-                    "Động viên từng cá nhân thực hiện",
-                    "Bắt buộc từng cá nhân thực hiện",
-                    "Chống chủ nghĩa cá nhân"
-                ],
-                "a": 0
-            },
-            {
-                "q": "Theo tư tưởng Hồ Chí Minh, mục tiêu của văn hoá giáo dục là:",
-                "o": [
-                    "Nâng cao dân trí",
-                    "Bồi dưỡng tư tưởng đúng đắn và tình cảm cao đẹp",
-                    "Bồi dưỡng những phẩm chất tốt đẹp, những phong cách lành mạnh",
-                    "Thực hiện cả ba chức năng của văn hoá bằng giáo dục"
-                ],
-                "a": 3
-            },
-            {
-                "q": "Nội dung giáo dục theo tư tưởng Hồ Chí Minh phải bao gồm:",
-                "o": [
-                    "Văn hoá",
-                    "Chính trị",
-                    "Khoa học - kĩ thuật, chuyên môn nghiệp vụ",
-                    "Toàn diện"
-                ],
-                "a": 3
-            },
-            {
-                "q": "Chủ tịch Hồ Chí Minh xác định yếu tố nào là gốc của người cách mạng?",
-                "o": [
-                    "Tài năng",
-                    "Phẩm chất chính trị",
-                    "Đạo đức",
-                    "Cả A, B, C"
-                ],
-                "a": 2
-            },
-            {
-                "q": "Chọn đáp án trả lời đúng nhất: Việc tu dưỡng đạo đức ở mỗi người phải được thực hiện trong:",
-                "o": [
-                    "Mọi hoạt động thực tiễn",
-                    "Mọi mối quan hệ xã hội",
-                    "Mọi hoạt động thực tiễn, mọi mối quan hệ xã hội",
-                    "Trong đời tư và đời công."
-                ],
-                "a": 2
-            }
-        ];
+          {
+                    "q": "What is the command to temporarily disable a trigger named TRG_ValidateStock on the Products table without removing its definition?",
+                    "o": [
+                              "STOP TRIGGER TRG_ValidateStock ON Products;",
+                              "DROP TRIGGER TRG_ValidateStock;",
+                              "DISABLE TRIGGER TRG_ValidateStock ON Products;",
+                              "ALTER TRIGGER TRG_ValidateStock OFF;"
+                    ],
+                    "a": 2
+          },
+          {
+                    "q": "The JOIN clause in SQL is used to:",
+                    "o": [
+                              "Separate data from one table into multiple tables",
+                              "Combine rows from two or more tables based on a related column between them",
+                              "Filter rows within a single table",
+                              "Sort rows from multiple tables"
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "The GROUP BY statement is often used with aggregate functions to:",
+                    "o": [
+                              "Filter individual rows before aggregation",
+                              "Group rows that have the same values into summary rows",
+                              "Sort the aggregated results",
+                              "Join multiple tables before aggregation"
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "To list all products that have not been ordered, assuming Products table and OrderItems table (with ProductID as foreign key), you could use:",
+                    "o": [
+                              "SELECT P.ProductName FROM Products P INNER JOIN OrderItems OI ON P.ProductID = OI.ProductID;",
+                              "SELECT P.ProductName FROM Products P LEFT JOIN OrderItems OI ON P.ProductID = OI.ProductID WHERE OI.OrderID IS NULL;",
+                              "SELECT P.ProductName FROM Products P WHERE P.ProductID IN (SELECT ProductID FROM OrderItems);",
+                              "SELECT P.ProductName FROM Products P CROSS JOIN OrderItems OI;"
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "A subquery that is evaluated once for each row processed by the parent statement is called a:",
+                    "o": [
+                              "Simple Subquery",
+                              "Nested Subquery",
+                              "Correlated Subquery",
+                              "Inline Subquery"
+                    ],
+                    "a": 2
+          },
+          {
+                    "q": "The syntax CREATE PROCEDURE SP_GetProductDetails @ProductID INT AS BEGIN ... END; is an example of:",
+                    "o": [
+                              "Creating a trigger",
+                              "Creating a stored procedure with an input parameter",
+                              "Creating a view",
+                              "Creating a DDL function"
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "A software package designed to store and manage databases is known as a:",
+                    "o": [
+                              "Data Model",
+                              "Schema",
+                              "Database Management System (DBMS)",
+                              "Data Definition Language (DDL)"
+                    ],
+                    "a": 2
+          },
+          {
+                    "q": "The IN keyword in a WHERE clause is used to:",
+                    "o": [
+                              "Specify a list of values to match against",
+                              "Check if a value is within a subquery result",
+                              "Perform a case-insensitive search",
+                              "Both a and b"
+                    ],
+                    "a": 3
+          },
+          {
+                    "q": "The DCL (Data Control Language) command GRANT is used to:",
+                    "o": [
+                              "Remove permissions from users.",
+                              "Give specific permissions (like SELECT, INSERT, UPDATE) on database objects to users or roles.",
+                              "Create new users or roles.",
+                              "Control transaction flow."
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "The SQL DELETE statement is used to:",
+                    "o": [
+                              "Remove a table from the database",
+                              "Delete existing rows from a table",
+                              "Delete columns from a table",
+                              "Delete the entire database"
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "Which SQL Server structure is used to organize data physically on disk and consists of 8 contiguous pages?",
+                    "o": [
+                              "Filegroup",
+                              "Page",
+                              "Extent",
+                              "Record"
+                    ],
+                    "a": 2
+          },
+          {
+                    "q": "The DISTINCT keyword in a SELECT statement is used to:",
+                    "o": [
+                              "Select all records including duplicates",
+                              "Eliminate duplicate rows from the query result",
+                              "Select only unique primary key values",
+                              "Distinguish between different data types"
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "Which DML command is used to retrieve data from a database?",
+                    "o": [
+                              "INSERT",
+                              "SELECT",
+                              "UPDATE",
+                              "DELETE"
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "The ORDER BY clause is used to:",
+                    "o": [
+                              "Group the result set by one or more columns",
+                              "Filter the result set based on a condition",
+                              "Sort the result set based on the contents of one or more columns",
+                              "Order the execution of SQL commands"
+                    ],
+                    "a": 2
+          },
+          {
+                    "q": "A trigger defined FOR INSERT, UPDATE on a table will fire:",
+                    "o": [
+                              "Only when a row is inserted.",
+                              "Only when a row is updated.",
+                              "When a row is either inserted or updated.",
+                              "When a row is inserted and then immediately updated in the same transaction."
+                    ],
+                    "a": 2
+          },
+          {
+                    "q": "Which of the following is a threat to data security?",
+                    "o": [
+                              "Loss of data integrity",
+                              "Unauthorized access or right abuse",
+                              "Data theft",
+                              "All of the above"
+                    ],
+                    "a": 3
+          },
+          {
+                    "q": "What is a primary characteristic of a Non-Clustered Index?",
+                    "o": [
+                              "It dictates the physical storage order of the data rows.",
+                              "It has a structure separate from the data rows and contains pointers to the actual data.",
+                              "A table can have multiple non-clustered indexes but only one clustered index.",
+                              "Both b and c."
+                    ],
+                    "a": 3
+          },
+          {
+                    "q": "The BETWEEN operator is used in a WHERE clause to:",
+                    "o": [
+                              "Select values that are exactly one of two specified values",
+                              "Indicate values that fall within a specified range (inclusive)",
+                              "Select values that are outside a specified range",
+                              "Compare two string values for partial matches"
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "Which operator combines the result sets of two or more SELECT statements and returns all rows, including duplicates?",
+                    "o": [
+                              "UNION",
+                              "UNION ALL",
+                              "INTERSECT",
+                              "EXCEPT"
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "In the context of triggers, the INSERTED and DELETED tables are:",
+                    "o": [
+                              "Permanent tables used for logging trigger actions.",
+                              "Temporary, logical tables used by SQL Server to hold the rows affected by the DML statement that fired the trigger.",
+                              "Tables that must be explicitly created by the user before defining a trigger.",
+                              "Used only for DDL triggers."
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "In the three-schema architecture, which level describes how a record is stored?",
+                    "o": [
+                              "External Level",
+                              "Conceptual Level",
+                              "Physical Level",
+                              "View Level"
+                    ],
+                    "a": 2
+          },
+          {
+                    "q": "What is the purpose of using DECLARE @variable_name datatype; within a stored procedure or batch?",
+                    "o": [
+                              "To declare a local variable that can store a value.",
+                              "To declare a global variable accessible by all sessions.",
+                              "To create a temporary table.",
+                              "To define a cursor."
+                    ],
+                    "a": 0
+          },
+          {
+                    "q": "To pass a value out of a stored procedure to the calling batch, the parameter in the procedure definition must be marked with:",
+                    "o": [
+                              "INPUT",
+                              "OUTPUT or OUT",
+                              "RETURN",
+                              "BYREF"
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "Which operator is used in a WHERE clause to check if a field contains a null value?",
+                    "o": [
+                              "EQUALS NULL",
+                              "= NULL",
+                              "IS NULL",
+                              "HAS NULL"
+                    ],
+                    "a": 2
+          },
+          {
+                    "q": "SQL aliases created with the AS keyword are used to:",
+                    "o": [
+                              "Permanently rename a column or table",
+                              "Give a table or column a temporary, more readable name for the duration of a query",
+                              "Create a backup of a column or table",
+                              "Hide a column or table from the query results"
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "The DDL statement to change the data type of a column named 'Price' in table 'Products' to DECIMAL(10,2) might be:",
+                    "o": [
+                              "CHANGE COLUMN Products.Price TYPE DECIMAL(10,2);",
+                              "ALTER TABLE Products ALTER COLUMN Price DECIMAL(10,2);",
+                              "UPDATE TABLE Products MODIFY Price DECIMAL(10,2);",
+                              "REDEFINE Products.Price AS DECIMAL(10,2);"
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "A stored procedure can help reduce network traffic because:",
+                    "o": [
+                              "It encrypts the data sent over the network.",
+                              "Instead of sending multiple SQL statements, an application sends a single call to execute the procedure.",
+                              "It compresses the result set automatically.",
+                              "It uses a different network protocol."
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "What is the primary purpose of authentication schemes in database security?",
+                    "o": [
+                              "To encrypt data during transmission.",
+                              "To positively identify persons attempting to gain access to a database or its resources.",
+                              "To create audit trails of database activities.",
+                              "To define integrity constraints on data."
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "What is the primary function of Inserted and Deleted logical tables in SQL Server triggers?",
+                    "o": [
+                              "To permanently store all inserted and deleted data for auditing.",
+                              "To provide access to the rows affected by the INSERT, UPDATE, or DELETE statement that fired the trigger.",
+                              "To allow triggers to insert or delete data into other tables.",
+                              "They are system tables that store trigger definitions."
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "Which constraint ensures that all values in a column are different?",
+                    "o": [
+                              "NOT NULL",
+                              "PRIMARY KEY",
+                              "UNIQUE",
+                              "CHECK"
+                    ],
+                    "a": 2
+          },
+          {
+                    "q": "Which SQL sub-language is used to define the database structure and schema?",
+                    "o": [
+                              "Data Manipulation Language (DML)",
+                              "Data Definition Language (DDL)",
+                              "Transaction Control Language (TCL)",
+                              "Data Control Language (DCL)"
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "The IF UPDATE (column_name) clause within a trigger allows you to:",
+                    "o": [
+                              "Update a specific column when the trigger fires.",
+                              "Check if a specific column was affected by an UPDATE statement that fired the trigger.",
+                              "Prevent updates to a specific column.",
+                              "Define a trigger that only fires when a specific column is updated."
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "The DDL command used to remove a table completely from the database, destroying its structure and data, is:",
+                    "o": [
+                              "DELETE TABLE",
+                              "DROP TABLE",
+                              "REMOVE TABLE",
+                              "ERASE TABLE"
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "One of the benefits of using Views for data security is:",
+                    "o": [
+                              "They always improve query performance significantly.",
+                              "A particular user may be allowed to query the view but not the underlying base table(s), thus restricting access to sensitive data.",
+                              "Views prevent all types of SQL injection attacks.",
+                              "Views automatically encrypt the data they display."
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "The EXISTS operator is used with a subquery to:",
+                    "o": [
+                              "Compare a value to a set of values returned by the subquery",
+                              "Test for the existence of any record in the subquery's result",
+                              "Return all records from the subquery",
+                              "Check if a subquery returns a NULL value"
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "DDL triggers are primarily used for:",
+                    "o": [
+                              "Enforcing data integrity during INSERT or UPDATE operations.",
+                              "Auditing or controlling database schema changes like CREATE, ALTER, DROP.",
+                              "Managing user permissions and roles.",
+                              "Optimizing query performance."
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "What happens if you try to INSERT a row with a PRIMARY KEY value that already exists in the table?",
+                    "o": [
+                              "The new row overwrites the existing row.",
+                              "The database automatically assigns a new unique primary key.",
+                              "The INSERT statement fails due to a primary key constraint violation.",
+                              "A warning is issued, but the row is inserted."
+                    ],
+                    "a": 2
+          },
+          {
+                    "q": "Which DML statement can be used to copy all columns from OldCustomers table to NewCustomers table, assuming NewCustomers already exists and has a compatible structure?",
+                    "o": [
+                              "COPY OldCustomers INTO NewCustomers;",
+                              "INSERT IGNORE INTO NewCustomers SELECT * FROM OldCustomers;",
+                              "SELECT * INTO NewCustomers FROM OldCustomers;",
+                              "TRANSFER OldCustomers TO NewCustomers;"
+                    ],
+                    "a": 2
+          },
+          {
+                    "q": "Which of the following is an advantage of using triggers?",
+                    "o": [
+                              "They can accept parameters directly.",
+                              "They can be used to audit changes or enforce complex business rules automatically.",
+                              "They are always faster than constraints.",
+                              "They simplify debugging."
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "Which type of JOIN selects records that have matching values in both tables?",
+                    "o": [
+                              "INNER JOIN",
+                              "LEFT OUTER JOIN",
+                              "RIGHT OUTER JOIN",
+                              "FULL OUTER JOIN"
+                    ],
+                    "a": 0
+          },
+          {
+                    "q": "The DDL command used to create a new table in a database is:",
+                    "o": [
+                              "ADD TABLE",
+                              "CREATE TABLE IF NOT EXISTS",
+                              "DEFINE TABLE",
+                              "NEW TABLE"
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "Which DML command would you use to remove the order with 'OrderID' 789 from the 'Orders' table?",
+                    "o": [
+                              "REMOVE FROM Orders WHERE OrderID = 789;",
+                              "DELETE FROM Orders WHERE OrderID = 789;",
+                              "DROP ROW FROM Orders WHERE OrderID = 789;",
+                              "ERASE OrderID = 789 FROM Orders;"
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "The SELECT TOP clause is used to:",
+                    "o": [
+                              "Select the most important records",
+                              "Specify the number of records to return",
+                              "Select records from the top of the table alphabetically",
+                              "Select records with the highest values"
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "If you have a table Students and a table Courses and a linking table Enrollments (StudentID, CourseID), what type of join would you use to find all students who are enrolled in 'CS101'?",
+                    "o": [
+                              "Students RIGHT JOIN Enrollments ON Students.StudentID = Enrollments.StudentID",
+                              "Students INNER JOIN Enrollments ON Students.StudentID = Enrollments.StudentID INNER JOIN Courses ON Enrollments.CourseID = Courses.CourseID WHERE Courses.CourseName = 'CS101'",
+                              "Students LEFT JOIN Courses ON Students.CoursePreference = Courses.CourseID",
+                              "Students CROSS JOIN Enrollments"
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "In SQL Server, what is a \"View\"?",
+                    "o": [
+                              "A virtual table based on the result-set of an SQL statement, containing rows and columns from one or more real tables.",
+                              "A physical copy of a table used for backup purposes.",
+                              "A special type of index for faster querying.",
+                              "A stored procedure that returns a result set."
+                    ],
+                    "a": 0
+          },
+          {
+                    "q": "The INTERSECT operator is used to:",
+                    "o": [
+                              "Combine all rows from two SELECT statements",
+                              "Return rows from the first SELECT statement that are not in the second",
+                              "Return only the dataset that is common in both SELECT statements",
+                              "Return rows from the second SELECT statement that are not in the first"
+                    ],
+                    "a": 2
+          },
+          {
+                    "q": "Inside a DML trigger for an UPDATE operation, which logical table(s) can you use to access the old and new values of the affected rows?",
+                    "o": [
+                              "Only INSERTED",
+                              "Only DELETED",
+                              "Both INSERTED (for new values) and DELETED (for old values)",
+                              "UPDATED"
+                    ],
+                    "a": 2
+          },
+          {
+                    "q": "Which of the following is NOT a primary benefit of using a DBMS?",
+                    "o": [
+                              "Data Independence and efficient access",
+                              "Reduced development time",
+                              "Increased data redundancy",
+                              "Data Integrity and Security"
+                    ],
+                    "a": 2
+          },
+          {
+                    "q": "One of the primary advantages of using Stored Procedures is:",
+                    "o": [
+                              "They increase network traffic.",
+                              "Performance improvement due to pre-compilation and reduced network traffic.",
+                              "They can only be written in Java.",
+                              "They make the database schema more complex."
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "To remove all rows from a table named 'TestData' without deleting the table structure itself, and this operation is generally faster than DELETE for this purpose, which DDL command might be used?",
+                    "o": [
+                              "DELETE * FROM TestData;",
+                              "DROP ROWS FROM TestData;",
+                              "TRUNCATE TABLE TestData;",
+                              "CLEAR TABLE TestData;"
+                    ],
+                    "a": 2
+          },
+          {
+                    "q": "Which is a key difference between a Stored Procedure and a User-Defined Function (UDF) in SQL?",
+                    "o": [
+                              "Stored Procedures cannot have parameters, but UDFs can.",
+                              "Stored Procedures can perform DML operations (INSERT, UPDATE, DELETE) directly, while scalar and inline table-valued UDFs typically cannot have side effects like modifying tables.",
+                              "UDFs are executed implicitly, while Stored Procedures must be called explicitly.",
+                              "Stored Procedures always return a single value, while UDFs can return tables."
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "What is a potential disadvantage of overusing triggers?",
+                    "o": [
+                              "They always improve database performance.",
+                              "They can make the database logic harder to understand and debug due to their implicit execution.",
+                              "They cannot enforce complex business rules.",
+                              "They reduce data integrity."
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "Which statement is used to modify an existing stored procedure SP_MyProc?",
+                    "o": [
+                              "MODIFY PROCEDURE SP_MyProc AS ...",
+                              "UPDATE PROCEDURE SP_MyProc AS ...",
+                              "ALTER PROCEDURE SP_MyProc AS ...",
+                              "REPLACE PROCEDURE SP_MyProc AS ..."
+                    ],
+                    "a": 2
+          },
+          {
+                    "q": "The wildcard character % in a LIKE clause represents:",
+                    "o": [
+                              "Any character string consisting of zero or more characters",
+                              "Any single character",
+                              "Any single character within a specified range",
+                              "Any single character not within a specified range"
+                    ],
+                    "a": 0
+          },
+          {
+                    "q": "What is a Stored Procedure?",
+                    "o": [
+                              "A query that is stored and run automatically when a table is changed.",
+                              "A collection of procedural and SQL statements assigned a unique name and stored in the database, which can be called explicitly.",
+                              "A temporary table used to store intermediate query results.",
+                              "A type of database index for faster data retrieval."
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "When defining a FOREIGN KEY constraint in a CREATE TABLE IF NOT EXISTS statement, the REFERENCES keyword specifies:",
+                    "o": [
+                              "The column in the current table that is the foreign key.",
+                              "The parent table and column(s) that the foreign key refers to.",
+                              "The action to take on delete or update.",
+                              "The name of the foreign key constraint."
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "The DDL statement ALTER TABLE Products DROP COLUMN DiscontinuedDate; will:",
+                    "o": [
+                              "Set all values in 'DiscontinuedDate' to NULL.",
+                              "Delete rows where 'DiscontinuedDate' is not NULL.",
+                              "Remove the 'DiscontinuedDate' column and its data from the 'Products' table.",
+                              "Hide the 'DiscontinuedDate' column."
+                    ],
+                    "a": 2
+          },
+          {
+                    "q": "The HAVING clause is used to:",
+                    "o": [
+                              "Filter rows before they are grouped",
+                              "Apply a filter on the result of a GROUP BY based on a specified condition",
+                              "Specify the join condition between tables",
+                              "Order the results of a grouped query"
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "A SQL constraint that ensures a column cannot have a NULL value is:",
+                    "o": [
+                              "UNIQUE",
+                              "DEFAULT",
+                              "NOT NULL",
+                              "CHECK"
+                    ],
+                    "a": 2
+          },
+          {
+                    "q": "If you join Orders and OrderItems on Orders.OrderID = OrderItems.OrderID and want to list OrderDate and ProductName, how many tables are directly involved in the join to get these two specific pieces of information (assuming ProductName is in a Products table linked to OrderItems)?",
+                    "o": [
+                              "1",
+                              "2",
+                              "3 (Orders, OrderItems, Products)",
+                              "4"
+                    ],
+                    "a": 2
+          },
+          {
+                    "q": "What is the result of a CROSS JOIN between TableA (3 rows) and TableB (4 rows), assuming no WHERE clause?",
+                    "o": [
+                              "7 rows",
+                              "12 rows (Cartesian product)",
+                              "3 rows if all match, else 0",
+                              "4 rows if all match, else 0"
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "When is a DELETE trigger fired?",
+                    "o": [
+                              "Before the rows are marked for deletion.",
+                              "After the rows have been successfully deleted from the table (for an AFTER DELETE trigger).",
+                              "When a DROP TABLE command is issued.",
+                              "When a user logs out after deleting rows."
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "Which aggregate function returns the total number of rows returned by a query?",
+                    "o": [
+                              "SUM()",
+                              "COUNT()",
+                              "AVG()",
+                              "TOTAL()"
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "In the table Book, what is the syntax to modify the column named Author_name of the table?",
+                    "o": [
+                              "ALTER TABLE Author_Name...",
+                              "ALTER TABLE Book ALTER COLUMN Author_name…",
+                              "ALTER COLUMN Book, Author_Name…",
+                              "ALTER COLUMN Author_name…"
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "Which of these statements are correct with respect to UNION clause",
+                    "o": [
+                              "In expression all the select statements should have the same number of rows.",
+                              "In UNION columns of each table in the select statement should have the same data type. Column name of each Select statement can be different",
+                              "UNIONS can be used to limit the number of rows displayed",
+                              "UNION operator can combine only two SELECT statements, tried to combine more than two table gives error"
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "Records are filtered using the _________ clause.",
+                    "o": [
+                              "AS",
+                              "WHERE",
+                              "SELECT",
+                              "TOP"
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "What results will be produced by the following SQL query? Select sum(standard_price) as total_price from product_v where product_type = ’WOOD’;",
+                    "o": [
+                              "The total standard_price of all products that are a type of WOOD",
+                              "The total standard_price of all products",
+                              "The standard_price of the first wood product in the table",
+                              "The standard_price of any wood product in the table"
+                    ],
+                    "a": 0
+          },
+          {
+                    "q": "We have the table Account that contains fields like Account_Num and FirstName. The data type of Account_Num is Integer and that of FirstName is Char. What will be the output if we execute the following statement? SELECT Account_Num + ‘->’ + FirstName FROM Account",
+                    "o": [
+                              "Account_Num -> FirstName",
+                              "FirstName -> Account_Num",
+                              "Syntax error",
+                              "No Constants ‘->’ are allowed in Select statements."
+                    ],
+                    "a": 2
+          },
+          {
+                    "q": "There is a table Student, which has the field studentname containing names of students. Which of the following wildcard is to be used to retrieve names of students, which don’t start within the range of e-g?",
+                    "o": [
+                              "[e-g]%",
+                              "[e^g]%",
+                              "[^e-g]%",
+                              "[efg]%"
+                    ],
+                    "a": 2
+          },
+          {
+                    "q": "EXISTS keyword is used to check the existence of ________",
+                    "o": [
+                              "A result of a subquery",
+                              "Columns returned by a subquery",
+                              "Fields returned by a subquery",
+                              "Table returned by a subquery"
+                    ],
+                    "a": 0
+          },
+          {
+                    "q": "What is the output of the following query? SELECT TOP 5 * FROM Customer",
+                    "o": [
+                              "Returns error",
+                              "Will return first 5 rows of data",
+                              "Will return the 5 percent of the data",
+                              "None of the above"
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "The column, which helps in unique identification of row, is called as _______.",
+                    "o": [
+                              "Constraint Key",
+                              "Primary key",
+                              "Check Constraint",
+                              "Foreign Key"
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "In an SQL query, which SQL keyword is used with GROUP BY to select groups meeting specified criteria?",
+                    "o": [
+                              "AND",
+                              "EXISTS",
+                              "HAVING",
+                              "WHERE"
+                    ],
+                    "a": 2
+          },
+          {
+                    "q": "We have a table called Accounts with Account_Num, ACholder_Name, Balance, Phone as 4 fields. What is the output when the following statement is executed? SELECT Account_Num, ACholder_Name, Phone FROM Accounts WHERE ACholder_Name <> Jones",
+                    "o": [
+                              "The result set contains details of all the account holder except those account holders whose name is Jones",
+                              "The above query will return error since SELECT statement cannot return more than one column",
+                              "‘<>‘ operator can be used with the where clause but not in the select statement",
+                              "The above query will return an error, specifying that the column Jones is not found"
+                    ],
+                    "a": 3
+          },
+          {
+                    "q": "RDBMS is abbreviation of:",
+                    "o": [
+                              "Relational Database Manipulation System",
+                              "Reliable Database Management System",
+                              "Relational Dataset Management System",
+                              "Relational Database Management System"
+                    ],
+                    "a": 3
+          },
+          {
+                    "q": "You want to delete the table Book from the database Library, what is the syntax to be used?",
+                    "o": [
+                              "DROP TABLE Book FROM Library",
+                              "DELETE TABLE Book FROM Library",
+                              "DELETE TABLE Book",
+                              "DROP TABLE Book"
+                    ],
+                    "a": 3
+          },
+          {
+                    "q": "SELECT * FROM <Table_Name> Which of the following statements is true with respect to the above statement?",
+                    "o": [
+                              "The above statement is incomplete.",
+                              "The above statement displays only names of the all columns.",
+                              "The above statement displays the number of rows and columns.",
+                              "The above statement displays all the records in the table."
+                    ],
+                    "a": 3
+          },
+          {
+                    "q": "Given a table with the structure: EMPLOYEE (EmpNo, Name, Salary, HireDate), which of the following would find all employees whose name begins with the letter 'S' ?",
+                    "o": [
+                              "SELECT * FROM EMPLOYEE WHERE Name IN [’S’]",
+                              "SELECT EmpNo FROM EMPLOYEE WHERE Name LIKE ’S’",
+                              "SELECT * FROM Name WHERE EMPLOYEE LIKE ’S*’",
+                              "SELECT * FROM EMPLOYEE WHERE Name LIKE ’S%’"
+                    ],
+                    "a": 3
+          },
+          {
+                    "q": "Which of the following statement should be used to return all the ‘Names’ in the Accounts table, which contain ‘e’ but not as the first letter?",
+                    "o": [
+                              "SELECT Name FROM Accounts WHERE Name LIKE ‘%e’",
+                              "SELECT * FROM Accounts WHERE Name LIKE ‘&e’",
+                              "SELECT * FROM Accounts WHERE Name LIKE ‘%e%’",
+                              "SELECT Name FROM Accounts WHERE Name LIKE ‘[^e]%e%’"
+                    ],
+                    "a": 3
+          },
+          {
+                    "q": "“As” clause in Select statement can be used to __________",
+                    "o": [
+                              "change the field name in the result set",
+                              "change the name of a result set",
+                              "change the data in the table",
+                              "change the name of the table"
+                    ],
+                    "a": 0
+          },
+          {
+                    "q": "DML stands for",
+                    "o": [
+                              "Data Modifying Language",
+                              "Data Modeling Language",
+                              "Data Module Language",
+                              "Data Manipulation Language"
+                    ],
+                    "a": 3
+          },
+          {
+                    "q": "We have a table called Employee, which has fields EmployeeID, FirstName, LastName. EmployeeID is the primary key. What is the output when the following statement is executed? SELECT EmployeeID, FirstName + LastName AS EmployeeName FROM Employee AND ORDER BY EmployeeID",
+                    "o": [
+                              "The result will contain two fields EmployeeID and EmployeeName",
+                              "Error at the keyword ‘And’",
+                              "The result contain 3 fields EmployeeID, FirstName, EmployeeName",
+                              "The name of the table will be changed as EmployeeDetalis and all the fields will be displayed."
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "When does a trigger execute?",
+                    "o": [
+                              "Manually",
+                              "Automatically",
+                              "Only at night",
+                              "Only once"
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "Can procedures accept parameters?",
+                    "o": [
+                              "No",
+                              "Yes",
+                              "Only output",
+                              "Only input"
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "What is a stored procedure?",
+                    "o": [
+                              "A table",
+                              "A view",
+                              "A precompiled SQL block",
+                              "A trigger"
+                    ],
+                    "a": 2
+          },
+          {
+                    "q": "Which is true about views?",
+                    "o": [
+                              "They store data permanently",
+                              "They store query definitions",
+                              "They delete data",
+                              "They replace tables"
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "Can a VIEW contain joins?",
+                    "o": [
+                              "No",
+                              "Yes",
+                              "Only inner joins",
+                              "Only outer joins"
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "What is the correct syntax to select all columns?",
+                    "o": [
+                              "SELECT * FROM table_name",
+                              "SELECT ALL FROM table_name",
+                              "SELECT columns FROM table_name",
+                              "SELECT table_name"
+                    ],
+                    "a": 0
+          },
+          {
+                    "q": "Which keyword is used to remove duplicate rows?",
+                    "o": [
+                              "UNIQUE",
+                              "DISTINCT",
+                              "DIFFERENT",
+                              "FILTER"
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "What does the SQL SELECT statement do?",
+                    "o": [
+                              "Deletes data",
+                              "Inserts data",
+                              "Retrieves data",
+                              "Updates data"
+                    ],
+                    "a": 2
+          },
+          {
+                    "q": "Which clause is used to filter rows?",
+                    "o": [
+                              "GROUP BY",
+                              "WHERE",
+                              "ORDER BY",
+                              "HAVING"
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "Which clause groups rows with similar values?",
+                    "o": [
+                              "WHERE",
+                              "GROUP BY",
+                              "HAVING",
+                              "ORDER BY"
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "What does COUNT(*) return?",
+                    "o": [
+                              "Sum of values",
+                              "Average",
+                              "Number of rows",
+                              "Number of columns"
+                    ],
+                    "a": 2
+          },
+          {
+                    "q": "Which statement creates a view?",
+                    "o": [
+                              "CREATE TABLE",
+                              "CREATE VIEW",
+                              "MAKE VIEW",
+                              "NEW VIEW"
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "What is an INSTEAD OF trigger?",
+                    "o": [
+                              "Runs after event",
+                              "Replaces the triggering action",
+                              "Runs before event",
+                              "Deletes data"
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "Can a table have multiple triggers?",
+                    "o": [
+                              "No",
+                              "Yes",
+                              "Only one",
+                              "Only two"
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "Which clause limits the number of returned rows (SQL Server)?",
+                    "o": [
+                              "LIMIT",
+                              "TOP",
+                              "FETCH",
+                              "COUNT"
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "ROLLBACK in a database is a statement.",
+                    "o": [
+                              "DDL",
+                              "DML",
+                              "DCL",
+                              "TCL"
+                    ],
+                    "a": 3
+          },
+          {
+                    "q": "Which the SQL statement you should use to retrieve data from a database table?",
+                    "o": [
+                              "Insert",
+                              "Update",
+                              "Delete",
+                              "Select"
+                    ],
+                    "a": 3
+          },
+          {
+                    "q": "We have two tables A and B where A has 25 rows and 4 columns and B has data stored in 50 rows and 6 columns. When the following statement is executed, what will be the output? SELECT * FROM A UNION SELECT * FROM B",
+                    "o": [
+                              "All the fields of both tables will be displayed.",
+                              "Returns error, as the number of rows is different.",
+                              "Returns error, as the number of columns is different.",
+                              "All the fields from table A will be displayed."
+                    ],
+                    "a": 2
+          },
+          {
+                    "q": "Select invalid type of Trigger.",
+                    "o": [
+                              "Select",
+                              "Insert",
+                              "Update",
+                              "Delete"
+                    ],
+                    "a": 0
+          },
+          {
+                    "q": "Which of the following term is NOT advantage of using Stored Procedure?",
+                    "o": [
+                              "Reduce client traffic",
+                              "Reuse of code",
+                              "Maintainability",
+                              "Testing of a logic which is encapsulated inside a stored procedure"
+                    ],
+                    "a": 3
+          },
+          {
+                    "q": "Choose the WRONG statement.",
+                    "o": [
+                              "PL/SQL is Oracle's procedural language extension to SQL.",
+                              "T-SQL is a procedural language.",
+                              "Transact-SQL, also called T-SQL, is Microsoft's and Sybase's proprietary extension to the SQL",
+                              "SQL is a procedural language."
+                    ],
+                    "a": 3
+          },
+          {
+                    "q": "What is the most common type of join?",
+                    "o": [
+                              "Left Join",
+                              "Inner Join",
+                              "Right Join",
+                              "Full Join"
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "_____ represents raw facts, whereas _____ is data made meaningful.",
+                    "o": [
+                              "Information, bits",
+                              "Information, reporting",
+                              "Data, information",
+                              "Records, bytes"
+                    ],
+                    "a": 2
+          },
+          {
+                    "q": "A data warehouse",
+                    "o": [
+                              "contains numerous naming conventions and formats",
+                              "is a system used for reporting and data analysis",
+                              "contains only current data",
+                              "can be updated by end users"
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "What are the authentication modes in SQL Server?",
+                    "o": [
+                              "Windows authentication mode",
+                              "mixed mode",
+                              "Windows authentication mode and mixed mode",
+                              "None of the above"
+                    ],
+                    "a": 2
+          },
+          {
+                    "q": "Which of the following keyword is used to raise an error in stored procedure?",
+                    "o": [
+                              "THROW",
+                              "THROWERROR",
+                              "RAISERROR",
+                              "ERROR"
+                    ],
+                    "a": 2
+          },
+          {
+                    "q": "The database administrator is, in effect, the coordinator between the _____ and the _____.",
+                    "o": [
+                              "Database, users",
+                              "Application program; database",
+                              "DBMS; database",
+                              "Application programs; users"
+                    ],
+                    "a": 0
+          },
+          {
+                    "q": "An executable statement accessing the data in the database is called as _____",
+                    "o": [
+                              "Query",
+                              "Transaction",
+                              "Operation",
+                              "Statement"
+                    ],
+                    "a": 0
+          },
+          {
+                    "q": "What does the following SQL statement do? Delete from Customer_T where state = 'HI';",
+                    "o": [
+                              "Deletes all records from customer_t where the state is equal to HI",
+                              "Removes the Customer_T table from the database",
+                              "Deletes all records from the Customer Ttable",
+                              "Doesn't delete anything because of a syntax error"
+                    ],
+                    "a": 0
+          },
+          {
+                    "q": "Which of the following is one of the basic types of joins in DB?",
+                    "o": [
+                              "Outer join",
+                              "Self-join",
+                              "Equi-join",
+                              "All of the above"
+                    ],
+                    "a": 3
+          },
+          {
+                    "q": "Which of the below SELECT statement is used to select all columns of EMP table?",
+                    "o": [
+                              "SELECT ALL FROM emp",
+                              "SELECT # FROM emp",
+                              "SELECT FROM emp",
+                              "SELECT empno, ename, deptno, sal, job,mgr, hiredate FROM emp"
+                    ],
+                    "a": 3
+          },
+          {
+                    "q": "Select DatePart(yy, '20/01/2021') As 'Năm'",
+                    "o": [
+                              "01",
+                              "2021",
+                              "20",
+                              "20/01/2021"
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "Determine the error in the below SELECT statement SELECT ename, deptno, sal FROM emp WHERE job=CLERK;",
+                    "o": [
+                              "WHERE clause cannot refer the column JOB since it doesn't appears in the SELECT column list",
+                              "Character literal CLERK must be enclosed within single quotes",
+                              "Character literal CLERK must be enclosed within parentheses",
+                              "No error in the query"
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "What are the benefits of Triggers?",
+                    "o": [
+                              "Generating some derived column values automatically",
+                              "Enforcing referential integrity",
+                              "Synchronous replication of tables",
+                              "All of the above"
+                    ],
+                    "a": 3
+          },
+          {
+                    "q": "Consider the following steps: Transaction A retrieves record R at time T Transaction B retrieves the same record at time T+1 Transaction A updates the record at time T+2 (base on value seen at time T) Transaction B updates the same record at time T+3 (base on value seen at time T+1) What is the result of the above sequence of steps?",
+                    "o": [
+                              "Transaction B's update would be overwritten by transaction A 's update",
+                              "Transaction A's update would be overwritten by transaction B's update",
+                              "Transaction B's update would be overwritten by transaction B's update",
+                              "Transaction A's update would be overwritten by transaction A's update"
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "A table TEST_COUNT has 10 number values as 3, 32, 1, 1, null, 24, 12, null, 32, null. Predict the output of the below query. SELECT COUNT(*) FROM test_count;",
+                    "o": [
+                              "7",
+                              "6",
+                              "10",
+                              "Throws exception because COUNT function doesn't works with NULL values"
+                    ],
+                    "a": 2
+          },
+          {
+                    "q": "Consider the following schema: SUPPLIERS(SupplierID, SupplierName, Address) Which SQL statement is used to REVOKE ALL privilege on the SUPPLIERS in the schema to the user 'Manager'?",
+                    "o": [
+                              "REVOKE ALL ON SUPPLIERS FROM Manager",
+                              "GRANT ALL ON SUPPLIERS TO Manager",
+                              "REVOKE ALL ON SUPPLIERS TO Manager",
+                              "REVOKE ALL ON SUPPLIERS"
+                    ],
+                    "a": 0
+          },
+          {
+                    "q": "An ACID transaction is one that is:",
+                    "o": [
+                              "Atomic.",
+                              "Consistent.",
+                              "Isolated.",
+                              "Durable.",
+                              "All of the above"
+                    ],
+                    "a": 4
+          },
+          {
+                    "q": "What is a stored procedure?",
+                    "o": [
+                              "A set of SQL statements stored and executed as a single entity.",
+                              "A process for data export/import.",
+                              "Data stored in a database.",
+                              "All of the above"
+                    ],
+                    "a": 0
+          },
+          {
+                    "q": "Consider the following schema: SUPPLIERS(SupplierID, SupplierName, Address) Which SQL statement is used to grant ALL privilege on the SUPPLIERS in the schema to the user 'Manager'?",
+                    "o": [
+                              "REVOKE ALL ON SUPPLIERS TO Manager",
+                              "GRANT ALL ON SUPPLIERS TO Manager",
+                              "CREATE USER ON SUPPLIERS TO Manager",
+                              "GRANT ALL ON SUPPLIERS"
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "Which of the following statements contains an error?",
+                    "o": [
+                              "SELECT FROM emp WHERE empid = 493945;",
+                              "SELECT empid FROM emp WHERE empid = 493945;",
+                              "SELECT empid FROM emp;",
+                              "SELECT empid WHERE empid = 56949 AND lastname ='SMITH';"
+                    ],
+                    "a": 0
+          },
+          {
+                    "q": "Consider the following schema: T_CUSTOMER(CUST_ID, CUST_NAME, CUST_ADDRESS) T_ORDER(ORDER_ID, ORDER_DATE, CUST_ID) List customer name, identification number, and order number for all order listed in the ORDER table. Include order number even if there is no customer name and identification number available",
+                    "o": [
+                              "SELECT T_CUSTOMER.CUSTOMER_ID, CUSTOMER_NAME, ORDER_ID FROM T_CUSTOMER LEFT JOIN T_ORDER ON T_CUSTOMER.CUSTOMER_ID = T_ORDER.CUSTOMER_ID;",
+                              "SELECT T_CUSTOMER.CUSTOMER_ID, CUSTOMER_NAME, ORDER_ID FROM T_CUSTOMER RIGHT JOIN T_ORDER ON T_CUSTOMER.CUSTOMER_ID = T_ORDER.CUSTOMER_ID;",
+                              "SELECT T_CUSTOMER.CUSTOMER_ID, CUSTOMER_NAME, ORDER_ID FROM T_CUSTOMER INNER JOIN T_ORDER ON T_CUSTOMER.CUSTOMER_ID = T_ORDER.CUSTOMER_ID;",
+                              "SELECT T_CUSTOMER.CUSTOMER_ID, CUSTOMER_NAME, ORDER_ID FROM T_CUSTOMER,T_ORDER WHERE T_CUSTOMER.CUSTOMER_ID=T_ORDER.CUSTOMER_ID;"
+                    ],
+                    "a": 1
+          },
+          {
+                    "q": "Write a SELECT query to list the employees whose salary is greater than 1000.",
+                    "o": [
+                              "SELECT ename, sal FROM emp WHERE sal GREATER THAN 1000",
+                              "SELECT ename, sal FROM emp WHERE sal > 1000",
+                              "SELECT ename, sal FROM emp WHERE sal >= 1000",
+                              "SELECT ename, sal FROM emp WHERE sal MORE THAN 1000"
+                    ],
+                    "a": 1
+          }
+];
 
 
         const explanationData = [
-            "Đáp án đúng: D. Từ năm 1991",
-            "Đáp án đúng: C. Tư tưởng của một giai cấp, một dân tộc",
-            "Đáp án đúng: C. Đại hội lần thứ VII",
-            "Đáp án đúng: B. Tư tưởng Hồ Chí Minh là kết quả của sự vận dụng và phát triển sáng tạo chủ nghĩa Mác - Lênin vào điều kiện cụ thể của nước ta.",
-            "Đáp án đúng: B. Điếu văn của Ban Chấp hành Trung ương Đảng lao động Việt Nam đọc tại lễ truy điệu Chủ tịch Hồ Chí Minh ngày 9/9/1969",
-            "Đáp án đúng: C. Là hệ thống quan điểm toàn diện và sâu sắc về những vấn đề cơ bản của cách mạng Việt Nam và quá trình “hiện thực hóa” hệ thống quan điểm đó trong quá trình phát triển của dân tộc Việt Nam.",
-            "Đáp án đúng: D. Là bộ phận nền tảng, kim chỉ nam cho hành động của Đảng",
-            "Đáp án đúng: C. Cùng với chủ nghĩa Mác - Lênin, tư tưởng Hồ Chí Minh là nền tảng tư tưởng và kim chỉ nam cho hành động cách mạng của Đảng ta.",
-            "Đáp án đúng: D. Tất cả các phương án đều đúng",
-            "Đáp án đúng: A. Để có chất lượng và hiệu quả cao trong học tập.",
-            "Đáp án đúng: D. Tất cả các công việc trên.",
-            "Đáp án đúng: D. Cả A, B, C.",
-            "Đáp án đúng: B. Ngày 2 tháng 3 năm 1946",
-            "Đáp án đúng: C. Tổ chức tổng tuyển cử trong cả nước",
-            "Đáp án đúng: D. Nhà nước do nhân dân lao động làm chủ",
-            "Đáp án đúng: C. Giữa toàn thể nhân dân Việt Nam với thực dân Pháp",
-            "Đáp án đúng: B. Chủ nghĩa yêu nước",
-            "Đáp án đúng: D. Tất cả các phương án đều đúng",
-            "Đáp án đúng: C. Sự tu dưỡng đạo đức cá nhân",
-            "Đáp án đúng: B. Tư tưởng thoát mọi ràng buộc của vòng danh lợi",
-            "Đáp án đúng: A. Chủ nghĩa Mác- Lênin",
-            "Đáp án đúng: A. Tư tưởng “thân dân”",
-            "Đáp án đúng: D. Ngày 5 tháng 6 năm 1911",
-            "Đáp án đúng: D. Cả A, B, C",
-            "Đáp án đúng: B. Năm 1919",
-            "Đáp án đúng: C. Năm 1920",
-            "Đáp án đúng: C. Năm 1920",
-            "Đáp án đúng: B. Năm 1920 đến năm 1930",
-            "Đáp án đúng: B. Con đường dẫn tôi đến với chủ nghĩa Lênin",
-            "Đáp án đúng: A. Năm 1925",
-            "Đáp án đúng: D. Cả A, B, C.",
-            "Đáp án đúng: A. Tuyên ngôn độc lập",
-            "Đáp án đúng: B. Cách mạng vô sản",
-            "Đáp án đúng: D. Cách mạng giải phóng dân tộc ở thuộc địa có khả năng giành được thắng lợi trước cách mạng vô sản ở chính quốc.",
-            "Đáp án đúng: B. Tuyên ngôn độc lập",
-            "Đáp án đúng: C. Thực hiện mục tiêu độc lập dân tộc gắn liền với chủ nghĩa xã hội.",
-            "Đáp án đúng: C. Do địa vị kinh tế, chính trị, xã hội khách quan của giai cấp công nhân",
-            "Đáp án đúng: A. Sở hữu xã hội về tư liệu sản xuất",
-            "Đáp án đúng: B. Con đỉa hai vòi",
-            "Đáp án đúng: B. Làm theo năng lực, hưởng theo lao động",
-            "Đáp án đúng: B. Thực hiện một nền dân chủ triệt để",
-            "Đáp án đúng: D. Trả lời các nhà báo nước ngoài (1/1946).",
-            "Đáp án đúng: D. Con người xã hội chủ nghĩa",
-            "Đáp án đúng: B. Không ngừng cải thiện và nâng cao đời sống của nhân dân lao động.",
-            "Đáp án đúng: B. Con người.",
-            "Đáp án đúng: A. Nguyễn Ái Quốc",
-            "Đáp án đúng: C. Nguyễn Ái Quốc",
-            "Đáp án đúng: A. Vì lợi ích của dân tộc Việt Nam",
-            "Đáp án đúng: A. Có ý nghĩa quyết định hàng đầu",
-            "Đáp án đúng: C. Đảng cầm quyền",
-            "Đáp án đúng: D. Tất cả các phương án đều đúng",
-            "Đáp án đúng: D. Tất cả các phương án đều đúng",
-            "Đáp án đúng: D. Chủ nghĩa Mác-Lênin",
-            "Đáp án đúng: C. Xác định vai trò lãnh đạo của Đảng",
-            "Đáp án đúng: C. Xác định bản chất của Đảng",
-            "Đáp án đúng: D. Tất cả các phương án đều đúng",
-            "Đáp án đúng: B. Chủ nghĩa Mác-Lênin",
-            "Đáp án đúng: C. Di chúc",
-            "Đáp án đúng: B. Nhân dân Việt Nam",
-            "Đáp án đúng: D. Tất cả những căn bệnh trên",
-            "Đáp án đúng: C. Là vấn đề chiến lược",
-            "Đáp án đúng: D. Tất cả các phương án đều đúng",
-            "Đáp án đúng: D. Di chúc",
-            "Đáp án đúng: A. Mặt trận dân tộc thống nhất",
-            "Đáp án đúng: D. Tất cả các phương án đều đúng",
-            "Đáp án đúng: A. Độc lập dân tộc gắn liền với chủ nghĩa xã hội",
-            "Đáp án đúng: B. Độc lập, tự do và quyền bình đẳng giữa các dân tộc",
-            "Đáp án đúng: C. Vô sản các nước và các dân tộc bị áp bức trên thế giới đoàn kết lại",
-            "Đáp án đúng: C. Toàn dân tộc",
-            "Đáp án đúng: A. Chánh cương, sách lược vắn tắt",
-            "Đáp án đúng: C. Hiệu triệu tổng khởi nghĩa",
-            "Đáp án đúng: B. Lời kêu gọi của Hồ Chí Minh ngày 17/7/1966",
-            "Đáp án đúng: A. Năm 1930",
-            "Đáp án đúng: B. Quan điểm tả khuynh của Quốc tế Cộng sản thời kỳ đó",
-            "Đáp án đúng: B. Tham ô, lãng phí, quan liêu",
-            "Đáp án đúng: C. Lòng yêu nước",
-            "Đáp án đúng: C. Là cái gốc, là nền tảng của người cách mạng",
-            "Đáp án đúng: D. Đạo đức cách mạng",
-            "Đáp án đúng: D. Cả 3 mối quan hệ trên",
-            "Đáp án đúng: D. Tất cả các phương án đều đúng",
-            "Đáp án đúng: D. Thư gửi uỷ ban nhân dân các kỳ, tỉnh, huyện và làng ngày 17 tháng 10 năm1945",
-            "Đáp án đúng: D. Tất cả các phương án đều đúng",
-            "Đáp án đúng: A. Trung với nước, hiếu với dân",
-            "Đáp án đúng: C. Thư gửi ủy ban nhân dân các kỳ, tỉnh, huyện và làng.",
-            "Đáp án đúng: A. Nền tảng của người cách mạng",
-            "Đáp án đúng: A. Tạo thành phong trào quần chúng rộng rãi",
-            "Đáp án đúng: D. Thực hiện cả ba chức năng của văn hoá bằng giáo dục",
-            "Đáp án đúng: D. Toàn diện",
-            "Đáp án đúng: C. Đạo đức",
-            "Đáp án đúng: C. Mọi hoạt động thực tiễn, mọi mối quan hệ xã hội"
+            "Đáp án đúng: C. DISABLE TRIGGER TRG_ValidateStock ON Products;",
+            "Đáp án đúng: B. Combine rows from two or more tables based on a related column between them",
+            "Đáp án đúng: B. Group rows that have the same values into summary rows",
+            "Đáp án đúng: B. SELECT P.ProductName FROM Products P LEFT JOIN OrderItems OI ON P.ProductID = OI.ProductID WHERE OI.OrderID IS NULL;",
+            "Đáp án đúng: C. Correlated Subquery",
+            "Đáp án đúng: B. Creating a stored procedure with an input parameter",
+            "Đáp án đúng: C. Database Management System (DBMS)",
+            "Đáp án đúng: D. Both a and b",
+            "Đáp án đúng: B. Give specific permissions (like SELECT, INSERT, UPDATE) on database objects to users or roles.",
+            "Đáp án đúng: B. Delete existing rows from a table",
+            "Đáp án đúng: C. Extent",
+            "Đáp án đúng: B. Eliminate duplicate rows from the query result",
+            "Đáp án đúng: B. SELECT",
+            "Đáp án đúng: C. Sort the result set based on the contents of one or more columns",
+            "Đáp án đúng: C. When a row is either inserted or updated.",
+            "Đáp án đúng: D. All of the above",
+            "Đáp án đúng: D. Both b and c.",
+            "Đáp án đúng: B. Indicate values that fall within a specified range (inclusive)",
+            "Đáp án đúng: B. UNION ALL",
+            "Đáp án đúng: B. Temporary, logical tables used by SQL Server to hold the rows affected by the DML statement that fired the trigger.",
+            "Đáp án đúng: C. Physical Level",
+            "Đáp án đúng: A. To declare a local variable that can store a value.",
+            "Đáp án đúng: B. OUTPUT or OUT",
+            "Đáp án đúng: C. IS NULL",
+            "Đáp án đúng: B. Give a table or column a temporary, more readable name for the duration of a query",
+            "Đáp án đúng: B. ALTER TABLE Products ALTER COLUMN Price DECIMAL(10,2);",
+            "Đáp án đúng: B. Instead of sending multiple SQL statements, an application sends a single call to execute the procedure.",
+            "Đáp án đúng: B. To positively identify persons attempting to gain access to a database or its resources.",
+            "Đáp án đúng: B. To provide access to the rows affected by the INSERT, UPDATE, or DELETE statement that fired the trigger.",
+            "Đáp án đúng: C. UNIQUE",
+            "Đáp án đúng: B. Data Definition Language (DDL)",
+            "Đáp án đúng: B. Check if a specific column was affected by an UPDATE statement that fired the trigger.",
+            "Đáp án đúng: B. DROP TABLE",
+            "Đáp án đúng: B. A particular user may be allowed to query the view but not the underlying base table(s), thus restricting access to sensitive data.",
+            "Đáp án đúng: B. Test for the existence of any record in the subquery's result",
+            "Đáp án đúng: B. Auditing or controlling database schema changes like CREATE, ALTER, DROP.",
+            "Đáp án đúng: C. The INSERT statement fails due to a primary key constraint violation.",
+            "Đáp án đúng: C. SELECT * INTO NewCustomers FROM OldCustomers;",
+            "Đáp án đúng: B. They can be used to audit changes or enforce complex business rules automatically.",
+            "Đáp án đúng: A. INNER JOIN",
+            "Đáp án đúng: B. CREATE TABLE IF NOT EXISTS",
+            "Đáp án đúng: B. DELETE FROM Orders WHERE OrderID = 789;",
+            "Đáp án đúng: B. Specify the number of records to return",
+            "Đáp án đúng: B. Students INNER JOIN Enrollments ON Students.StudentID = Enrollments.StudentID INNER JOIN Courses ON Enrollments.CourseID = Courses.CourseID WHERE Courses.CourseName = 'CS101'",
+            "Đáp án đúng: A. A virtual table based on the result-set of an SQL statement, containing rows and columns from one or more real tables.",
+            "Đáp án đúng: C. Return only the dataset that is common in both SELECT statements",
+            "Đáp án đúng: C. Both INSERTED (for new values) and DELETED (for old values)",
+            "Đáp án đúng: C. Increased data redundancy",
+            "Đáp án đúng: B. Performance improvement due to pre-compilation and reduced network traffic.",
+            "Đáp án đúng: C. TRUNCATE TABLE TestData;",
+            "Đáp án đúng: B. Stored Procedures can perform DML operations (INSERT, UPDATE, DELETE) directly, while scalar and inline table-valued UDFs typically cannot have side effects like modifying tables.",
+            "Đáp án đúng: B. They can make the database logic harder to understand and debug due to their implicit execution.",
+            "Đáp án đúng: C. ALTER PROCEDURE SP_MyProc AS ...",
+            "Đáp án đúng: A. Any character string consisting of zero or more characters",
+            "Đáp án đúng: B. A collection of procedural and SQL statements assigned a unique name and stored in the database, which can be called explicitly.",
+            "Đáp án đúng: B. The parent table and column(s) that the foreign key refers to.",
+            "Đáp án đúng: C. Remove the 'DiscontinuedDate' column and its data from the 'Products' table.",
+            "Đáp án đúng: B. Apply a filter on the result of a GROUP BY based on a specified condition",
+            "Đáp án đúng: C. NOT NULL",
+            "Đáp án đúng: C. 3 (Orders, OrderItems, Products)",
+            "Đáp án đúng: B. 12 rows (Cartesian product)",
+            "Đáp án đúng: B. After the rows have been successfully deleted from the table (for an AFTER DELETE trigger).",
+            "Đáp án đúng: B. COUNT()",
+            "Đáp án đúng: B. ALTER TABLE Book ALTER COLUMN Author_name…",
+            "Đáp án đúng: B. In UNION columns of each table in the select statement should have the same data type. Column name of each Select statement can be different",
+            "Đáp án đúng: B. WHERE",
+            "Đáp án đúng: A. The total standard_price of all products that are a type of WOOD",
+            "Đáp án đúng: C. Syntax error",
+            "Đáp án đúng: C. [^e-g]%",
+            "Đáp án đúng: A. A result of a subquery",
+            "Đáp án đúng: B. Will return first 5 rows of data",
+            "Đáp án đúng: B. Primary key",
+            "Đáp án đúng: C. HAVING",
+            "Đáp án đúng: D. The above query will return an error, specifying that the column Jones is not found",
+            "Đáp án đúng: D. Relational Database Management System",
+            "Đáp án đúng: D. DROP TABLE Book",
+            "Đáp án đúng: D. The above statement displays all the records in the table.",
+            "Đáp án đúng: D. SELECT * FROM EMPLOYEE WHERE Name LIKE ’S%’",
+            "Đáp án đúng: D. SELECT Name FROM Accounts WHERE Name LIKE ‘[^e]%e%’",
+            "Đáp án đúng: A. change the field name in the result set",
+            "Đáp án đúng: D. Data Manipulation Language",
+            "Đáp án đúng: B. Error at the keyword ‘And’",
+            "Đáp án đúng: B. Automatically",
+            "Đáp án đúng: B. Yes",
+            "Đáp án đúng: C. A precompiled SQL block",
+            "Đáp án đúng: B. They store query definitions",
+            "Đáp án đúng: B. Yes",
+            "Đáp án đúng: A. SELECT * FROM table_name",
+            "Đáp án đúng: B. DISTINCT",
+            "Đáp án đúng: C. Retrieves data",
+            "Đáp án đúng: B. WHERE",
+            "Đáp án đúng: B. GROUP BY",
+            "Đáp án đúng: C. Number of rows",
+            "Đáp án đúng: B. CREATE VIEW",
+            "Đáp án đúng: B. Replaces the triggering action",
+            "Đáp án đúng: B. Yes",
+            "Đáp án đúng: B. TOP",
+            "Đáp án đúng: D. TCL",
+            "Đáp án đúng: D. Select",
+            "Đáp án đúng: C. Returns error, as the number of columns is different.",
+            "Đáp án đúng: A. Select",
+            "Đáp án đúng: D. Testing of a logic which is encapsulated inside a stored procedure",
+            "Đáp án đúng: D. SQL is a procedural language.",
+            "Đáp án đúng: B. Inner Join",
+            "Đáp án đúng: C. Data, information",
+            "Đáp án đúng: B. is a system used for reporting and data analysis",
+            "Đáp án đúng: C. Windows authentication mode and mixed mode",
+            "Đáp án đúng: C. RAISERROR",
+            "Đáp án đúng: A. Database, users",
+            "Đáp án đúng: A. Query",
+            "Đáp án đúng: A. Deletes all records from customer_t where the state is equal to HI",
+            "Đáp án đúng: D. All of the above",
+            "Đáp án đúng: D. SELECT empno, ename, deptno, sal, job,mgr, hiredate FROM emp",
+            "Đáp án đúng: B. 2021",
+            "Đáp án đúng: B. Character literal CLERK must be enclosed within single quotes",
+            "Đáp án đúng: D. All of the above",
+            "Đáp án đúng: B. Transaction A's update would be overwritten by transaction B's update",
+            "Đáp án đúng: C. 10",
+            "Đáp án đúng: A. REVOKE ALL ON SUPPLIERS FROM Manager",
+            "Đáp án đúng: E. All of the above",
+            "Đáp án đúng: A. A set of SQL statements stored and executed as a single entity.",
+            "Đáp án đúng: B. GRANT ALL ON SUPPLIERS TO Manager",
+            "Đáp án đúng: A. SELECT FROM emp WHERE empid = 493945;",
+            "Đáp án đúng: B. SELECT T_CUSTOMER.CUSTOMER_ID, CUSTOMER_NAME, ORDER_ID FROM T_CUSTOMER RIGHT JOIN T_ORDER ON T_CUSTOMER.CUSTOMER_ID = T_ORDER.CUSTOMER_ID;",
+            "Đáp án đúng: B. SELECT ename, sal FROM emp WHERE sal > 1000"
         ];
+
 
         function getExplanation(i) {
             return explanationData[i] || "Đáp án này phù hợp nhất với khái niệm được hỏi.";
         }
 
         function stripOptionPrefix(text) {
-            return text.replace(/^[A-D]\.\s*/, "");
+            return text.replace(/^[A-E]\.\s*/, "");
         }
 
         function formatOptionText(displayIndex, originalText) {
@@ -2371,7 +2758,7 @@
                 document.getElementById('search-bar-wrap').style.display = 'block';
                 document.getElementById('bottom-actions').style.display = 'block';
                 document.getElementById('sidebar-legend').style.display = 'flex';
-                document.getElementById('main-title').innerText = "Môn Học: Tư Tưởng Hồ Chí Minh MCQ";
+                document.getElementById('main-title').innerText = "Môn Học: SQL Database MCQ";
                 document.getElementById('btn-toggle-review').innerHTML = `📚 Ôn tập (<span id="review-count">${reviewBank.size}</span>)`;
                 rContainer.style.display = 'none';
             }
