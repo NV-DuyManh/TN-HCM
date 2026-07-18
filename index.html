@@ -2437,7 +2437,7 @@
 
         let currentScore = 0; let answeredQuestions = 0;
         const totalQuestions = quizData.length;
-        const SCORE_KEY = 'cmu462_history'; const REVIEW_KEY = 'cmu462_review';
+        const SCORE_KEY = 'sql_mcq_history'; const REVIEW_KEY = 'sql_mcq_review';
 
         function readStore(key, fallback = []) {
             try {
@@ -2468,13 +2468,13 @@
 
         // Âm thanh
         let audioCtx = null;
-        let soundEnabled = localStorage.getItem('cmu462_sound') !== 'false';
+        let soundEnabled = localStorage.getItem('sql_mcq_sound') !== 'false';
         document.getElementById('btn-sound').innerText = soundEnabled ? '🎵' : '🔇';
 
         function initAudio() { if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)(); }
         function toggleSound() {
             soundEnabled = !soundEnabled;
-            localStorage.setItem('cmu462_sound', soundEnabled);
+            localStorage.setItem('sql_mcq_sound', soundEnabled);
             document.getElementById('btn-sound').innerText = soundEnabled ? '🎵' : '🔇';
         }
         function playSound(type) {
@@ -2499,14 +2499,14 @@
         }
 
         // Dark Mode
-        let isDarkMode = localStorage.getItem('cmu462_dark') === 'true';
+        let isDarkMode = localStorage.getItem('sql_mcq_dark') === 'true';
         if (isDarkMode) document.body.classList.add('dark-mode');
         document.getElementById('btn-dark').innerText = isDarkMode ? '☀️' : '🌙';
 
         function toggleDark() {
             isDarkMode = !isDarkMode;
             document.body.classList.toggle('dark-mode', isDarkMode);
-            localStorage.setItem('cmu462_dark', isDarkMode);
+            localStorage.setItem('sql_mcq_dark', isDarkMode);
             document.getElementById('btn-dark').innerText = isDarkMode ? '☀️' : '🌙';
         }
 
