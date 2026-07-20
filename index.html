@@ -252,8 +252,10 @@
 
         .intro-text {
             text-align: center;
-            color: #7f8c8d;
+            color: red;
+            font-weight: bolder;
             margin-bottom: 30px;
+            font-size: 1.5em;
         }
 
         .question-card {
@@ -962,7 +964,7 @@
         <div id="main-content">
             <div id="quiz-header">
                 <h1 id="main-title">Môn Học: Software Architecture MCQ</h1>
-                <p class="intro-text" id="main-desc">Actor: Duy Mạnh</p>
+                <p class="intro-text" id="main-desc">Actor: Nguyễn Văn Duy Mạnh</p>
             </div>
 
             <div id="quiz-container"></div>
@@ -3145,6 +3147,7 @@
         function startExamMode() {
             if (!confirm("Bắt đầu thi 60 phút?")) return;
             isExamMode = true; isReviewMode = false; currentScore = 0; answeredQuestions = 0; examAnswers = {};
+            localStorage.setItem('sa_mcq_mode', 'exam');
 
             //xáo câu hỏi
             examOrder = shuffleArray(quizData.map((_, i) => i));
@@ -3189,6 +3192,7 @@
 
         function submitExam() {
             clearInterval(examTimer);
+            localStorage.setItem('sa_mcq_mode', 'practice');
             let timeUsed = 3600 - timeRemaining;
             let timeStr = formatTimeUsed(timeUsed);
             let score = 0;
@@ -3229,8 +3233,12 @@
         function toggleReviewMode() {
             if (isExamMode) return alert("Không thể mở Ôn tập khi đang thi!");
             if (!isReviewMode) {
-                if (reviewBank.size === 0) return alert("Chưa có câu nào!");
+                if (reviewBank.size === 0) {
+                    localStorage.setItem('sa_mcq_mode', 'practice');
+                    return alert("Chưa có câu nào!");
+                }
                 isReviewMode = true; container.style.display = 'none';
+                localStorage.setItem('sa_mcq_mode', 'review');
                 document.getElementById('search-bar-wrap').style.display = 'none';
                 document.getElementById('bottom-actions').style.display = 'none';
                 document.getElementById('sidebar-legend').style.display = 'none';
@@ -3239,6 +3247,7 @@
                 rContainer.style.display = 'block'; renderReview();
             } else {
                 isReviewMode = false; container.style.display = 'block';
+                localStorage.setItem('sa_mcq_mode', 'practice');
                 document.getElementById('search-bar-wrap').style.display = 'block';
                 document.getElementById('bottom-actions').style.display = 'block';
                 document.getElementById('sidebar-legend').style.display = 'flex';
@@ -3407,7 +3416,21 @@
         function closeHistoryModal() { modal.style.display = "none"; }
         window.onclick = (e) => { if (e.target == modal) closeHistoryModal(); }
 
+        window.addEventListener('beforeunload', function (e) {
+            if (isExamMode) {
+                e.preventDefault();
+                e.returnValue = '';
+            }
+        });
+
         renderSidebar(); renderQuestions(); updateUI();
+
+        const savedMode = localStorage.getItem('sa_mcq_mode');
+        if (savedMode === 'review' && reviewBank.size > 0) {
+            toggleReviewMode();
+        } else if (savedMode === 'exam') {
+            localStorage.setItem('sa_mcq_mode', 'practice');
+        }
     </script>
 </body>
 
