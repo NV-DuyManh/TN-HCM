@@ -3250,7 +3250,7 @@
 
         function renderReview() {
             rContainer.innerHTML = '';
-            reviewBank.forEach(i => {
+            [...reviewBank].sort((a, b) => a - b).forEach(i => {
                 const item = quizData[i];
                 const card = document.createElement('div'); card.className = 'question-card review-card'; card.id = `rq-card-${i}`;
                 let opts = '';
