@@ -3041,7 +3041,7 @@
         function renderSidebar(order = quizData.map((_, i) => i), useDisplayOrder = false) {
             let html = '';
             order.forEach((questionIndex, displayIndex) => {
-                const cls = reviewBank.has(questionIndex) ? 'nav-btn nav-unknown' : 'nav-btn';
+                const cls = (reviewBank.has(questionIndex) && !isReviewMode) ? 'nav-btn nav-unknown' : 'nav-btn';
                 const label = useDisplayOrder ? displayIndex + 1 : questionIndex + 1;
                 html += `<button class="${cls}" id="nav-btn-${questionIndex}" onclick="scrollToQ(${questionIndex})">${label}</button>`;
             });
@@ -3245,6 +3245,7 @@
                 document.getElementById('main-title').innerText = "📚 Ôn Tập";
                 document.getElementById('btn-toggle-review').innerHTML = '⬅️ Quay lại';
                 rContainer.style.display = 'block'; renderReview();
+                renderSidebar([...reviewBank].sort((a, b) => a - b));
             } else {
                 isReviewMode = false; container.style.display = 'block';
                 localStorage.setItem('sa_mcq_mode', 'practice');
@@ -3254,6 +3255,7 @@
                 document.getElementById('main-title').innerText = "Môn Học: Software Architecture MCQ";
                 document.getElementById('btn-toggle-review').innerHTML = `📚 Ôn tập (<span id="review-count">${reviewBank.size}</span>)`;
                 rContainer.style.display = 'none';
+                renderSidebar();
             }
         }
 
@@ -3281,10 +3283,14 @@
         }
 
         function checkReview(i, oi) {
-            if (oi === quizData[i].a) document.getElementById(`rli-${i}-${oi}`).classList.add('correct-ans');
-            else {
+            let btn = document.getElementById(`nav-btn-${i}`);
+            if (oi === quizData[i].a) {
+                document.getElementById(`rli-${i}-${oi}`).classList.add('correct-ans');
+                if (btn) btn.className = 'nav-btn nav-correct';
+            } else {
                 document.getElementById(`rli-${i}-${oi}`).classList.add('wrong-ans');
                 document.getElementById(`rli-${i}-${quizData[i].a}`).classList.add('correct-ans');
+                if (btn) btn.className = 'nav-btn nav-wrong';
             }
             const radios = document.getElementsByName(`rq${i}`); radios.forEach(r => r.disabled = true);
             document.getElementById(`rexp-${i}`).style.display = 'block'; document.getElementById(`rret-${i}`).style.display = 'block';
@@ -3296,6 +3302,8 @@
             const radios = document.getElementsByName(`rq${i}`);
             radios.forEach(r => { r.disabled = false; r.checked = false; });
             document.getElementById(`rexp-${i}`).style.display = 'none'; document.getElementById(`rret-${i}`).style.display = 'none';
+            const btn = document.getElementById(`nav-btn-${i}`);
+            if (btn) btn.className = 'nav-btn';
             const rCard = document.getElementById(`rq-card-${i}`);
             if (rCard) rCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
@@ -3303,7 +3311,12 @@
         function doneReview(i) {
             reviewBank.delete(i); saveReviewToStore();
             document.getElementById(`rq-card-${i}`).style.display = 'none';
-            document.getElementById(`nav-btn-${i}`).className = 'nav-btn';
+            const btn = document.getElementById(`nav-btn-${i}`);
+            if (isReviewMode) {
+                if (btn) btn.remove();
+            } else {
+                if (btn) btn.className = 'nav-btn';
+            }
             updateUI();
             if (reviewBank.size === 0) toggleReviewMode();
         }
